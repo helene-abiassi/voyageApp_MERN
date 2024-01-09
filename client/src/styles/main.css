@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;600;1,400&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+#root {
+  width: 100%;
+
+  margin-top: 0%;
+  /* padding: 2rem; */
+  text-align: center;
+  color-scheme: light dark;
+  color: black;
+  background-color: #fa9397;
+  font-family: "Poppins", sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+p {
+  font-weight: 300;
+}
+
+.mainBody {
+  background-image: url("https://res.cloudinary.com/dfm1r4ikr/image/upload/v1698010898/voyageApp/backgroundImg_yl3ils.png");
+  background-size: cover;
+  margin-top: 0;
+  padding-top: 0%;
+  min-height: 110vh;
+  position: relative;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+nav {
+  background-color: white;
+  font-weight: 500;
+  font-size: 24pt;
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navMiddle {
+  color: #fa9397;
+}
+
+.mainLogo {
+  height: 4.5rem;
+}
+
+.loaderImage {
+  animation-name: fly;
+  animation-duration: 5s;
+  height: 15rem;
+}
+
+.mainLogo:hover {
+  animation-name: shake;
+  animation-duration: 3s;
+}
+
+@keyframes fly {
+  25% {
+    transform: rotate(30deg);
+    transform-origin: bottom;
+  }
+
+  50% {
+    transform: rotate(-30deg);
+    transform-origin: bottom;
+  }
+  75% {
+    transform: rotate(30deg);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes shake {
+  25% {
+    transform: rotate(10deg);
+    transform-origin: bottom;
+  }
+
+  50% {
+    transform: rotate(-10deg);
+    transform-origin: bottom;
+  }
+  75% {
+    transform: rotate(10deg);
+    transform-origin: bottom;
+  }
+}
+
+a {
+  text-decoration: none;
+  /* color: #efcb59 !important; */
+}
+
+a:hover {
+  color: #fa9397;
+}
+
+.active {
+  color: black !important;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  background-color: black;
+  background: #d7c6ac;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+Link {
+  color: #1a1a1a !important;
+}
+
+.submitHeader {
+  display: flex;
+  flex-direction: row;
+}
+
+.submitHeader .backButton {
+  padding: 0em 0.8em !important;
+}

@@ -1,0 +1,61 @@
+@import url("https://kit.fontawesome.com/a076d05399.js");
+
+.profileBox {
+  border-radius: 10px;
+  background: #fa9397;
+  width: 809.722px;
+  /* height: 636.271px; */
+  height: 80rem;
+  flex-shrink: 0;
+  border-bottom: 10px 10px solid;
+  box-shadow: 20px 20px #b1d573;
+}
+
+.inputKeys {
+  color: #1e1e1e;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.profileColumns {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  /* border: #1e1e1e 2px solid; */
+  justify-content: space-between;
+}
+
+.titleEditIcon {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.editIcon {
+  margin-top: 30px;
+  align-self: self-end;
+  margin-right: 3rem;
+}
+
+.userProfile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileBody {
+  height: 120vh !important;
+}
+
+.profileCards {
+  background-color: #d7c6ac;
+  width: 20rem;
+  border-radius: 10px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}

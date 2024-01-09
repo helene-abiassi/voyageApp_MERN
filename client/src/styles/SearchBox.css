@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;600;1,400&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.mainSearchBox {
+  /* background-color: #efcb59; */
+  box-shadow: 5px 5px black;
+
+  padding: 2rem;
+  width: 75%;
+  margin: 7rem;
+  margin-top: 0rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.resetButton {
+  /* width: min-content; */
+  height: min-content;
+  font-size: 18px;
+  background-color: transparent;
+  text-decoration: underline;
+  color: white;
+  border: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 1rem;
+}
+.resetButton:hover {
+  background-color: transparent !important;
+  color: black;
+  text-decoration: double;
+}
+
+.searchByCity {
+  display: flex;
+  flex-direction: row;
+  /* margin-right: 2rem; */
+  justify-content: center;
+}
+
+.searchInputBox {
+  margin-right: 3rem!;
+  width: 12rem !important;
+}
+
+input {
+  margin-right: 1rem;
+  background-color: #d7c6ac;
+}
+
+.dropdownSearch {
+  height: 2.5rem;
+  background-color: #000;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 1px 1px #d9d9d9;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.searchRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 1rem;
+}
+
+.logoSearchbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 15rem;
+}

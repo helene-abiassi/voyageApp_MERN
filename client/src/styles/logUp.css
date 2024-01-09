@@ -1,0 +1,89 @@
+.LogUpColorBox {
+  border-radius: 10px;
+  background-color: #b1d573;
+  box-shadow: 20px 20px #fa9;
+  padding: 5%;
+  width: 683px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-items: stretch;
+  flex-shrink: 0;
+}
+
+.infoForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.formButton {
+  border-radius: 10px;
+  background-color: #d7c6ac;
+  width: max-content;
+  color: black;
+  font-weight: 300;
+}
+
+input#file-upload-button {
+  border-radius: 10px !important;
+  background-color: #d7c6ac !important;
+  color: white;
+}
+
+input {
+  min-width: 250px;
+  height: 40px;
+  flex-shrink: 0;
+  background-color: #d9d9d9;
+  color: black;
+  border-radius: 10px !important;
+}
+
+.inputContainer {
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hide-password {
+  position: relative;
+  top: -43px;
+  left: 180px;
+  color: #242424;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadButton {
+  position: relative;
+  right: 20px;
+  top: -2px;
+  color: #242424;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.photoLine {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  width: 100%;
+}
+
+.pswEmailBox {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.pswEmailBoxL {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  justify-content: space-between;
+}

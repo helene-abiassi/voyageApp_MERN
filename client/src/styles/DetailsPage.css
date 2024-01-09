@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;400;0,500;600;1,400&display=swap");
+
+.detailsHeader {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.textBox {
+  border-radius: 10px;
+  background: #d7c6ac;
+  width: 805px;
+  margin-top: -10px;
+  align-items: center;
+  padding: 10px;
+  text-align: left;
+}
+
+p {
+  font-weight: 500;
+}
+
+hr {
+  color: black;
+}
+
+.photoAlbum {
+  display: flex;
+  flex-direction: row;
+}

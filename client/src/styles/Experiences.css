@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;400;0,500;600;1,400&display=swap");
+
+.inputColorBox {
+  border-radius: 10px;
+  background: #efcb59;
+  box-shadow: 20px 20px #fa9397;
+  padding: 20px;
+  min-width: 600px;
+  min-height: 500px;
+}
+
+.expTypeNavbar {
+  color: black;
+  /* width: max-content; */
+  /* margin-left: 10rem; */
+  /* margin-right: 5rem; */
+  background-color: #efcb59;
+  padding: 2rem;
+  font-size: 25pt;
+  font-weight: 400;
+  /* background-color: transparent; */
+}
+
+.expTypeNavbar a {
+  color: #fa9397;
+}
+
+.expTypeNavbar a:hover {
+  color: black;
+}
+
+.mainBodyExp {
+  height: 180rem;
+  background-image: linear-gradient(#fa9397, #efcb59);
+  /* background-image: url("https://res.cloudinary.com/dfm1r4ikr/image/upload/v1698010898/voyageApp/backgroundImg_yl3ils.png") !important; */
+
+  background-size: contain !important;
+
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.storyCards {
+  background-color: #d7c6ac;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* height: 120rem; */
+  flex-wrap: wrap;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.storyCardSingle {
+  display: flex;
+  flex-direction: column;
+  /* width: max-content; */
+  /* height: max-content; */
+  width: 20rem;
+  box-shadow: 5px 5px #b1d573;
+  position: relative;
+  border: black solid 2px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 0px !important;
+}
+
+.gridPhoto {
+  width: 100%;
+  border-radius: 1%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.storyCardTitle {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.storyCardCaption {
+  text-align: left;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  overflow: hidden;
+  max-height: 4rem;
+  -webkit-box-orient: vertical;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+}
+
+.expAuthorCard {
+  border-radius: 10px;
+  background: #fa9397;
+  width: 20rem;
+  box-shadow: 20px 20px #b1d573;
+}
+
+.bookmarkSet {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.bookIcon {
+  background-color: transparent !important;
+  position: absolute;
+  cursor: pointer;
+}
+
+.bookmarkLgth {
+  position: absolute;
+  top: 30%;
+  left: 13%;
+  transform: translate(80%, -50%);
+}
+
+.deleteIcon {
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+.iconSet {
+}
