@@ -23,7 +23,15 @@ function Home() {
         }}
       >
         <div className="beigeBox">
-          <h2>Welcome {user?.username}!</h2>
+          {user ? (
+            <>
+              <h2>Welcome {user?.username}!</h2>
+            </>
+          ) : (
+            <>
+              <h2>Welcome!</h2>
+            </>
+          )}
           <h3>{experiences?.length} experiences for you to discover</h3>
           <p>
             Discovers voyage! A public travel blog, where people share some of

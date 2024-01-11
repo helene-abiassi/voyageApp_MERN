@@ -29,7 +29,7 @@ h2 {
   color: black;
   width: max-content;
   align-self: center;
-  padding: 1%;
+  padding: 10px !important;
   border-radius: 0px;
   padding: 5px;
   font-weight: 400;
@@ -38,6 +38,7 @@ h2 {
 .nakdButton:hover {
   background-color: black !important;
   color: #d7c6ac !important;
+  border-radius: 10pt;
 }
 
 Link:hover {
