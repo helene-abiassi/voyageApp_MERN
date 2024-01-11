@@ -12,15 +12,14 @@
   border-radius: 10px;
   flex-shrink: 0;
   height: 100%;
-  padding: 2%;
   padding-left: 10%;
   padding-right: 10%;
+  position: relative;
 }
 
 h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  padding: 1%;
 }
 
 .nakdButton {
@@ -29,15 +28,17 @@ h2 {
   color: black;
   width: max-content;
   align-self: center;
-  padding: 1%;
+  padding: 10px !important;
   border-radius: 0px;
   padding: 5px;
   font-weight: 400;
+  margin: 10pt;
 }
 
 .nakdButton:hover {
   background-color: black !important;
   color: #d7c6ac !important;
+  border-radius: 10pt;
 }
 
 Link:hover {
@@ -72,4 +73,26 @@ Link:hover {
 .carouselGrid {
   display: flex;
   flex-direction: row;
+}
+
+.dot {
+  height: 180px;
+  width: 180px;
+  cursor: pointer;
+  background-color: #efcb59;
+  color: black;
+  font-size: 14pt;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 4px 4px black;
+}
+
+.circleBox {
+  position: absolute;
+  right: -125px;
+  top: 30px;
+  text-align: center;
+  transform: rotate(20deg);
+  color: white;
+  align-items: center;
 }

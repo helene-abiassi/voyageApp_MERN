@@ -1,0 +1,8 @@
+footer {
+  cursor: pointer;
+  background-color: #1b729d;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10 pt;
+}

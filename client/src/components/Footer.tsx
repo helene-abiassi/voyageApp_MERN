@@ -1,17 +1,23 @@
+import "../styles/Footer.css";
 function Footer() {
   return (
     <div>
-      <br />
-      <br />
-      <br />
-      <footer style={{ cursor: "pointer" }}>
+      <footer>
         <a target="_blank" href="https://github.com/helene-abiassi">
           <i
             className="fa fa-github"
-            style={{ fontSize: "30px", color: "black" }}
+            style={{ fontSize: "30px", color: "white" }}
           ></i>
         </a>
-        {"  "} <span> Helene Abi Assi</span>
+        {"  "}{" "}
+        <a
+          target="_blank"
+          href="https://github.com/helene-abiassi"
+          style={{ color: "white", paddingLeft: "15pt" }}
+        >
+          {" "}
+          Helene Abi Assi
+        </a>
       </footer>
     </div>
   );
