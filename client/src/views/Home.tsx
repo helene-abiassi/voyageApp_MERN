@@ -35,7 +35,7 @@ function Home() {
             </>
           )}
           <p>
-            Discovers voyage! <br />A public travel blog, where people share
+            Discovers voyage, <br />a public travel blog, where people share
             some of the unique experiences and activities they came up with
             while on vacation. <br />
             <br />
