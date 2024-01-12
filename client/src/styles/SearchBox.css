@@ -2,10 +2,9 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 .mainSearchBox {
-  /* background-color: #efcb59; */
   box-shadow: 5px 5px black;
-
-  padding: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
   width: 75%;
   margin: 7rem;
   margin-top: 0rem !important;
@@ -33,13 +32,12 @@
 .searchByCity {
   display: flex;
   flex-direction: row;
-  /* margin-right: 2rem; */
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .searchInputBox {
   margin-right: 3rem!;
-  width: 12rem !important;
+  width: 10rem !important;
 }
 
 input {
