@@ -11,6 +11,8 @@ function ExpLayout() {
   const { isLoading } = useContext(AuthContext);
   const [filteredExperiences, setFilteredExperiences] = useState(experiences);
 
+  const { experienceType } = useParams();
+
   const handleCitySearch = (city: string) => {
     if (!experiences) {
       return;
@@ -77,13 +79,25 @@ function ExpLayout() {
     setFilteredExperiences(tempExperiences);
   };
 
+  const filterByExperience = () => {
+    if (!experiences || !experienceType) {
+      return;
+    }
+
+    const tempExperiences = experiences.filter(
+      (experience) => experience.experienceType === experienceType
+    );
+
+    setFilteredExperiences(tempExperiences);
+  };
+
   useEffect(() => {
     fetchExperiences();
-  }, []);
+    filterByExperience();
+  }, [experienceType]);
 
   return (
     <div className="mainBodyExp">
-      {/* <h1>experiences</h1> */}
       <br />
       <div className="logoSearchbar">
         <img
@@ -101,11 +115,11 @@ function ExpLayout() {
         <NavLink to={"hiking"}> hiking </NavLink> <span> | </span>
         <NavLink to={"wildlife"}> wildlife</NavLink> <span> | </span>
         <NavLink to={"roadtrips"}>roadtrips</NavLink> <span> | </span>
-        <NavLink to={"citywalks"}>city walks</NavLink>
+        <NavLink to={"citywalk"}>city walks</NavLink>
         <span> | </span>
-        <NavLink to={"wildlife"}>scenery</NavLink>
+        <NavLink to={"scenery"}>scenery</NavLink>
         <span> | </span>
-        <NavLink to={"wildlife"}>fauna & flora</NavLink>
+        <NavLink to={"faunaflora"}>fauna & flora</NavLink>
       </div>
       <br />
       <Outlet />

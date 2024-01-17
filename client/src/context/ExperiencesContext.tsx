@@ -62,10 +62,10 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
 
       if (results.status === 200) {
         const data = await results.json();
-        console.log("data  of fetchExp:>> ", data);
+        // console.log("data  of fetchExp:>> ", data);
         const experienceList = data.data as Experience[];
 
-        console.log("experienceList :>> ", experienceList);
+        // console.log("experienceList :>> ", experienceList);
 
         // setUrlParams(urlParams);
         setExperiences(experienceList);

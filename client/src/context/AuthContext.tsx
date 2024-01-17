@@ -207,7 +207,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         console.log("error :>> ", error.message);
       }
     } else {
-      console.log("there is no token!");
+      // console.log("there is no token!");
       setIsLoggedIn(false);
       setIsLoading(false);
     }

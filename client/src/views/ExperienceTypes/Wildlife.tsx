@@ -1,5 +1,5 @@
 function Wildlife() {
-  return <div>{/* <h1>wildlife</h1> */}</div>;
+  return <div></div>;
 }
 
 export default Wildlife;

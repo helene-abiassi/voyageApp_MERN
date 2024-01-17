@@ -18,6 +18,7 @@ import ErrorPage from "./views/ErrorPage";
 import ExperienceDetails from "./views/ExperienceDetails";
 import Wildlife from "./views/ExperienceTypes/Wildlife";
 import Hiking from "./views/ExperienceTypes/Hiking";
+import Roadtrips from "./views/ExperienceTypes/Roadtrips";
 import ExpLayout from "./components/ExpLayout";
 import Profile from "./views/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -25,9 +26,11 @@ import Submit from "./views/Submit";
 import { ExperiencesContextProvider } from "./context/ExperiencesContext";
 import { AuthContextProvider } from "./context/AuthContext";
 import ExperienceWithCHook from "./components/ExperienceWithCHook";
-import UpdateProfile from "./components/UpdateProfile";
 import Update from "./views/Update";
 import UpdateProfileView from "./views/UpdateProfile";
+import Citywalks from "./views/ExperienceTypes/Citywalks";
+import Scenery from "./views/ExperienceTypes/Scenery";
+import FaunaFlora from "./views/ExperienceTypes/FaunaFlora";
 
 function App() {
   const router = createBrowserRouter(
@@ -36,10 +39,13 @@ function App() {
         <Route index element={<Home />} />
         <Route path="experiences" element={<ExpLayout />}>
           <Route index element={<Experiences />} />
-          <Route path="all" element={<Experiences />} />
-          <Route path="hiking" element={<Hiking />} />
-          <Route path="wildlife" element={<Wildlife />} />
-          //! Do the same for all adventure types
+          <Route path=":experienceType" element={<Experiences />} />
+          <Route path=":experienceType" element={<Hiking />} />
+          <Route path=":experienceType" element={<Wildlife />} />
+          <Route path=":experienceType" element={<Roadtrips />} />
+          <Route path=":experienceType" element={<Citywalks />} />
+          <Route path=":experienceType" element={<Scenery />} />
+          <Route path=":experienceType" element={<FaunaFlora />} />
         </Route>
         <Route
           path="experiences/:experienceTitle"

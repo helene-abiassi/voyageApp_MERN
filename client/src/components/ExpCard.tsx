@@ -32,7 +32,7 @@ function ExpCards({ experience }: ExperienceCardProp) {
   const isBookmarkedInitially =
     user && user.bookmarks.some((bookmark) => bookmark._id === _id);
   const [isBookmarked, setIsBookmarked] = useState(isBookmarkedInitially);
-  console.log("isBookmarked :>> ", isBookmarked);
+  // console.log("isBookmarked :>> ", isBookmarked);
 
   const navigateTo = useNavigate();
 

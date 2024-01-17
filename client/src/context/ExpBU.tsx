@@ -46,7 +46,7 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
   const { user } = useContext(AuthContext);
   //FIXME think about the use of urlParams in a context (no specific url to be at when the context is rendered)
 
-  // const [urlParams, setUrlParams] = useState("all");
+  const [urlParams, setUrlParams] = useState("all");
 
   // const { data, error, loading } = useMyFetch<Experience[]>(
   //   `http://localhost:5005/api/experiences/${urlParams}`
@@ -59,7 +59,7 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
 
     try {
       const results = await fetch(
-        `http://localhost:5005/api/experiences/all`,
+        `http://localhost:5005/api/experiences/${urlParams}`,
         requestOptions
       );
 

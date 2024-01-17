@@ -17,7 +17,6 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
   const { user } = useContext(AuthContext);
 
   const [showModal, setShowModal] = useState(false);
-
   const handleShowModal = () => {
     setShowModal(true);
   };
