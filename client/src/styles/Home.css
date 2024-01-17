@@ -39,6 +39,7 @@ h2 {
   background-color: black !important;
   color: #d7c6ac !important;
   border-radius: 10pt;
+  cursor: pointer;
 }
 
 Link:hover {

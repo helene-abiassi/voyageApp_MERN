@@ -2,6 +2,7 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import "../styles/SearchBox.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import Modal from "./Modal";
 
 export interface SearchBoxProps {
   onCriteriaSearch: (criteria: string) => void;
@@ -14,6 +15,16 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
   const [searchCityInput, setSearchCityInput] = useState("");
 
   const { user } = useContext(AuthContext);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const handleCriteriaChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const criteria = e.target.value;
@@ -28,13 +39,15 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
   const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
     const normalizedQuery = e.target.value.toLowerCase();
     setSearchCityInput(normalizedQuery);
-  };
-
-  const handleSearchClick = () => {
     setSearchCity(searchCityInput);
 
     onCitySearch(searchCityInput);
   };
+
+  // const handleSearchClick = () => {
+  //   setSearchCity(searchCityInput);
+  //   onCitySearch(searchCityInput);
+  // };
 
   const resetFilters = () => {
     // setSearchCriteria("");
@@ -68,12 +81,20 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
           ) : (
             <button
               style={{ backgroundColor: "transparent" }}
-              onClick={() => {
-                alert("You need to log in first!");
-              }}
+              onClick={handleShowModal}
+
+              // onClick={() => {
+              //   alert("You need to log in first!");
+              // }}
             >
               {" "}
-              <p style={{ fontSize: "18px", backgroundColor: "transparent" }}>
+              <p
+                style={{
+                  fontSize: "18px",
+                  backgroundColor: "transparent",
+                  cursor: "pointer",
+                }}
+              >
                 <strong>+</strong> Add your own
               </p>
             </button>
@@ -89,15 +110,20 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
               onChange={handleCityChange}
             />
 
-            <button className="nakdButton" onClick={handleSearchClick}>
+            {/* <button className="nakdButton" onClick={handleSearchClick}>
               Search
+            </button> */}
+            <button className="nakdButton" onClick={resetFilters}>
+              Reset
             </button>
           </div>
         </div>
-
-        <button className="resetButton" onClick={resetFilters}>
-          Reset
-        </button>
+        {showModal && (
+          <Modal
+            message="You need to log in first!!"
+            onClose={handleCloseModal}
+          />
+        )}
       </div>
     </div>
   );
