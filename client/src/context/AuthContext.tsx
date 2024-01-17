@@ -209,7 +209,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     } else {
       // console.log("there is no token!");
       setIsLoggedIn(false);
-      setIsLoading(false);
+      // setIsLoading(false);
     }
   };
 

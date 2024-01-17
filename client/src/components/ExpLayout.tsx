@@ -97,59 +97,64 @@ function ExpLayout() {
   }, [experienceType]);
 
   return (
-    <div className="mainBodyExp">
-      <br />
-      <div className="logoSearchbar">
-        <img
-          style={{ width: "7%" }}
-          src="https://res.cloudinary.com/dfm1r4ikr/image/upload/v1697317643/voyageApp/logo-variations-02_uffxcy.png"
-          alt=""
+    <div>
+      <div className="mainBodyExp">
+        <br />
+        <div className="logoSearchbar">
+          <img
+            style={{ width: "7%" }}
+            src="https://res.cloudinary.com/dfm1r4ikr/image/upload/v1697317643/voyageApp/logo-variations-02_uffxcy.png"
+            alt=""
+          />
+        </div>
+        <SearchBox
+          onCriteriaSearch={handleCriteriaSearch}
+          onCitySearch={handleCitySearch}
         />
-      </div>
-      <SearchBox
-        onCriteriaSearch={handleCriteriaSearch}
-        onCitySearch={handleCitySearch}
-      />
-      <div className="expTypeNavbar">
-        <NavLink to={"all"}>all </NavLink> <span> | </span>
-        <NavLink to={"hiking"}> hiking </NavLink> <span> | </span>
-        <NavLink to={"wildlife"}> wildlife</NavLink> <span> | </span>
-        <NavLink to={"roadtrips"}>roadtrips</NavLink> <span> | </span>
-        <NavLink to={"citywalk"}>city walks</NavLink>
-        <span> | </span>
-        <NavLink to={"scenery"}>scenery</NavLink>
-        <span> | </span>
-        <NavLink to={"faunaflora"}>fauna & flora</NavLink>
-      </div>
-      <br />
-      <Outlet />
-      <div>
-        <div className="storyCards">
-          {filteredExperiences && filteredExperiences.length > 0 ? (
-            filteredExperiences.map((experience, expID) => (
-              <div key={expID}>
-                <ExpCards
-                  key={"1" + experience.publication_date}
-                  experience={experience}
-                />
-              </div>
-            ))
-          ) : experiences && experiences.length > 0 ? (
-            experiences.map((experience, expID) => (
-              <div key={expID}>
-                <ExpCards
-                  key={"1" + experience.publication_date}
-                  experience={experience}
-                />
-              </div>
-            ))
-          ) : isLoading ? (
-            <Loader />
-          ) : (
-            <h2>...something went wrong...</h2>
-          )}
+        <div className="expTypeNavbar">
+          <NavLink to={"all"}>all </NavLink> <span> | </span>
+          <NavLink to={"hiking"}> hiking </NavLink> <span> | </span>
+          <NavLink to={"wildlife"}> wildlife</NavLink> <span> | </span>
+          <NavLink to={"roadtrips"}>roadtrips</NavLink> <span> | </span>
+          <NavLink to={"citywalk"}>city walks</NavLink>
+          <span> | </span>
+          <NavLink to={"scenery"}>scenery</NavLink>
+          <span> | </span>
+          <NavLink to={"faunaflora"}>fauna & flora</NavLink>
+        </div>
+        {/* <br /> */}
+        <Outlet />
+        <div>
+          <div className="storyCards">
+            {filteredExperiences && filteredExperiences.length > 0 ? (
+              filteredExperiences.map((experience, expID) => (
+                <div key={expID}>
+                  <ExpCards
+                    key={"1" + experience.publication_date}
+                    experience={experience}
+                  />
+                </div>
+              ))
+            ) : experiences && experiences.length > 0 ? (
+              experiences.map((experience, expID) => (
+                <div key={expID}>
+                  <ExpCards
+                    key={"1" + experience.publication_date}
+                    experience={experience}
+                  />
+                </div>
+              ))
+            ) : isLoading ? (
+              <Loader />
+            ) : (
+              <h2>...something went wrong...</h2>
+            )}
+          </div>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

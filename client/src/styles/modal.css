@@ -11,18 +11,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modal-header {
   background-color: #fa9397;
-  /* font-weight: 300; */
   border-radius: 4px;
 }
 
 .modal-content {
   background-color: #d7c6ac;
   color: black;
-  /* padding: 15px; */
   border-radius: 8px;
   width: 20rem;
 }

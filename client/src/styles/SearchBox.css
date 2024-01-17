@@ -5,10 +5,11 @@
   box-shadow: 5px 5px black;
   padding-right: 2rem;
   padding-left: 2rem;
+  padding-bottom: 2rem;
   width: 75%;
   margin: 7rem;
-  margin-top: 0rem !important;
   margin-bottom: 1rem !important;
+  margin-top: 0rem !important;
 }
 
 .resetButton {
@@ -60,11 +61,10 @@ input {
   align-items: center;
   justify-content: center;
   align-content: center;
-  padding: 1rem;
 }
 
 .logoSearchbar {
   display: flex;
   justify-content: flex-end;
-  margin-right: 15rem;
+  margin-right: 18rem;
 }

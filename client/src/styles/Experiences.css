@@ -11,18 +11,15 @@
 
 .expTypeNavbar {
   color: black;
-  /* width: max-content; */
-  /* margin-left: 10rem; */
-  /* margin-right: 5rem; */
   background-color: #efcb59;
   padding: 2rem;
   font-size: 25pt;
   font-weight: 400;
-  /* background-color: transparent; */
+  margin-bottom: 1rem;
 }
 
 .expTypeNavbar a {
-  color: #fa9397;
+  color: #1b729d;
 }
 
 .expTypeNavbar a:hover {
@@ -30,12 +27,10 @@
 }
 
 .mainBodyExp {
-  height: 180rem;
+  /* height: 180rem; */
   background-image: linear-gradient(#fa9397, #efcb59);
-  /* background-image: url("https://res.cloudinary.com/dfm1r4ikr/image/upload/v1698010898/voyageApp/backgroundImg_yl3ils.png") !important; */
-
-  background-size: contain !important;
-
+  /* background-size: contain !important; */
+  width: 100%;
   min-width: 100%;
   min-height: 100%;
 }
@@ -47,17 +42,16 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  min-height: 100vh;
   /* height: 120rem; */
   flex-wrap: wrap;
-  margin-left: 5rem;
-  margin-right: 5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .storyCardSingle {
   display: flex;
   flex-direction: column;
-  /* width: max-content; */
-  /* height: max-content; */
   width: 20rem;
   box-shadow: 5px 5px #b1d573;
   position: relative;
@@ -78,6 +72,8 @@
 .storyCardTitle {
   padding-left: 2rem;
   padding-right: 2rem;
+  font-size: 16pt !important;
+  min-height: 4rem;
 }
 
 .storyCardCaption {
@@ -99,23 +95,31 @@
   box-shadow: 20px 20px #b1d573;
 }
 
-.bookmarkSet {
+.subPhotoHeader {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.bookmarkSet {
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
 .bookIcon {
   background-color: transparent !important;
-  position: absolute;
   cursor: pointer;
+  color: black !important;
 }
 
 .bookmarkLgth {
-  position: absolute;
-  top: 30%;
-  left: 13%;
-  transform: translate(80%, -50%);
+  margin-left: 5px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
 
 .deleteIcon {
@@ -123,5 +127,30 @@
   cursor: pointer;
 }
 
+.photoCard {
+  position: relative;
+}
+
+.photoCard p {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #efcb59;
+  color: black;
+  padding: 5px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.gridPhoto {
+  width: 100%;
+  display: block;
+}
+
 .iconSet {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
 }

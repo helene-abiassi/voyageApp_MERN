@@ -6,7 +6,7 @@ function Update() {
     <div>
       <BackButton />
       <h1>update your story</h1>
-      <UpdateExperience />
+      {/* <UpdateExperience /> */}
     </div>
   );
 }
