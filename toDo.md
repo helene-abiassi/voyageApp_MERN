@@ -3,7 +3,7 @@
 
 EXPERIENCE PAGE:
 //TODO - Add expType filters
-//TODO - Replace alert with modal
 //TODO - Replace city search with autocomplete
-//TODO - Fix filter with server side render
-//TODO - Do double filters
+
+<!-- //TODO - Replace alert with modal -->
+<!-- //TODO - Do double filters -->

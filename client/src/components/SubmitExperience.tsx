@@ -148,7 +148,6 @@ function SubmitExperience() {
     const photoBodyJSON = JSON.stringify(newExperience.photo_body);
 
     const urlencoded = new URLSearchParams();
-    // urlencoded.append("a_id", newExperience.author.a_id);
     urlencoded.append("email", user!.email);
     urlencoded.append("title", newExperience.title);
     urlencoded.append("caption", newExperience.caption);

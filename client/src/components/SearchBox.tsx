@@ -10,7 +10,7 @@ export interface SearchBoxProps {
 }
 
 function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
-  const [searchCriteria, setSearchCriteria] = useState("");
+  const [searchCriteria, setSearchCriteria] = useState("default");
   const [searchCity, setSearchCity] = useState("");
   const [searchCityInput, setSearchCityInput] = useState("");
 
@@ -30,8 +30,8 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
     const criteria = e.target.value;
     setSearchCriteria(criteria);
     onCriteriaSearch(criteria);
-    if (criteria === "Sort By") {
-      setSearchCriteria("");
+    if (criteria === "") {
+      setSearchCriteria("default");
       onCriteriaSearch("");
     }
   };
@@ -49,25 +49,26 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
   //   onCitySearch(searchCityInput);
   // };
 
-  const resetFilters = () => {
-    // setSearchCriteria("");
-    setSearchCity("");
-    setSearchCityInput("");
-    onCriteriaSearch("");
-    onCitySearch("");
+  const resetFilters = async () => {
+    await setSearchCity("");
+    await setSearchCityInput("");
+    await onCriteriaSearch("");
+    await setSearchCriteria("default");
+    await onCitySearch("");
   };
 
-  useEffect(() => {
-    // onCriteriaSearch("")
-    // handleSearchClick();
-  }, [searchCityInput]);
+  useEffect(() => {}, [searchCityInput]);
 
   return (
     <div className="mainSearchBox">
       <div className="searchBox">
         <div className="searchRow">
-          <select className="dropdownSearch" onChange={handleCriteriaChange}>
-            <option value={""}>Sort By</option>
+          <select
+            className="dropdownSearch"
+            onChange={handleCriteriaChange}
+            value={searchCriteria}
+          >
+            <option value={"default"}>Sort By</option>
             <option value={"Most Bookmarked"}>Most Bookmarked</option>
             <option value={"Newest"}>Newest</option>
             <option value={"Oldest"}>Oldest</option>
@@ -82,10 +83,6 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
             <button
               style={{ backgroundColor: "transparent" }}
               onClick={handleShowModal}
-
-              // onClick={() => {
-              //   alert("You need to log in first!");
-              // }}
             >
               {" "}
               <p

@@ -53,6 +53,13 @@ function ExpLayout() {
             new Date(b.publication_date).getTime()
         );
         break;
+      case "default":
+        tempExperiences = tempExperiences.sort(
+          (a, b) =>
+            new Date(a.publication_date).getTime() -
+            new Date(b.publication_date).getTime()
+        );
+        break;
       case "Most Commented":
         tempExperiences = tempExperiences.sort(
           (a, b) => b.comments!.length - a.comments!.length
@@ -114,21 +121,14 @@ function ExpLayout() {
               </div>
             ))
           ) : experiences && experiences.length > 0 ? (
-            experiences
-              .slice()
-              .sort(
-                (a, b) =>
-                  new Date(b.publication_date).getTime() -
-                  new Date(a.publication_date).getTime()
-              )
-              .map((experience, expID) => (
-                <div key={expID}>
-                  <ExpCards
-                    key={"1" + experience.publication_date}
-                    experience={experience}
-                  />
-                </div>
-              ))
+            experiences.map((experience, expID) => (
+              <div key={expID}>
+                <ExpCards
+                  key={"1" + experience.publication_date}
+                  experience={experience}
+                />
+              </div>
+            ))
           ) : isLoading ? (
             <Loader />
           ) : (
