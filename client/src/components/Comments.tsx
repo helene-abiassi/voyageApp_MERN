@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { formatDateAndTime } from "./Functions";
 import { ExperiencesContext } from "../context/ExperiencesContext";
 import "../styles/Comments.css";
+import { IoIosSend } from "react-icons/io";
 
 type CommentsProps = {
   comments: CommentsType[];
@@ -171,19 +172,8 @@ function Comments({ comments, _id }: CommentsProps) {
               className="nakdButton"
               type="submit"
             >
+              <IoIosSend />
               submit{" "}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
-                viewBox="0 0 25 25"
-                fill="none"
-              >
-                <path
-                  d="M2.08337 21.875L23.9584 12.5L2.08337 3.125V10.4167L17.7084 12.5L2.08337 14.5833V21.875Z"
-                  fill="#EFCB59"
-                />
-              </svg>
             </button>
           </div>
         </div>
@@ -227,18 +217,7 @@ function Comments({ comments, _id }: CommentsProps) {
                                     handleDeleteComment(comment._id);
                                   }}
                                 >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="25"
-                                    height="25"
-                                    viewBox="0 0 25 25"
-                                    fill="none"
-                                  >
-                                    <path
-                                      d="M9.37496 3.125V4.16667H4.16663V6.25H5.20829V19.7917C5.20829 20.3442 5.42779 20.8741 5.81849 21.2648C6.20919 21.6555 6.73909 21.875 7.29163 21.875H17.7083C18.2608 21.875 18.7907 21.6555 19.1814 21.2648C19.5721 20.8741 19.7916 20.3442 19.7916 19.7917V6.25H20.8333V4.16667H15.625V3.125H9.37496ZM7.29163 6.25H17.7083V19.7917H7.29163V6.25ZM9.37496 8.33333V17.7083H11.4583V8.33333H9.37496ZM13.5416 8.33333V17.7083H15.625V8.33333H13.5416Z"
-                                      fill="black"
-                                    />
-                                  </svg>
+                                  <i className="fa fa-trash"></i>
                                 </button>
                               )}
                             </div>

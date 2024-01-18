@@ -15,7 +15,6 @@ function ExpCards({ experience }: ExperienceCardProp) {
     _id,
     author,
     title,
-    caption,
     publication_date,
     photo,
     bookmarked_by,
@@ -100,18 +99,12 @@ function ExpCards({ experience }: ExperienceCardProp) {
                   handleDeleteExperience(_id);
                 }}
               >
-                <i
-                  className="fa fa-trash"
-                  // style={{ fontSize: "24px", color: "black" }}
-                ></i>
+                <i className="fa fa-trash"></i>
               </button>
             )}{" "}
             {user?.email === experience.author.email && (
               <Link className="deleteIcon" to={`/updateexperience/${_id}`}>
-                <i
-                  className="fa fa-pencil"
-                  // style={{ fontSize: "24px", color: "black" }}
-                ></i>
+                <i className="fa fa-pencil"></i>
               </Link>
             )}{" "}
           </div>

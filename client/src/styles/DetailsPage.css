@@ -21,11 +21,26 @@ p {
   font-weight: 500;
 }
 
-hr {
-  color: black;
+.photoAlbum {
+  display: flex;
+  flex-direction: row;
 }
 
-.photoAlbum {
+.detailsPage {
+  display: grid;
+  flex-direction: column;
+}
+
+.expDetails {
+  flex: 1;
+  padding: 20px;
+}
+
+.expDetails {
+  border-right: 1px solid #ccc;
+}
+
+.header {
   display: flex;
   flex-direction: row;
 }

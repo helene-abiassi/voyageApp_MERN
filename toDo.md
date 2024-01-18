@@ -1,13 +1,13 @@
 //TODO - Add loader to all pages
-//TODO - Replace all svg with react icons
 //TODO - Replace all alerts with Modal
 //TODO - Replace all window.confirm with Modal
 //TODO - Add responsiveness
-//TODO -
+//TODO - Build database
 //TODO -
 
 EXPERIENCE DETAILS PAGE:
-//TODO -
+//TODO - Fix details CSS
+//TODO - Fix comments CSS
 //TODO -
 //TODO -
 
@@ -15,17 +15,24 @@ POST EXPERIENCE PAGE:
 //TODO - Add letter counter to title + body and character restriction
 
 UPDATE EXPERIENCE PAGE:
-//TODO -
+//TODO - Fix css
 //TODO -
 //TODO -
 
 PROFILE PAGE:
-//TODO -
+//TODO - Fix css
 //TODO -
 //TODO -
 
 UPDATE EXPERIENCE PAGE:
 //TODO - Fix css
+//TODO -
+//TODO -
+
+MAP PAGE:
+//TODO - Fix css
+//TODO - Fix map layout and zoom
+//TODO - Add popup cards + redirection
 //TODO -
 //TODO -
 
@@ -44,3 +51,6 @@ UPDATE EXPERIENCE PAGE:
 <!-- //TODO - fix readmore redirection issue -->
 <!-- //TODO - fix edit experience redirection issue -->
 <!-- //TODO - Add no encounters found to search results -->
+<!-- //TODO - Replace all svg with react icons -->
+<!-- //TODO - Hyperlink map -->
+<!-- //TODO - Fix bookmark counter update issue -->

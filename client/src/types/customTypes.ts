@@ -28,6 +28,10 @@ export interface User extends UserImage {
     title: string;
     publication_date: Date  | string;
     photo: string;
+    location:{
+      city:string;
+      country:string;
+    }
   }
   
   export interface UserImage {

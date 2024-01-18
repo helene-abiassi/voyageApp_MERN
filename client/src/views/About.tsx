@@ -19,14 +19,13 @@ function About() {
       >
         <div className="beigeBox">
           <p>
-            Lorem ipsibunventore, amet natus reiciendis ipsam quasi fugiat at ut
-            soluta consequatur et magnam illum corporis. Quaerat blanditiis
-            voluptatem, adipisci numquam autem at, repellat praesentium earum
-            consequatur asperiores perspiciatis animi rerum? A suscipit esse
-            beatae. Nisi quod numquam accusantium omnis veniam dicta velit,
-            labore cum excepturi animi, possimus quis doloremque, porro.
+            Discovers voyage, <br />a public travel blog, where people share
+            some of the unique experiences and activities they came up with
+            while on vacation. <br />
+            <br />
+            Whether you went on an alchemy walk in Prague, listened to live Faro
+            music at a miradouro in Lisbon, or other, share your story with us.
           </p>
-          <br />
           {user ? (
             <Link className="nakdButton" to={"/experiences"}>
               view experiences
