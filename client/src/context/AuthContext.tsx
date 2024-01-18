@@ -190,8 +190,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
         if (response.ok) {
           const result = await response.json();
-          console.log("result to get my user profile :>> ", result); //This works
-          const user = result.userProfile as User;
+          // console.log("result to get my user profile :>> ", result);
           setUser(user);
           // console.log("user is set");
           setIsLoggedIn(true);

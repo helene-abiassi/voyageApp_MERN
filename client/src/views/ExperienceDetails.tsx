@@ -27,7 +27,6 @@ function ExperienceDetails() {
   const isBookmarkedInitially =
     user && user.bookmarks.some((bookmark) => bookmark._id === _id);
   const [isBookmarked, setIsBookmarked] = useState(isBookmarkedInitially);
-  console.log("isBookmarked :>> ", isBookmarked);
 
   const navigateTo = useNavigate();
 
@@ -83,7 +82,6 @@ function ExperienceDetails() {
               <img
                 style={{
                   width: "36%",
-                  // height: "36%",
                   marginLeft: "70px",
                   borderRadius: "50%",
                 }}

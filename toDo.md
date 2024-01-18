@@ -5,6 +5,7 @@
 EXPERIENCE PAGE:
 //TODO - fix readmore redirection issue
 //TODO - fix edit experience redirection issue
+//TODO - Add no encounters found to search results
 
 EXPERIENCE DETAILS PAGE:
 //TODO -

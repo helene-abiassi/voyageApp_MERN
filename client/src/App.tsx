@@ -38,17 +38,10 @@ function App() {
       <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
         <Route index element={<Home />} />
         <Route path="experiences" element={<ExpLayout />}>
-          <Route index element={<Experiences />} />
           <Route path=":experienceType" element={<Experiences />} />
-          <Route path=":experienceType" element={<Hiking />} />
-          <Route path=":experienceType" element={<Wildlife />} />
-          <Route path=":experienceType" element={<Roadtrips />} />
-          <Route path=":experienceType" element={<Citywalks />} />
-          <Route path=":experienceType" element={<Scenery />} />
-          <Route path=":experienceType" element={<FaunaFlora />} />
         </Route>
         <Route
-          path="experiences/:experienceTitle"
+          path="experiences/title/:experienceTitle"
           element={<ExperienceDetails />}
         />
         <Route
@@ -59,7 +52,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="updateprofile/:profileId"
           element={
@@ -68,9 +60,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route path="custom" element={<ExperienceWithCHook />} />
-
         <Route path="map" element={<Map />} />
         <Route path="about" element={<About />} />
         <Route path="signup" element={<SignUp />} />
