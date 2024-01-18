@@ -66,15 +66,100 @@ function ExperienceDetails() {
   useEffect(() => {}, [fetchExperiences, experience, experience.comments]);
 
   return (
-    <div className="expContainer">
+    <div>
       <div className="detailsPage">
-        {/* BACK BUTTON */}
-
-        <BackButton />
-
+        {/* HEADER BUTTON */}
+        <div className="detailsHeader">
+          <BackButton />
+          <h1>{experience.title}</h1>
+        </div>
+        <br />
         <div className="expDetails">
           {/* AUTHOR BIO */}
 
+          {/* EXPERIENCE CARD */}
+          <div className="detailsSection">
+            <img
+              style={{ width: "50%", height: "50%" }}
+              src={experience.photo}
+              alt=""
+            />
+
+            <div className="textBox">
+              <div>
+                {user?.email === experience.author.email && (
+                  <button
+                    className="deleteIcon"
+                    onClick={() => {
+                      handleDeleteExperience(experience._id);
+                    }}
+                  >
+                    <i
+                      className="fa fa-trash"
+                      style={{ fontSize: "18px", color: "black" }}
+                    ></i>
+                  </button>
+                )}{" "}
+                {user?.email === experience.author.email && (
+                  <Link
+                    style={{ backgroundColor: "black" }}
+                    to={`/updateexperience/${_id}`}
+                    className="deleteIcon"
+                  >
+                    <i
+                      className="fa fa-pencil"
+                      style={{ fontSize: "18px", color: "black" }}
+                    ></i>
+                  </Link>
+                )}
+              </div>
+              <div className="row">
+                <p>posted on {formatDate(experience.publication_date)}</p>
+                <div className="bookmarkSet">
+                  <button
+                    className="bookIcon"
+                    onClick={() => {
+                      handleBookmarkClick(_id);
+                    }}
+                    style={{
+                      fontSize: "24px",
+                      color: isBookmarked ? "white" : "black",
+                    }}
+                  >
+                    {isBookmarked ? (
+                      <i className="fa fa-bookmark"></i>
+                    ) : (
+                      <i className="fa fa-bookmark-o"></i>
+                    )}
+                  </button>
+                </div>
+              </div>{" "}
+              <p>{experience.caption}</p>
+              <hr />
+              <div className="row">
+                <p>
+                  <Link to={"/map"}>
+                    <SlMap /> {experience.location.city},
+                    {experience.location.country}
+                  </Link>
+                </p>
+                <p>
+                  {" "}
+                  <FaHiking />
+                  {experience.experienceType}
+                </p>
+              </div>
+              <hr />
+              <p>{experience.text_body}</p>
+              {experience.photo_body.map((photo: string, idPhoto: number) => {
+                return (
+                  <div className="photoAlbum" key={idPhoto}>
+                    <img style={{ width: "20%" }} src={photo} alt="" />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
           <div className="expAuthorCard">
             <h2>story by</h2>
             <img
@@ -90,95 +175,11 @@ function ExperienceDetails() {
             <p>{experience.author.bio}</p>
             <p>member since: {formatDate(experience.author.member_since)}</p>
           </div>
-          {/* EXPERIENCE CARD */}
-          <div className="detailsSection">
-            <img
-              style={{ width: "50%", height: "50%" }}
-              src={experience.photo}
-              alt=""
-            />
-            <div className="textBox">
-              <h2 className="expTitle">{experience.title}</h2>
-              <div className="bookmarkSet">
-                <button
-                  className="bookIcon"
-                  onClick={() => {
-                    handleBookmarkClick(_id);
-                  }}
-                  style={{
-                    fontSize: "18px",
-                    color: isBookmarked ? "white" : "black",
-                  }}
-                >
-                  {isBookmarked ? (
-                    <i className="fa fa-bookmark"></i>
-                  ) : (
-                    <i className="fa fa-bookmark-o"></i>
-                  )}
-                </button>
-              </div>
-              {user?.email === experience.author.email && (
-                <button
-                  className="deleteIcon"
-                  onClick={() => {
-                    handleDeleteExperience(experience._id);
-                  }}
-                >
-                  <i
-                    className="fa fa-trash"
-                    style={{ fontSize: "24px", color: "black" }}
-                  ></i>
-                </button>
-              )}{" "}
-              {user?.email === experience.author.email && (
-                <Link
-                  style={{ backgroundColor: "black" }}
-                  to={`/updateexperience/${_id}`}
-                  className="deleteIcon"
-                >
-                  <i
-                    className="fa fa-pencil"
-                    style={{ fontSize: "24px", color: "black" }}
-                  ></i>
-                </Link>
-              )}{" "}
-              <p>{experience.caption}</p>
-              <p>{formatDate(experience.publication_date)}</p>
-              <hr />
-              <p>
-                <FiMapPin /> {experience.location.city},
-                {experience.location.country}
-              </p>
-              <p>
-                {" "}
-                <FaHiking />
-                {experience.experienceType}
-              </p>
-              <p>
-                <Link to={"/map"}>
-                  <SlMap />
-                </Link>
-              </p>
-              <hr />
-              <p>{experience.text_body}</p>
-              {experience.photo_body.map((photo: string, idPhoto: number) => {
-                return (
-                  <div key={idPhoto}>
-                    <div className="photoAlbum">
-                      <img style={{ width: "20%" }} src={photo} alt="" />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
         </div>
       </div>
+      <br />
       {/* COMMENTS */}
       <Comments comments={experience.comments} _id={experience._id} />
-      <br />
-      <br />
-      <br />
     </div>
   );
 }

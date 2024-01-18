@@ -1,29 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;400;0,500;600;1,400&display=swap");
 
-.detailsHeader {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: center;
-}
-
-.textBox {
-  border-radius: 10px;
-  background: #d7c6ac;
-  width: 805px;
-  margin-top: -10px;
-  align-items: center;
-  padding: 10px;
-  text-align: left;
-}
-
 p {
-  font-weight: 500;
-}
-
-.photoAlbum {
-  display: flex;
-  flex-direction: row;
+  font-weight: 400;
 }
 
 .detailsPage {
@@ -31,16 +9,51 @@ p {
   flex-direction: column;
 }
 
-.expDetails {
-  flex: 1;
-  padding: 20px;
+.detailsHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.detailsHeader h1 {
+  text-align: center !important;
+  margin: 0;
 }
 
 .expDetails {
-  border-right: 1px solid #ccc;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
-.header {
+.expAuthorCard {
+  border-radius: 10px;
+  background-color: #fa9397;
+  /* padding: 1rem; */
+  text-align: center;
+  position: relative;
+  top: 10px;
+  right: 10px;
+  height: max-content;
+
+  width: 20rem;
+  box-shadow: 20px 20px #b1d573;
+}
+
+.textBox {
+  border-radius: 10px;
+  background-color: #d7c6ac;
+  margin-top: -20px;
+  align-items: center;
+  padding: 2rem;
+  text-align: left;
+}
+
+.row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }

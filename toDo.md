@@ -6,10 +6,7 @@
 //TODO -
 
 EXPERIENCE DETAILS PAGE:
-//TODO - Fix details CSS
 //TODO - Fix comments CSS
-//TODO -
-//TODO -
 
 POST EXPERIENCE PAGE:
 //TODO - Add letter counter to title + body and character restriction
@@ -54,3 +51,4 @@ MAP PAGE:
 <!-- //TODO - Replace all svg with react icons -->
 <!-- //TODO - Hyperlink map -->
 <!-- //TODO - Fix bookmark counter update issue -->
+<!-- //TODO - Fix details CSS -->

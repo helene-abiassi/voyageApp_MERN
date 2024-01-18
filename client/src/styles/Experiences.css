@@ -88,13 +88,6 @@
   -webkit-line-clamp: 4;
 }
 
-.expAuthorCard {
-  border-radius: 10px;
-  background: #fa9397;
-  width: 20rem;
-  box-shadow: 20px 20px #b1d573;
-}
-
 .subPhotoHeader {
   display: flex;
   flex-direction: row;
