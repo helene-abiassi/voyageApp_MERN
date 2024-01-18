@@ -122,34 +122,37 @@ function ExpLayout() {
           <span> | </span>
           <NavLink to={"faunaflora"}>fauna & flora</NavLink>
         </div>
-        {/* <br /> */}
         <Outlet />
-        <div>
-          <div className="storyCards">
-            {filteredExperiences && filteredExperiences.length > 0 ? (
-              filteredExperiences.map((experience, expID) => (
-                <div key={expID}>
-                  <ExpCards
-                    key={"1" + experience.publication_date}
-                    experience={experience}
-                  />
-                </div>
-              ))
-            ) : experiences && experiences.length > 0 ? (
-              experiences.map((experience, expID) => (
-                <div key={expID}>
-                  <ExpCards
-                    key={"1" + experience.publication_date}
-                    experience={experience}
-                  />
-                </div>
-              ))
-            ) : isLoading ? (
-              <Loader />
-            ) : (
-              <h2>...something went wrong...</h2>
-            )}
-          </div>
+
+        <div className="storyCards">
+          {filteredExperiences &&
+            filteredExperiences.length === 0 &&
+            experiences &&
+            experiences.length === 0 && <p>No encounters found.</p>}
+
+          {filteredExperiences && filteredExperiences.length > 0 ? (
+            filteredExperiences.map((experience, expID) => (
+              <div key={expID}>
+                <ExpCards
+                  key={"1" + experience.publication_date}
+                  experience={experience}
+                />
+              </div>
+            ))
+          ) : experiences && experiences.length > 0 ? (
+            experiences.map((experience, expID) => (
+              <div key={expID}>
+                <ExpCards
+                  key={"1" + experience.publication_date}
+                  experience={experience}
+                />
+              </div>
+            ))
+          ) : isLoading ? (
+            <Loader />
+          ) : (
+            <h2>...something went wrong...</h2>
+          )}
         </div>
       </div>
       <br />

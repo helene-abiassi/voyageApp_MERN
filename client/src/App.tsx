@@ -40,6 +40,7 @@ function App() {
         <Route path="experiences" element={<ExpLayout />}>
           <Route path=":experienceType" element={<Experiences />} />
         </Route>
+
         <Route
           path="experiences/title/:experienceTitle"
           element={<ExperienceDetails />}

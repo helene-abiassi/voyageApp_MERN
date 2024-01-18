@@ -1,11 +1,10 @@
 //TODO - Add loader to all pages
 //TODO - Replace all svg with react icons
 //TODO - Replace all alerts with Modal
-
-EXPERIENCE PAGE:
-//TODO - fix readmore redirection issue
-//TODO - fix edit experience redirection issue
-//TODO - Add no encounters found to search results
+//TODO - Replace all window.confirm with Modal
+//TODO - Add responsiveness
+//TODO -
+//TODO -
 
 EXPERIENCE DETAILS PAGE:
 //TODO -
@@ -26,7 +25,7 @@ PROFILE PAGE:
 //TODO -
 
 UPDATE EXPERIENCE PAGE:
-//TODO -
+//TODO - Fix css
 //TODO -
 //TODO -
 
@@ -42,3 +41,6 @@ UPDATE EXPERIENCE PAGE:
 <!-- //TODO - fix cardDesign -->
 <!-- //TODO - replace alert with modal -->
 <!-- //TODO - fix delete and edit icon placement -->
+<!-- //TODO - fix readmore redirection issue -->
+<!-- //TODO - fix edit experience redirection issue -->
+<!-- //TODO - Add no encounters found to search results -->

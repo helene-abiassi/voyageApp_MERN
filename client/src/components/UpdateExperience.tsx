@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Experience, ExperienceImage } from "../types/customTypes";
 
@@ -8,33 +8,33 @@ function UpdateExperience() {
 
   const [existingExperience, setExistingExperience] = useState<Experience>();
   const [updatedExperience, setUpdatedExperience] = useState<Experience>({
-    _id: experienceId!,
+    _id: experienceId || "",
     author: {
-      a_id: existingExperience!.author.a_id,
-      username: existingExperience!.author.username,
-      email: existingExperience!.author.email,
-      bio: existingExperience!.author.bio,
-      member_since: existingExperience!.author.member_since,
-      user_image: existingExperience!.author.user_image,
+      a_id: (existingExperience && existingExperience.author.a_id) || "",
+      username: existingExperience?.author?.username || "",
+      email: existingExperience?.author?.email || "",
+      bio: existingExperience?.author?.bio || "",
+      member_since: existingExperience?.author?.member_since || "",
+      user_image: existingExperience?.author?.user_image || "",
     },
-    title: existingExperience!.title,
-    caption: existingExperience!.caption,
+    title: existingExperience?.title || "",
+    caption: existingExperience?.caption || "",
     publication_date: new Date(),
-    photo: existingExperience!.photo,
+    photo: existingExperience?.photo || "",
     location: {
-      country: existingExperience!.location.country,
-      city: existingExperience!.location.city,
-      longitude: existingExperience!.location.longitude,
-      latitude: existingExperience!.location.latitude,
+      country: existingExperience?.location.country || "",
+      city: existingExperience?.location.city || "",
+      longitude: existingExperience?.location.longitude || "",
+      latitude: existingExperience?.location.latitude || "",
     },
-    experienceType: existingExperience!.experienceType,
-    text_body: existingExperience!.text_body,
-    photo_body: existingExperience!.photo_body,
-    comments: existingExperience!.comments,
+    experienceType: existingExperience?.experienceType || "",
+    text_body: existingExperience?.text_body || "",
+    photo_body: existingExperience?.photo_body || "",
+    comments: existingExperience?.comments || [],
     bookmarked_by: [],
   });
   const [updatedPhoto, setUpdatedPhoto] = useState<File | string>(
-    existingExperience!.photo
+    existingExperience?.photo || ""
   );
 
   const navigateTo = useNavigate();
