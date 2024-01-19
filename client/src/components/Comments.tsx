@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import { CommentsType } from "../types/customTypes";
 import { AuthContext } from "../context/AuthContext";
-import { formatDateAndTime } from "./Functions";
+import { formatDate } from "./Functions";
 import { ExperiencesContext } from "../context/ExperiencesContext";
 import "../styles/Comments.css";
 import { IoIosSend } from "react-icons/io";
@@ -15,9 +15,6 @@ function Comments({ comments, _id }: CommentsProps) {
   const { user } = useContext(AuthContext);
   const { experiences, fetchExperiences } = useContext(ExperiencesContext);
   const experienceID = _id;
-
-  console.log("user :>> ", user);
-  console.log("experiences in COMMENTS:>> ", experiences);
 
   const [newComment, setNewComment] = useState({
     _id: "",
@@ -49,7 +46,7 @@ function Comments({ comments, _id }: CommentsProps) {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log("FETCHDATA :>> ", data);
+
         setUpdatedComments(data.comments);
         fetchExperiences();
         console.log("updatedComments :>> ", data.comments);
@@ -148,16 +145,17 @@ function Comments({ comments, _id }: CommentsProps) {
       console.log("error when deleting comment:>> ", error);
     }
   };
-  console.log("comments :>> ", comments);
+
   useEffect(() => {
     fetchComments();
   }, [user, experienceID]);
 
   return (
     <div className="commentsSection">
+      <br />
       <h2>comments:</h2>
-      <form onSubmit={handleSubmitComment}>
-        <div className="inputContainer commentHeader">
+      <div className="inputContainer">
+        <form onSubmit={handleSubmitComment}>
           <div className="newComment">
             <input
               name="message"
@@ -169,70 +167,67 @@ function Comments({ comments, _id }: CommentsProps) {
             />
             <button
               style={{ backgroundColor: "white" }}
-              className="nakdButton"
+              className="nakdButton "
               type="submit"
             >
               <IoIosSend />
               submit{" "}
             </button>
           </div>
-        </div>
-      </form>
-      <br />
-      <div style={{ backgroundColor: "white" }}>
-        <div>
-          {experiences && experiences.length > 0 ? (
-            experiences.map((experience) => {
-              return (
-                <div className="singleComment" key={experience._id}>
-                  {experience._id === experienceID &&
-                    experience.comments
-                      ?.slice()
-                      .sort((a, b) => new Date(b.date) - new Date(a.date))
-                      .map((comment) => {
-                        return (
-                          <div key={comment._id}>
-                            <div className="singleCommentHeader">
-                              {comment.author && (
-                                <>
-                                  <img
-                                    style={{
-                                      width: "7%",
-                                      borderRadius: "50%",
-                                    }}
-                                    src={comment.author.user_image}
-                                    alt={comment.author.username}
-                                  />
-                                  <p>{comment.author.username}</p>
-                                </>
-                              )}
-                              <p>{formatDateAndTime(comment.date)}</p>
-                            </div>
-                            <div className="commentBody">
-                              <p className="commentMsg">{comment.message}</p>
-                              {user && user.email === comment.author?.email && (
-                                <button
-                                  className="deleteIcon"
-                                  onClick={() => {
-                                    handleDeleteComment(comment._id);
-                                  }}
-                                >
-                                  <i className="fa fa-trash"></i>
-                                </button>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      })}
-                </div>
-              );
-            })
-          ) : (
-            <p>Be the first one to leave a comment</p>
-          )}
-        </div>
-        <hr />
+        </form>
       </div>
+      <br />
+
+      {experiences && experiences.length > 0 ? (
+        experiences.map((experience) => {
+          return (
+            <div key={experience._id}>
+              {experience._id === experienceID &&
+                experience.comments
+                  ?.slice()
+                  .sort((a, b) => new Date(b.date) - new Date(a.date))
+                  .map((comment) => {
+                    return (
+                      <div className="singleComment" key={comment._id}>
+                        <div className="singleCommentHeader">
+                          {comment.author && (
+                            <>
+                              <img
+                                style={{
+                                  width: "7%",
+                                  borderRadius: "50%",
+                                }}
+                                src={comment.author.user_image}
+                                alt={comment.author.username}
+                              />
+                              <p>{comment.author.username}</p>
+                            </>
+                          )}
+                          <p>{formatDate(comment.date)}</p>
+                        </div>
+                        <div className="commentBody">
+                          <p className="commentMsg">{comment.message}</p>
+                          {user && user.email === comment.author?.email && (
+                            <button
+                              className="deleteIcon"
+                              onClick={() => {
+                                handleDeleteComment(comment._id);
+                              }}
+                            >
+                              <i className="fa fa-trash"></i>
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+            </div>
+          );
+        })
+      ) : (
+        <p>Be the first one to leave a comment</p>
+      )}
+      <hr />
     </div>
   );
 }

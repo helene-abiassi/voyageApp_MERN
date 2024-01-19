@@ -5,9 +5,6 @@
 //TODO - Build database
 //TODO - Debug bookmarks
 
-EXPERIENCE DETAILS PAGE:
-//TODO - Fix comments CSS
-
 POST EXPERIENCE PAGE:
 //TODO - Add letter counter to title + body and character restriction
 

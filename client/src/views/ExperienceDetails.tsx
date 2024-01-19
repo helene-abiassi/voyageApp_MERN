@@ -63,17 +63,7 @@ function ExperienceDetails() {
     setIsBookmarked(!isBookmarked);
   };
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const plusSlides = (n: number) => {
-    setCurrentSlide(
-      (prevSlide) => (prevSlide + n + photo_body.length) % photo_body.length
-    );
-  };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [fetchExperiences, experience, experience.comments]);
+  useEffect(() => {}, [fetchExperiences, experience, experience.comments]);
 
   return (
     <div>
@@ -205,6 +195,7 @@ function ExperienceDetails() {
           </div>
         </div>
       </div>
+      <br />
       <br />
       {/* COMMENTS */}
       <Comments comments={experience.comments} _id={experience._id} />
