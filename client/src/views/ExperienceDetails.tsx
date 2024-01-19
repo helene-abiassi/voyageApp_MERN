@@ -15,7 +15,7 @@ function ExperienceDetails() {
   const location = useLocation();
   const { experience } = location.state;
 
-  const { _id, bookmarked_by } = experience as Experience;
+  const { _id, bookmarked_by, photo_body } = experience as Experience;
 
   const { user } = useContext(AuthContext);
   const {
@@ -63,10 +63,21 @@ function ExperienceDetails() {
     setIsBookmarked(!isBookmarked);
   };
 
-  useEffect(() => {}, [fetchExperiences, experience, experience.comments]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const plusSlides = (n: number) => {
+    setCurrentSlide(
+      (prevSlide) => (prevSlide + n + photo_body.length) % photo_body.length
+    );
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [fetchExperiences, experience, experience.comments]);
 
   return (
     <div>
+      <br />
       <div className="detailsPage">
         {/* HEADER BUTTON */}
         <div className="detailsHeader">
@@ -77,16 +88,37 @@ function ExperienceDetails() {
         <div className="expDetails">
           {/* AUTHOR BIO */}
 
+          <div className="expAuthorCard">
+            <h2>story by</h2>
+            <div className="photoRow">
+              <img
+                style={{
+                  width: "36%",
+                  borderRadius: "50%",
+                }}
+                src={experience.author.user_image}
+                alt={experience.author.username}
+              />
+              <h4>{experience.author.username}</h4>
+            </div>
+            <p>{experience.author.bio}</p>
+            <p>member since: {formatDate(experience.author.member_since)}</p>
+          </div>
           {/* EXPERIENCE CARD */}
           <div className="detailsSection">
-            <img
-              style={{ width: "50%", height: "50%" }}
-              src={experience.photo}
-              alt=""
-            />
+            <div className="photoCard">
+              <img
+                style={{ width: "100%", borderRadius: "10px" }}
+                src={experience.photo}
+                alt=""
+              />
+              <p style={{ borderRadius: "1px", fontSize: "13pt" }}>
+                posted on {formatDate(experience.publication_date)}
+              </p>
+            </div>
 
             <div className="textBox">
-              <div>
+              <div style={{ marginTop: "-20px" }}>
                 {user?.email === experience.author.email && (
                   <button
                     className="deleteIcon"
@@ -114,7 +146,8 @@ function ExperienceDetails() {
                 )}
               </div>
               <div className="row">
-                <p>posted on {formatDate(experience.publication_date)}</p>
+                <p style={{ width: "80%" }}>{experience.caption}</p>
+
                 <div className="bookmarkSet">
                   <button
                     className="bookIcon"
@@ -134,7 +167,6 @@ function ExperienceDetails() {
                   </button>
                 </div>
               </div>{" "}
-              <p>{experience.caption}</p>
               <hr />
               <div className="row">
                 <p>
@@ -151,29 +183,25 @@ function ExperienceDetails() {
               </div>
               <hr />
               <p>{experience.text_body}</p>
-              {experience.photo_body.map((photo: string, idPhoto: number) => {
-                return (
-                  <div className="photoAlbum" key={idPhoto}>
-                    <img style={{ width: "20%" }} src={photo} alt="" />
-                  </div>
-                );
-              })}
+              <div className="photoRow slideshow-container">
+                {experience.photo_body.map((photo: string, idPhoto: number) => {
+                  return (
+                    <>
+                      <div className={`mySlides fade`}>
+                        <img
+                          key={idPhoto}
+                          style={{ width: "100%", height: "100%" }}
+                          src={photo}
+                          alt=""
+                        />
+                      </div>
+                    </>
+                  );
+                })}
+
+                <br />
+              </div>
             </div>
-          </div>
-          <div className="expAuthorCard">
-            <h2>story by</h2>
-            <img
-              style={{
-                width: "36%",
-                marginLeft: "70px",
-                borderRadius: "50%",
-              }}
-              src={experience.author.user_image}
-              alt={experience.author.username}
-            />
-            <h4>{experience.author.username}</h4>
-            <p>{experience.author.bio}</p>
-            <p>member since: {formatDate(experience.author.member_since)}</p>
           </div>
         </div>
       </div>

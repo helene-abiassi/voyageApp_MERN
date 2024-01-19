@@ -2,6 +2,7 @@
 
 p {
   font-weight: 400;
+  padding: 0.5rem;
 }
 
 .detailsPage {
@@ -21,26 +22,33 @@ p {
   margin: 0;
 }
 
+h2 {
+  text-align: center !important;
+}
+
 .expDetails {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  justify-content: center;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  grid-template-columns: 400px 3fr 200px;
 }
 
 .expAuthorCard {
   border-radius: 10px;
   background-color: #fa9397;
-  /* padding: 1rem; */
+  margin-right: 2rem;
+  margin-left: 1rem;
+  text-align: left !important;
+  padding: 0.5rem;
   text-align: center;
   position: relative;
   top: 10px;
   right: 10px;
   height: max-content;
-
   width: 20rem;
   box-shadow: 20px 20px #b1d573;
+}
+
+.detailsSection {
+  width: 50rem;
 }
 
 .textBox {
@@ -56,4 +64,16 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.photoRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.slideshow-container {
+  max-width: 50rem;
+  position: relative;
+  margin: auto;
 }
