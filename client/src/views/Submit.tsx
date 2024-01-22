@@ -11,6 +11,10 @@ function Submit() {
         <h1>submit your story</h1>
       </div>
       <SubmitExperience />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

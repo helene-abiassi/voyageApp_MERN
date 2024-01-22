@@ -32,7 +32,7 @@ function App() {
       <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
         <Route index element={<Home />} />
         <Route path="experiences" element={<ExpLayout />}>
-          <Route path="all" element={<Experiences />} />
+          {/* <Route path="all" element={<Experiences />} /> */}
           <Route path=":experienceType" element={<Experiences />} />
         </Route>
 

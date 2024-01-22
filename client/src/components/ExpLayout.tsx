@@ -84,15 +84,9 @@ function ExpLayout() {
       return;
     }
 
-    let tempExperiences;
-
-    if (experienceType === "all") {
-      tempExperiences = experiences;
-    } else {
-      tempExperiences = experiences.filter(
-        (experience) => experience.experienceType === experienceType
-      );
-    }
+    const tempExperiences = experiences.filter(
+      (experience) => experience.experienceType === experienceType
+    );
 
     setFilteredExperiences(tempExperiences);
   };
@@ -131,10 +125,11 @@ function ExpLayout() {
         <Outlet />
 
         <div className="storyCards">
-          {filteredExperiences && filteredExperiences.length === 0 && (
+          {/* {filteredExperiences && filteredExperiences.length === 0 ? (
             <h2>No encounters found.</h2>
-          )}
-
+          ) : experiences && experiences.length === 0 ? (
+            <h2>No encounters found.</h2>
+          ) : null} */}
           {isLoading ? (
             <Loader />
           ) : filteredExperiences && filteredExperiences.length > 0 ? (
@@ -146,11 +141,18 @@ function ExpLayout() {
                 />
               </div>
             ))
+          ) : experiences && experiences.length > 0 ? (
+            experiences.map((experience, expID) => (
+              <div key={expID}>
+                <ExpCards
+                  key={"1" + experience.publication_date}
+                  experience={experience}
+                />
+              </div>
+            ))
           ) : (
             <div>
-              {!filteredExperiences ? (
-                <h2>...something went wrong...</h2>
-              ) : null}
+              {!experiences ? <h2>...something went wrong...</h2> : null}
             </div>
           )}
         </div>

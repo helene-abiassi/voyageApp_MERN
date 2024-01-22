@@ -24,17 +24,29 @@ function Signup() {
           user_image: "",
         },
         title: "",
+        location: {
+          city: "",
+          country: "",
+        },
         publication_date: Date(),
         photo: "",
       },
     ],
     submissions: [
       {
-        id: "",
-        author: "",
+        _id: "",
+        author: {
+          _id: "",
+          username: "",
+          user_image: "",
+        },
         title: "",
         publication_date: Date(),
         photo: "",
+        location: {
+          city: "",
+          country: "",
+        },
       },
     ],
   });
@@ -212,8 +224,12 @@ function Signup() {
                 name="bio"
                 type="text"
                 maxLength={250}
+                style={{
+                  marginRight: "1rem",
+                  minHeight: "10rem",
+                  minWidth: "18rem",
+                }}
               />
-              <p>include letter counter</p>
             </div>
           </div>
           <br />

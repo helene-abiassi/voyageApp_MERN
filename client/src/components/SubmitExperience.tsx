@@ -139,6 +139,7 @@ function SubmitExperience() {
 
     if (!isLoggedIn) {
       console.error("You need to log in first");
+      alert("You need to log in first");
       return;
     }
 
@@ -189,104 +190,142 @@ function SubmitExperience() {
     <div>
       <div className="inputColorBox">
         <form onSubmit={handleDisplayPhotoSubmit}>
-          photo*
-          <input onChange={handlePhotoInput} name="photo" type="file" />
-          <button className="nakdButton" type="submit">
-            upload
-          </button>
+          <div className="formColumn">
+            <div className="formRow">
+              <span style={{ marginRight: "1rem" }}>photo*</span>
+              <input onChange={handlePhotoInput} name="photo" type="file" />
+            </div>
+            <button className="nakdButton" type="submit">
+              upload
+            </button>
+          </div>
         </form>
-        <br />
         <form onSubmit={handlePhotoAlbumSubmit}>
-          photo album
-          <input
-            onChange={handlePhotoAlbumInput}
-            multiple
-            name="photo_body"
-            type="file"
-          />
-          <button className="nakdButton" type="submit">
-            upload
-          </button>
-          <p>{"{you can upload up to 4 photos}"}</p>
+          <div className="formColumn">
+            <div className="formRow">
+              <span style={{ marginRight: "1rem" }}>photo album (up to 4)</span>
+              <input
+                onChange={handlePhotoAlbumInput}
+                multiple
+                name="photo_body"
+                type="file"
+              />
+            </div>
+            <button className="nakdButton" type="submit">
+              upload
+            </button>
+          </div>
         </form>
-        <br />
         <form onSubmit={handleSubmitExperience}>
-          <br />
-          <label htmlFor="title">title*</label>
-          <input onChange={handleFormInput} name="title" type="text" required />
-          <br />
-          <br />
-          <label htmlFor="caption">caption*</label>
-          <input
-            onChange={handleFormInput}
-            name="caption"
-            type="text"
-            required
-          />
-          <br />
-          <br />
-          <label htmlFor="country">country*</label>
-          <input
-            onChange={handleLocationInput}
-            name="country"
-            type="text"
-            required
-          />
-          <br />
-          <br />
-          <label htmlFor="city">city*</label>
-          <input
-            onChange={handleLocationInput}
-            name="city"
-            type="text"
-            required
-          />
-          <br />
-          <br />
-          <label htmlFor="longitude">longitude*</label>
-          <input
-            onChange={handleLocationInput}
-            name="longitude"
-            type="text"
-            required
-          />
-          <br />
-          <br />
-          <label htmlFor="latitude">latitude*</label>
-          <input
-            onChange={handleLocationInput}
-            name="latitude"
-            type="text"
-            required
-          />
-          <br />
-          <br />
-          <label htmlFor="experienceType">experience type*</label>
-          <select
-            onChange={handleTypeInput}
-            id="experienceType"
-            name="experienceType"
-            value={newExperience.experienceType}
-            required
-          >
-            <option value="search">Search</option>
-            <option value="hiking">hiking</option>
-            <option value="faunaflora">fauna & flora</option>
-            <option value="wildlife">wildlife</option>
-            <option value="citywalk">citywalk</option>
-          </select>
-          <br />
-          <br />
-          <label htmlFor="story">story*</label>
-          <input
-            name="text_body"
-            onChange={handleFormInput}
-            id="textInput"
-            type="text"
-            placeholder="Tell us your experience here..."
-            required
-          />
-          <br />
+          <div className="formColumn">
+            <div className="formRow">
+              <label style={{ marginRight: "1rem" }} htmlFor="title">
+                title*
+              </label>
+              <input
+                onChange={handleFormInput}
+                name="title"
+                type="text"
+                required
+              />
+            </div>
+            <div className="formRow">
+              <label style={{ marginRight: "1rem" }} htmlFor="caption">
+                caption*
+              </label>
+              <input
+                onChange={handleFormInput}
+                name="caption"
+                type="text"
+                required
+              />
+            </div>
+          </div>
+          <div className="formColumn">
+            <div className="formRow">
+              <label style={{ marginRight: "1rem" }} htmlFor="country">
+                country*
+              </label>
+              <input
+                onChange={handleLocationInput}
+                name="country"
+                type="text"
+                required
+              />
+            </div>
+            <div className="formRow">
+              <label style={{ marginRight: "1rem" }} htmlFor="city">
+                city*
+              </label>
+              <input
+                onChange={handleLocationInput}
+                name="city"
+                type="text"
+                required
+              />
+            </div>
+          </div>
+          <div className="formColumn">
+            <div className="formRow">
+              <label style={{ marginRight: "1rem" }} htmlFor="longitude">
+                longitude*
+              </label>
+              <input
+                onChange={handleLocationInput}
+                name="longitude"
+                type="text"
+                required
+              />
+            </div>
+            <div className="formRow">
+              <label style={{ marginRight: "1rem" }} htmlFor="latitude">
+                latitude*
+              </label>
+              <input
+                onChange={handleLocationInput}
+                name="latitude"
+                type="text"
+                required
+              />
+            </div>
+          </div>
+          <div className="formColumn">
+            <div className="formRow">
+              <label style={{ marginRight: "1rem" }} htmlFor="story">
+                story*
+              </label>
+              <input
+                style={{
+                  marginRight: "1rem",
+                  minHeight: "10rem",
+                }}
+                name="text_body"
+                onChange={handleFormInput}
+                id="textInput"
+                type="text"
+                placeholder="Tell us your experience here..."
+                required
+              />
+            </div>
+            <div className="formRow">
+              <label style={{ marginRight: "1rem" }} htmlFor="experienceType">
+                experience type*
+              </label>
+              <select
+                onChange={handleTypeInput}
+                id="experienceType"
+                name="experienceType"
+                value={newExperience.experienceType}
+                required
+              >
+                <option value="search">Search</option>
+                <option value="hiking">hiking</option>
+                <option value="faunaflora">fauna & flora</option>
+                <option value="wildlife">wildlife</option>
+                <option value="citywalk">citywalk</option>
+              </select>
+            </div>
+          </div>
           <br />
           <button className="formButton" type="submit">
             submit

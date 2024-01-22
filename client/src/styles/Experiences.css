@@ -4,7 +4,7 @@
   border-radius: 10px;
   background: #efcb59;
   box-shadow: 20px 20px #fa9397;
-  padding: 20px;
+  padding: 2rem;
   min-width: 600px;
   min-height: 500px;
 }
@@ -144,4 +144,25 @@
   left: 0;
   display: flex;
   align-items: center;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.formRow input {
+  width: 250px !important;
+  word-wrap: break-word !important;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }

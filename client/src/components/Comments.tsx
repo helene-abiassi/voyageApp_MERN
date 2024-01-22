@@ -5,6 +5,7 @@ import { formatDate } from "./Functions";
 import { ExperiencesContext } from "../context/ExperiencesContext";
 import "../styles/Comments.css";
 import { IoIosSend } from "react-icons/io";
+import Modal from "./Modal";
 
 type CommentsProps = {
   comments: CommentsType[];
@@ -30,6 +31,12 @@ function Comments({ comments, _id }: CommentsProps) {
   });
   const [commments, setUpdatedComments] = useState<CommentsType[] | null>(null);
   const [textInput, setTextInput] = useState("");
+
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const handleLoginModal = () => {
+    setShowLoginModal(false);
+  };
 
   const handleNewComments = (e: ChangeEvent<HTMLInputElement>) => {
     setTextInput(e.target.value);
@@ -61,7 +68,7 @@ function Comments({ comments, _id }: CommentsProps) {
 
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("You need to log in first!");
+      setShowLoginModal(true);
     }
 
     if (token) {
@@ -148,7 +155,7 @@ function Comments({ comments, _id }: CommentsProps) {
 
   useEffect(() => {
     fetchComments();
-  }, [user, experienceID]);
+  }, [user, experienceID, comments]);
 
   return (
     <div className="commentsSection">
@@ -235,6 +242,10 @@ function Comments({ comments, _id }: CommentsProps) {
         <p>Be the first one to leave a comment</p>
       )}
       <hr />
+
+      {showLoginModal && (
+        <Modal message="You need to log in first!" onClose={handleLoginModal} />
+      )}
     </div>
   );
 }

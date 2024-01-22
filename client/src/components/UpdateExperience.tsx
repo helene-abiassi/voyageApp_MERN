@@ -221,86 +221,108 @@ function UpdateExperience() {
   return (
     <div className="inputColorBox">
       <form onSubmit={handleUpdatedPhotoSubmit}>
-        <label htmlFor="photo">photo</label>
-        <input onChange={handlePhotoInputChange} name="photo" type="file" />
-        <button type="submit">upload</button>
+        <div className="formColumn">
+          <div className="formRow">
+            <label htmlFor="photo">photo</label>
+            <input onChange={handlePhotoInputChange} name="photo" type="file" />
+          </div>
+          <button type="submit">upload</button>
+        </div>
       </form>
 
       <form onSubmit={handleUpdateExperience}>
         <br />
-        <label htmlFor="title">title:</label>
-        <input
-          onChange={handleInputChange}
-          value={updatedExperience.title || existingExperience?.title || ""}
-          name="title"
-          type="text"
-        />
-        <br />
-        <br />
-        <label htmlFor="caption">caption:</label>
-        <input
-          onChange={handleInputChange}
-          value={updatedExperience.caption || existingExperience?.caption || ""}
-          name="caption"
-          type="text"
-        />
-        <br />
-        <br />
-        <label htmlFor="city">city:</label>
-        <input
-          onChange={handleLocationInputChange}
-          value={
-            updatedExperience.location.city ||
-            existingExperience?.location.city ||
-            ""
-          }
-          name="city"
-          type="text"
-        />
-        <br />
-        <br />
-        <label htmlFor="country">country:</label>
-        <input
-          onChange={handleLocationInputChange}
-          value={
-            updatedExperience.location.country ||
-            existingExperience?.location.country ||
-            ""
-          }
-          name="country"
-          type="text"
-        />
-        <br />
-        <br />
-        <label htmlFor="experienceType">experience type:</label>
-        <select
-          onChange={handleTypeInputChange}
-          id="experienceType"
-          name="experienceType"
-          value={
-            updatedExperience.experienceType ||
-            existingExperience?.experienceType ||
-            ""
-          }
-        >
-          <option value="search">Search</option>
-          <option value="hiking">hiking</option>
-          <option value="faunaflora">fauna & flora</option>
-          <option value="wildlife">wildlife</option>
-          <option value="citywalk">citywalk</option>
-        </select>
-        <br />
-        <br />
-        <label htmlFor="story">story:</label>
-        <input
-          name="text_body"
-          onChange={handleInputChange}
-          value={
-            updatedExperience.text_body || existingExperience?.text_body || ""
-          }
-          id="textInput"
-          type="text"
-        />
+        <div className="formColumn">
+          <div className="formRow">
+            <label htmlFor="title">title:</label>
+            <input
+              onChange={handleInputChange}
+              value={updatedExperience.title || existingExperience?.title || ""}
+              name="title"
+              type="text"
+            />
+          </div>
+          <div className="formRow">
+            <label htmlFor="caption">caption:</label>
+            <input
+              onChange={handleInputChange}
+              value={
+                updatedExperience.caption || existingExperience?.caption || ""
+              }
+              name="caption"
+              type="text"
+            />
+          </div>
+        </div>
+
+        <div className="formColumn">
+          <div className="formRow">
+            <label htmlFor="city">city:</label>
+            <input
+              onChange={handleLocationInputChange}
+              value={
+                updatedExperience.location.city ||
+                existingExperience?.location.city ||
+                ""
+              }
+              name="city"
+              type="text"
+            />
+          </div>
+          <div className="formRow">
+            <label htmlFor="country">country:</label>
+            <input
+              onChange={handleLocationInputChange}
+              value={
+                updatedExperience.location.country ||
+                existingExperience?.location.country ||
+                ""
+              }
+              name="country"
+              type="text"
+            />
+          </div>
+        </div>
+
+        <div className="formColumn">
+          <div className="formRow">
+            <label htmlFor="story">story:</label>
+            <input
+              name="text_body"
+              onChange={handleInputChange}
+              style={{
+                marginRight: "1rem",
+                minHeight: "10rem",
+              }}
+              value={
+                updatedExperience.text_body ||
+                existingExperience?.text_body ||
+                ""
+              }
+              id="textInput"
+              type="text"
+            />
+          </div>
+          <div className="formRow">
+            <label htmlFor="experienceType">experience type:</label>
+            <select
+              onChange={handleTypeInputChange}
+              id="experienceType"
+              name="experienceType"
+              value={
+                updatedExperience.experienceType ||
+                existingExperience?.experienceType ||
+                ""
+              }
+            >
+              <option value="search">Search</option>
+              <option value="hiking">hiking</option>
+              <option value="faunaflora">fauna & flora</option>
+              <option value="wildlife">wildlife</option>
+              <option value="citywalk">citywalk</option>
+            </select>
+          </div>
+        </div>
         <br />
         <button className="formButton" type="submit">
           submit

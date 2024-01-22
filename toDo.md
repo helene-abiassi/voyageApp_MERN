@@ -1,17 +1,16 @@
-//TODO - Add loader to all pages + navbar
-//TODO - Replace all alerts with Modal
 //TODO - Replace all window.confirm with Modal
-//TODO - Add responsiveness
 //TODO - Build database (all expTypes)
-//TODO - Debug bookmarks
-
-UPDATE EXPERIENCE PAGE:
-//TODO - Fix css
 
 PROFILE PAGE:
 //TODO - Fix css
 
 UPDATE PROFILE PAGE:
+//TODO - Fix css
+
+LOGIN PAGE:
+//TODO - Fix css
+
+SIGNUP PAGE:
 //TODO - Fix css
 
 MAP PAGE:

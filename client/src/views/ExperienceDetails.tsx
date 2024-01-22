@@ -7,9 +7,9 @@ import { formatDate } from "../components/Functions";
 import { AuthContext } from "../context/AuthContext";
 import { Experience } from "../types/customTypes";
 import { ExperiencesContext } from "../context/ExperiencesContext";
-import { FiMapPin } from "react-icons/fi";
 import { SlMap } from "react-icons/sl";
 import { FaHiking } from "react-icons/fa";
+import Modal from "../components/Modal";
 
 function ExperienceDetails() {
   const location = useLocation();
@@ -32,6 +32,20 @@ function ExperienceDetails() {
 
   const navigateTo = useNavigate();
 
+  const [showAddBookmarkModal, setShowAddBookmarkModal] = useState(false);
+  const [showRemoveBookmarkModal, setShowRemoveBookmarkModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const handleAddBookmarkCloseModal = () => {
+    setShowAddBookmarkModal(false);
+  };
+  const handleRemoveBookmarkCloseModal = () => {
+    setShowRemoveBookmarkModal(false);
+  };
+  const handleLoginModal = () => {
+    setShowLoginModal(false);
+  };
+
   const handleDeleteExperience = async (experienceID: string) => {
     deleteExperience(experienceID);
     navigateTo("/experiences");
@@ -49,15 +63,15 @@ function ExperienceDetails() {
 
   const handleBookmarkClick = (experienceID: string) => {
     if (!user) {
-      alert("You need to log in first!");
+      setShowLoginModal(true);
       return;
     }
     if (isBookmarked) {
       handleremoveBookmark(experienceID);
-      alert("Removed from bookmarks!");
+      setShowRemoveBookmarkModal(true);
     } else {
       handleBookmarkExperience(experienceID);
-      alert("Added to bookmarks!");
+      setShowAddBookmarkModal(true);
     }
     fetchExperiences();
     setIsBookmarked(!isBookmarked);
@@ -206,6 +220,21 @@ function ExperienceDetails() {
       <br />
       <br />
       <br />
+      {showAddBookmarkModal && (
+        <Modal
+          message="Added to bookmarks!"
+          onClose={handleAddBookmarkCloseModal}
+        />
+      )}
+      {showRemoveBookmarkModal && (
+        <Modal
+          message="Removed from bookmarks!"
+          onClose={handleRemoveBookmarkCloseModal}
+        />
+      )}
+      {showLoginModal && (
+        <Modal message="You need to log in first!" onClose={handleLoginModal} />
+      )}
     </div>
   );
 }
