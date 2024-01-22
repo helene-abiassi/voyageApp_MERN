@@ -182,20 +182,8 @@ function Signup() {
         </div>
         <br />
         <form className="infoForm" onSubmit={handleSubmitRegister}>
-          <div className="inputContainer">
-            <label htmlFor="username">username*</label>
-            <input
-              placeholder="choose username..."
-              onChange={handleRegisterInput}
-              name="username"
-              type="text"
-              style={{ maxWidth: "200px" }}
-              required
-            />
-          </div>
-          <br />
-
-          <div className="pswEmailBox">
+          {/* <div className="pswEmailBox"> */}
+          <div className="formColumnLogup">
             <div className="inputContainer">
               <label htmlFor="email">e-mail*</label>
               <input
@@ -205,9 +193,7 @@ function Signup() {
                 type="text"
                 required
               />
-              <p>* required</p>
             </div>
-            <br />
             <div className="inputContainer">
               <label htmlFor="password">password*</label>
               <input
@@ -217,7 +203,23 @@ function Signup() {
                 type={passwordType}
                 required
               />
-
+            </div>
+          </div>
+          <br />
+          <div className="formColumnLogup">
+            <div className="inputContainer">
+              <label htmlFor="username">username*</label>
+              <input
+                placeholder="choose username..."
+                onChange={handleRegisterInput}
+                name="username"
+                type="text"
+                style={{ maxWidth: "200px" }}
+                required
+              />
+              <p>* required</p>
+            </div>
+            <div className="inputContainer">
               <label htmlFor="bio">Tell us a little bit about yourself</label>
               <input
                 onChange={handleRegisterInput}
@@ -232,7 +234,8 @@ function Signup() {
               />
             </div>
           </div>
-          <br />
+
+          {/* </div> */}
           <button className="nakdButton" type="submit">
             sign up
           </button>

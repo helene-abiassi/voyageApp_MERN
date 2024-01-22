@@ -43,14 +43,41 @@ input {
   font-weight: 400;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.inputContainer input {
+  width: 250px !important;
+  word-wrap: break-word !important;
+}
+
+.formColumnLogup {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start
+  justify-content: space-between;
 }
 
 .hide-password {
   position: relative;
-  top: -43px;
-  left: 180px;
-  color: #242424;
+  top: -373px;
+  left: 620px;
+  color: white;
+  background-color:black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide-passwordLogin {
+  position: relative;
+  top: -200px;
+  left: 620px;
+  color: white;
+  background-color:black;
   display: flex;
   justify-content: center;
   align-items: center;

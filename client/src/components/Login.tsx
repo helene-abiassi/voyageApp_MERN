@@ -108,8 +108,10 @@ function Login() {
           src="https://res.cloudinary.com/dfm1r4ikr/image/upload/v1698010076/voyageApp/logo-variations-01_atukuy.png"
           alt=""
         />
+        <br />
+        <br />
         <form className="infoForm" onSubmit={handleSubmitLogin}>
-          <div className="pswEmailBoxL">
+          <div className="formColumnLogup">
             <div className="inputContainer">
               <label htmlFor="email">e-mail*</label>
               <input
@@ -121,7 +123,6 @@ function Login() {
               />
               <p>* required</p>
             </div>
-            <br />
             <div className="inputContainer">
               <label htmlFor="password">password*</label>
               <input
@@ -133,14 +134,13 @@ function Login() {
               />
             </div>
           </div>
-          <br />
           <button className="nakdButton" type="submit">
             log in
           </button>
         </form>
         <button
           onClick={changePasswordType}
-          className="hide-password formButton"
+          className="hide-passwordLogin formButton"
           style={{ cursor: "pointer" }}
         >
           {showOrHide}
@@ -153,6 +153,10 @@ function Login() {
           </Link>
         </p>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }

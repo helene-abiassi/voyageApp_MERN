@@ -9,6 +9,10 @@ function SignUp() {
     <div>
       <h1>sign up</h1>
       <Signup />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

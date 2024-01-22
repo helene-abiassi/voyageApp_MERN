@@ -1,6 +1,5 @@
 import { ReactNode, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import Loader from "./Loader";
 import { Link } from "react-router-dom";
 
 interface ProtectedRouteProp {
@@ -8,13 +7,11 @@ interface ProtectedRouteProp {
 }
 
 function ProtectedRoute({ children }: ProtectedRouteProp) {
-  const { isLoading, user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : user ? (
+      {user ? (
         children
       ) : (
         <div>

@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import Loader from "./Loader";
 
 function NavBar() {
-  const { user, isLoggedIn, isLoading } = useContext(AuthContext);
+  const { user, isLoggedIn } = useContext(AuthContext);
 
   return (
     <>
@@ -28,9 +27,7 @@ function NavBar() {
         </div>
 
         <div style={{ cursor: "pointer" }} className="navRight">
-          {isLoading ? (
-            <span style={{ opacity: "0" }}>profile</span>
-          ) : user ? (
+          {user ? (
             <NavLink to="/profile">profile</NavLink>
           ) : (
             <>
