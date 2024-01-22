@@ -16,9 +16,6 @@ import Experiences from "./views/Experiences";
 import Map from "./views/Map";
 import ErrorPage from "./views/ErrorPage";
 import ExperienceDetails from "./views/ExperienceDetails";
-import Wildlife from "./views/ExperienceTypes/Wildlife";
-import Hiking from "./views/ExperienceTypes/Hiking";
-import Roadtrips from "./views/ExperienceTypes/Roadtrips";
 import ExpLayout from "./components/ExpLayout";
 import Profile from "./views/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -28,9 +25,6 @@ import { AuthContextProvider } from "./context/AuthContext";
 import ExperienceWithCHook from "./components/ExperienceWithCHook";
 import Update from "./views/Update";
 import UpdateProfileView from "./views/UpdateProfile";
-import Citywalks from "./views/ExperienceTypes/Citywalks";
-import Scenery from "./views/ExperienceTypes/Scenery";
-import FaunaFlora from "./views/ExperienceTypes/FaunaFlora";
 
 function App() {
   const router = createBrowserRouter(
@@ -38,6 +32,7 @@ function App() {
       <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
         <Route index element={<Home />} />
         <Route path="experiences" element={<ExpLayout />}>
+          <Route path="all" element={<Experiences />} />
           <Route path=":experienceType" element={<Experiences />} />
         </Route>
 

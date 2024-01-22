@@ -1,12 +1,9 @@
-//TODO - Add loader to all pages
+//TODO - Add loader to all pages + navbar
 //TODO - Replace all alerts with Modal
 //TODO - Replace all window.confirm with Modal
 //TODO - Add responsiveness
-//TODO - Build database
+//TODO - Build database (all expTypes)
 //TODO - Debug bookmarks
-
-POST EXPERIENCE PAGE:
-//TODO - Add letter counter to title + body and character restriction
 
 UPDATE EXPERIENCE PAGE:
 //TODO - Fix css
@@ -21,3 +18,4 @@ MAP PAGE:
 //TODO - Fix css
 //TODO - Fix map layout and zoom
 //TODO - Add popup cards + redirection
+//TODO - Change redirection in details to madal with map

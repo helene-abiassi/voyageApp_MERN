@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import Loader from "./Loader";
 
 function NavBar() {
-  const { user, isLoggedIn } = useContext(AuthContext);
+  const { user, isLoggedIn, isLoading } = useContext(AuthContext);
 
   return (
     <>
@@ -19,7 +20,7 @@ function NavBar() {
           </NavLink>
         </div>
         <div style={{ cursor: "pointer" }} className="navMiddle">
-          <NavLink to="/experiences/all">experiences</NavLink>
+          <NavLink to="/experiences">experiences</NavLink>
           <span> | </span>
           <NavLink to="/map">map</NavLink>
           <span> | </span>
@@ -27,7 +28,9 @@ function NavBar() {
         </div>
 
         <div style={{ cursor: "pointer" }} className="navRight">
-          {user ? (
+          {isLoading ? (
+            <span style={{ opacity: "0" }}>profile</span>
+          ) : user ? (
             <NavLink to="/profile">profile</NavLink>
           ) : (
             <>

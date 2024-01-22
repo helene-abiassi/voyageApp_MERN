@@ -27,9 +27,7 @@
 }
 
 .mainBodyExp {
-  /* height: 180rem; */
   background-image: linear-gradient(#fa9397, #efcb59);
-  /* background-size: contain !important; */
   width: 100%;
   min-width: 100%;
   min-height: 100%;

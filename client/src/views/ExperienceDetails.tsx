@@ -98,7 +98,11 @@ function ExperienceDetails() {
           <div className="detailsSection">
             <div className="photoCard">
               <img
-                style={{ width: "100%", borderRadius: "10px" }}
+                style={{
+                  width: "97.5%",
+                  borderRadius: "10px",
+                  border: "10px solid #d7c6ac",
+                }}
                 src={experience.photo}
                 alt=""
               />
@@ -199,6 +203,9 @@ function ExperienceDetails() {
       <br />
       {/* COMMENTS */}
       <Comments comments={experience.comments} _id={experience._id} />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

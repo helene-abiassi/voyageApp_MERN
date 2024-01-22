@@ -191,17 +191,24 @@ function Comments({ comments, _id }: CommentsProps) {
                       <div className="singleComment" key={comment._id}>
                         <div className="singleCommentHeader">
                           {comment.author && (
-                            <>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                height: "3rem",
+                              }}
+                            >
                               <img
                                 style={{
-                                  width: "7%",
+                                  height: "100%",
                                   borderRadius: "50%",
+                                  marginRight: "1rem",
                                 }}
                                 src={comment.author.user_image}
                                 alt={comment.author.username}
                               />
                               <p>{comment.author.username}</p>
-                            </>
+                            </div>
                           )}
                           <p>{formatDate(comment.date)}</p>
                         </div>
