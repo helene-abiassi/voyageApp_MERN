@@ -3,28 +3,12 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { ExperiencesContext } from "../context/ExperiencesContext";
 import "../styles/Map.css";
 import LocationMarker from "../assets/marker.png";
+import { Link } from "react-router-dom";
 
 function LeafletMap() {
   const { experiences } = useContext(ExperiencesContext);
-  const [location, setLocation] = useState([0, 0]);
-
-  useEffect(() => {
-    geoLocation();
-  }, []);
-
-  const geoLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      alert("Cannot display location");
-    }
-  };
-
-  const showPosition = (position) => {
-    const { longitude, latitude } = position.coords;
-    const positionArray = [latitude, longitude];
-    setLocation(positionArray);
-  };
+  const [position, setPosition] = useState([]);
+  const positions = [52.52, 13.405];
 
   const customIcon = new L.Icon({
     iconUrl: LocationMarker,
@@ -34,17 +18,21 @@ function LeafletMap() {
 
   return (
     <div className="main-container">
-      <div className="general-map-card">
+      <span className="general-map-card">
+        {experiences && experiences.length === 0 ? (
+          <p>
+            {" "}
+            There are currently {experiences.length} experiences across the
+            world.
+          </p>
+        ) : (
+          <p></p>
+        )}
         <MapContainer
-          center={[51.1657, 10.4515]}
-          zoom={4}
+          center={positions}
+          zoom={8}
           scrollWheelZoom={false}
-          // style={{ height: "500px", width: "100%" }}
-          maxBounds={[
-            [35.0, -25.0],
-            [72.0, 40.0],
-          ]}
-          maxBoundsViscosity={1.0}
+          //   style={{ height: "61vh" }}
           id="map-container"
         >
           <TileLayer
@@ -52,27 +40,39 @@ function LeafletMap() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {experiences &&
-            experiences?.map((experience, index) => (
+            experiences.map((experience, index) => (
               <Marker
-                key={index}
-                position={[
-                  experience.location.latitude,
-                  experience.location.longitude,
-                ]}
                 icon={customIcon}
+                key={index}
+                // position={[
+                //   experience.location.latitude,
+                //   experience.location.longitude,
+                // ]}
+                position={positions}
+                // icon={
+                //   new Icon({
+                //     iconUrl: LocationMarker,
+                //     iconSize: [30, 35],
+                //     iconAnchor: [12, 31],
+                //   })
+                // }
               >
-                <div className="general-map-popup">
-                  <Popup>
-                    <p>{experience.title}</p>
-                  </Popup>
-                </div>
+                {/* className="general-map-popup" */}
+                <Popup>
+                  <Link to={"/" + experience._id}>
+                    <p id="popup-text">{experience.title}</p>
+                  </Link>
+                  <br />
+                  <img
+                    src={experience.photo}
+                    alt="Encounter"
+                    id="popup-image"
+                  />{" "}
+                </Popup>
               </Marker>
             ))}
-          <Marker position={location}>
-            <Popup>Your current location</Popup>
-          </Marker>
         </MapContainer>
-      </div>
+      </span>
     </div>
   );
 }

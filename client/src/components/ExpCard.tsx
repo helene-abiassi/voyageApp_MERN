@@ -104,7 +104,7 @@ function ExpCards({ experience }: ExperienceCardProp) {
             )}{" "}
             {user?.email === experience.author.email && (
               <Link className="deleteIcon" to={`/updateexperience/${_id}`}>
-                <i className="fa fa-pencil"></i>
+                <i style={{ color: "black" }} className="fa fa-pencil"></i>
               </Link>
             )}{" "}
           </div>

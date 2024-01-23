@@ -38,7 +38,7 @@ function ProfileCard() {
       <div className="titleEditIcon">
         {/* USER INFO */}
         <Link to={`/updateprofile/${user!._id}`}>
-          <i className="fa fa-pencil"></i>
+          <i style={{ color: "black" }} className="fa fa-pencil"></i>
         </Link>{" "}
       </div>
       <div
