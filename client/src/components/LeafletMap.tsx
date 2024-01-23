@@ -35,20 +35,22 @@ function LeafletMap() {
 
   useEffect(() => {
     geoLocation();
-  }, []);
+  }, [experiences]);
 
   return (
     <div className="main-container">
       <span className="general-map-card">
-        {experiences && experiences.length === 0 ? (
-          <p>
-            {" "}
-            There are currently {experiences.length} experiences across the
-            world.
-          </p>
-        ) : (
-          <p></p>
-        )}
+        <div>
+          {experiences && experiences.length ? (
+            <p style={{ color: "black" }}>
+              {" "}
+              There are currently {experiences.length} experiences across the
+              world.
+            </p>
+          ) : (
+            <p></p>
+          )}
+        </div>
         <MapContainer
           center={positions}
           zoom={2}
@@ -70,18 +72,24 @@ function LeafletMap() {
                 ]}
                 // position={positions}
               >
-                {/* className="general-map-popup" */}
-                <Popup>
-                  <Link to={"/" + experience._id}>
-                    <p id="popup-text">{experience.title}</p>
-                  </Link>
-                  <br />
-                  <img
-                    src={experience.photo}
-                    alt="Encounter"
-                    id="popup-image"
-                  />{" "}
-                </Popup>
+                <div className="experiencePopUp">
+                  <Popup>
+                    <Link to={`/experiences/title/${experience.title}`}>
+                      <p
+                        style={{ color: "black", fontWeight: "500" }}
+                        id="popup-text"
+                      >
+                        {experience.title}
+                      </p>
+                    </Link>
+                    <img
+                      src={experience.photo}
+                      alt="Encounter"
+                      id="popup-image"
+                    />{" "}
+                    {experience.location.city}, {experience.location.country}
+                  </Popup>
+                </div>
               </Marker>
             ))}
         </MapContainer>
