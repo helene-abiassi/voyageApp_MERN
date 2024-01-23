@@ -10,7 +10,7 @@
 .general-map-card {
   margin-top: 1rem;
   padding: 1rem;
-  width: 75%;
+  width: 100vh;
   height: 61vh; /* Set the height here, or you can adjust it based on your needs */
   background: radial-gradient(rgb(232, 237, 237) 0%, rgb(227, 236, 239) 100%);
   border: 1px solid rgb(91, 90, 90);
