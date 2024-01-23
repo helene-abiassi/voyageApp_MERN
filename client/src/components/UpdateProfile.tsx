@@ -124,51 +124,66 @@ function UpdateProfile() {
 
   return (
     <div className="inputColorBox">
-      <img
-        style={{
-          width: "16%",
-          height: "16%",
-          marginLeft: "70px",
-          borderRadius: "50%",
-        }}
-        src={updatedUser.user_image || user?.user_image}
-        alt=""
-      />
-
-      <form onSubmit={handleUpdatedPhotoSubmit}>
-        <label htmlFor="photo">photo</label>
-        <input onChange={handlePhotoInputChange} name="photo" type="file" />
-        <button type="submit">upload</button>
-      </form>
+      <div className="inputContainer">
+        <img
+          style={{
+            width: "16%",
+            height: "16%",
+            marginLeft: "70px",
+            borderRadius: "50%",
+          }}
+          src={updatedUser.user_image || user?.user_image}
+          alt=""
+        />
+        <form onSubmit={handleUpdatedPhotoSubmit}>
+          <label style={{ marginRight: "1rem" }} htmlFor="photo">
+            photo:
+          </label>
+          <input onChange={handlePhotoInputChange} name="photo" type="file" />
+          <button type="submit">upload</button>
+        </form>
+      </div>
       <form onSubmit={handleUpdateProfile}>
-        <br />
-        <label htmlFor="username">username:</label>
-        <input
-          onChange={handleInputChange}
-          value={updatedUser.username || user?.username || ""}
-          name="username"
-          type="text"
-        />
-        <br />
-        <br />
-        <label htmlFor="email">email:</label>
-        <input
-          onChange={handleInputChange}
-          value={updatedUser.email || user?.email || ""}
-          name="email"
-          type="text"
-        />
-        <br />
-        <br />
-        <label htmlFor="bio">bio:</label>
-        <input
-          onChange={handleInputChange}
-          value={updatedUser.bio || user?.bio || ""}
-          name="bio"
-          type="text"
-        />
-        <br />
-        <br />
+        <div className="formColumnLogup">
+          <div className="inputContainer">
+            <label style={{ marginRight: "1rem" }} htmlFor="username">
+              username:
+            </label>
+            <input
+              onChange={handleInputChange}
+              value={updatedUser.username || user?.username || ""}
+              name="username"
+              type="text"
+            />
+          </div>
+          <div className="inputContainer">
+            <label style={{ marginRight: "1rem" }} htmlFor="email">
+              email:
+            </label>
+            <input
+              onChange={handleInputChange}
+              value={updatedUser.email || user?.email || ""}
+              name="email"
+              type="text"
+            />
+          </div>
+        </div>
+        <div className="inputContainer">
+          <label style={{ marginRight: "1rem" }} htmlFor="bio">
+            bio:
+          </label>
+          <input
+            style={{
+              marginRight: "1rem",
+              minHeight: "10rem",
+              minWidth: "18rem",
+            }}
+            onChange={handleInputChange}
+            value={updatedUser.bio || user?.bio || ""}
+            name="bio"
+            type="text"
+          />
+        </div>
 
         <button className="formButton" type="submit">
           submit

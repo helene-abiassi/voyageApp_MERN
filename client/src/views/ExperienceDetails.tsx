@@ -105,8 +105,10 @@ function ExperienceDetails() {
               />
               <h4>{experience.author.username}</h4>
             </div>
-            <p>{experience.author.bio}</p>
-            <p>member since: {formatDate(experience.author.member_since)}</p>
+            <div style={{ marginLeft: "1rem" }}>
+              <p>{experience.author.bio}</p>
+              <p>member since: {formatDate(experience.author.member_since)}</p>
+            </div>
           </div>
           {/* EXPERIENCE CARD */}
           <div className="detailsSection">

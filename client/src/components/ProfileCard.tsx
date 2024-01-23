@@ -23,7 +23,11 @@ function ProfileCard() {
     logOut();
     navigateTo("/");
   };
-  console.log("user in PROFILE :>> ", user);
+  // console.log("user in PROFILE :>> ", user);
+
+  const redirectToExperience = (experienceTitle: string) => {
+    navigateTo(`/experiences/profile/${experienceTitle}`);
+  };
 
   useEffect(() => {
     getProfile();
@@ -31,13 +35,16 @@ function ProfileCard() {
 
   return (
     <div className="profileBody">
-      <div className="profileColumns">
-        <div className="titleEditIcon editIcon">
-          <Link to={`/updateprofile/${user!._id}`}>
-            <i className="fa fa-pencil"></i>
-          </Link>{" "}
-        </div>
-
+      <div className="titleEditIcon">
+        {/* USER INFO */}
+        <Link to={`/updateprofile/${user!._id}`}>
+          <i className="fa fa-pencil"></i>
+        </Link>{" "}
+      </div>
+      <div
+        style={{ justifyContent: "space-evenly" }}
+        className="profileColumns"
+      >
         <div className="profileColumnLeft">
           <div className="userProfile">
             <img
@@ -46,20 +53,20 @@ function ProfileCard() {
               alt=""
             />{" "}
             <div className="profileColumn">
-              <p className="inputKeys">username:{user?.username}</p>
-              <p className="inputKeys">email:{user?.email}</p>
-              <p className="inputKeys">
-                member since:{user && formatDate(user.member_since)}
+              <p className="inputContainer">username: {user?.username}</p>
+              <p className="inputContainer">email: {user?.email}</p>
+              <p className="inputContainer">
+                member since: {user && formatDate(user.member_since)}
               </p>
-              <p className="inputKeys">bio:{user?.bio}</p>
+              <p className="inputContainer">bio: {user?.bio}</p>
             </div>
           </div>
           <br />
-          <div style={{ alignItems: "left" }}>
+          <br />
+          <div>
             <button className="nakdButton" onClick={handleLogOut}>
               log out
             </button>
-            <span> </span>
             <button
               className="nakdButton"
               onClick={() => {
@@ -70,55 +77,80 @@ function ProfileCard() {
             </button>
           </div>
           <br />
+          <hr />
+          {/* BOOKMARKS */}
+          <h2>Bookmarks:</h2>
+          <div style={{ justifyContent: "center" }} className="profileSection">
+            {user?.bookmarks && user?.bookmarks.length === 0 ? (
+              <div className="profileCards">
+                <p>You don't have any bookmarks yet.</p>
+              </div>
+            ) : null}
+            {user?.bookmarks &&
+              user.bookmarks.map((bookmark, bookInd) => {
+                return (
+                  <div key={bookInd}>
+                    <div
+                      onClick={() => {
+                        redirectToExperience(bookmark.title);
+                      }}
+                      className="profileCards"
+                    >
+                      <img
+                        style={{ width: "100%", borderRadius: "10px" }}
+                        src={bookmark.photo}
+                        alt={bookmark.title}
+                      />
+                      <p style={{ fontWeight: "600" }}>{bookmark.title}</p>
+                      <p>by {bookmark.author.username}</p>
+                      <p>{formatDate(bookmark.publication_date)}</p>
+                      <p>
+                        <FiMapPin />
+                        <span> </span>
+                        {bookmark.location.country}, {bookmark.location.city}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
           <br />
           <hr />
-          <h2>Bookmarks:</h2>
-          {user?.bookmarks &&
-            user.bookmarks.map((bookmark, bookInd) => {
-              return (
-                <div key={bookInd}>
-                  <div className="profileCards">
+          {/* SUBMISSIONS */}
+          <h2>Submissions:</h2>
+          <div style={{ justifyContent: "center" }} className="profileSection">
+            {user?.submissions && user?.submissions.length === 0 ? (
+              <div className="profileCards">
+                <p>You don't have any submissions yet.</p>
+              </div>
+            ) : null}
+            {user?.submissions &&
+              user.submissions.map((submission, submInd) => {
+                return (
+                  <div
+                    onClick={() => {
+                      redirectToExperience(submission.title);
+                    }}
+                    className="profileCards"
+                    key={submInd}
+                  >
                     <img
                       style={{ width: "100%", borderRadius: "10px" }}
-                      src={bookmark.photo}
-                      alt={bookmark.title}
+                      src={submission.photo}
+                      alt={submission.title}
                     />
-                    <p style={{ fontWeight: "600" }}>{bookmark.title}</p>
+                    <p style={{ fontWeight: "600" }}>{submission.title}</p>
+                    <p>by you, on {formatDate(submission.publication_date)}</p>
                     <p>
-                      by {bookmark.author.username}, on{" "}
-                      {formatDate(bookmark.publication_date)}
-                    </p>
-                    <p>
-                      <FiMapPin />
-                      <span> </span>
-                      {bookmark.location.country}, {bookmark.location.city}
+                      <span>
+                        <FiMapPin />{" "}
+                      </span>
+                      {submission.location.country}, {submission.location.city}
                     </p>
                   </div>
-                </div>
-              );
-            })}
-          <hr />
-          <h2>Submissions:</h2>
-          {user?.submissions &&
-            user.submissions.map((submission, submInd) => {
-              return (
-                <div className="profileCards" key={submInd}>
-                  <img
-                    style={{ width: "100%", borderRadius: "10px" }}
-                    src={submission.photo}
-                    alt={submission.title}
-                  />
-                  <p style={{ fontWeight: "600" }}>{submission.title}</p>
-                  <p>by you, on {formatDate(submission.publication_date)}</p>
-                  <p>
-                    <span>
-                      <FiMapPin />{" "}
-                    </span>
-                    {submission.location.country}, {submission.location.city}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })}
+          </div>
         </div>
       </div>
     </div>

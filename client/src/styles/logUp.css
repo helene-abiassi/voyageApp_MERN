@@ -45,7 +45,7 @@ input {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 1rem;
 }
 
@@ -64,7 +64,7 @@ input {
 .hide-password {
   position: relative;
   top: -373px;
-  left: 620px;
+  left: 550px;
   color: white;
   background-color:black;
   display: flex;
@@ -75,7 +75,7 @@ input {
 .hide-passwordLogin {
   position: relative;
   top: -200px;
-  left: 620px;
+  left: 550px;
   color: white;
   background-color:black;
   display: flex;

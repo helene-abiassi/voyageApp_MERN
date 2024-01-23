@@ -1,5 +1,6 @@
 import BackButton from "../components/BackButton";
 import UpdateProfile from "../components/UpdateProfile";
+import "../styles/ProfilePage.css";
 
 function UpdateProfileView() {
   return (
@@ -9,6 +10,10 @@ function UpdateProfileView() {
         <h1>update your profile</h1>
       </div>
       <UpdateProfile />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }
