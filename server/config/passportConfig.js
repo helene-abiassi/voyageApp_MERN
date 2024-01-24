@@ -21,7 +21,6 @@ const jwtPassportStrategy = new JwtStrategy(opts, async function (
         populate: { path: "author", select: ["username"] },
       },
     ]);
-    console.log("user in passport :>> ", user);
     if (user) {
       return done(null, user);
     } else {

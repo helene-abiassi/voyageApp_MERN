@@ -9,7 +9,7 @@ function Profile() {
 
   return (
     <>
-      <h1>profile</h1>
+      <h1></h1>
       <div className="profileBox">
         <ProfileCard />
       </div>

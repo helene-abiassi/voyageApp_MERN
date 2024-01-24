@@ -21,7 +21,7 @@ const getCommentsByUserId = async (req, res) => {
     const commentsByUserId = await commentModel.find({
       author: author,
     });
-    console.log("commentsByUserId :>> ", commentsByUserId);
+    // console.log("commentsByUserId :>> ", commentsByUserId);
 
     if (commentsByUserId.length > 0) {
       res.status(200).json({
@@ -50,7 +50,7 @@ const getCommentsByExperienceId = async (req, res) => {
     const commentsByExperienceId = await commentModel.find({
       experience: experience,
     });
-    console.log("commentsByExperienceId :>> ", commentsByExperienceId);
+    // console.log("commentsByExperienceId :>> ", commentsByExperienceId);
 
     if (commentsByExperienceId.length > 0) {
       res.status(200).json({

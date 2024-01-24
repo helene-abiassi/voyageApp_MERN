@@ -56,12 +56,10 @@ function Signup() {
     if (passwordType === "password") {
       setPasswordType("text");
       setShowOrHide("hide");
-      console.log("hide console log :>> ");
       return;
     }
     setPasswordType("password");
     setShowOrHide("show");
-    console.log("show console log :>> ");
   };
 
   const navigateTo = useNavigate();
@@ -88,15 +86,11 @@ function Signup() {
       );
       const result = (await response.json()) as UserImage;
 
-      //Get url from profile picture
       setNewUser({ ...newUser, user_image: result.user_image });
-    } catch (error) {
-      console.log("error :>> ", error);
-    }
+    } catch (error) {}
   };
 
   const handleRegisterInput = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("e.target.name :>> ", e.target.name);
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
 
@@ -144,12 +138,9 @@ function Signup() {
         requestOptions
       );
       const result = await response.json();
-      console.log("result after Signup :>> ", result);
       alert("Congrats!");
       navigateTo("/login");
-    } catch (error) {
-      console.log("error :>> ", error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

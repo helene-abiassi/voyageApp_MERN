@@ -20,8 +20,6 @@ const getAllUsers = async (req, res) => {
     },
   ]);
 
-  console.log("allUsers :>> ", allUsers);
-
   res.json({
     number: allUsers.length,
     data: allUsers,
@@ -35,7 +33,6 @@ const getUserById = async (req, res) => {
     const userByID = await userModel.find({
       _id: id,
     });
-    console.log("userByID :>> ", userByID);
 
     if (userByID.length > 0) {
       res.status(200).json({
@@ -64,7 +61,6 @@ const getUserByEmail = async (req, res) => {
     const userByEmail = await userModel.find({
       email: email,
     });
-    console.log("userByEmail :>> ", userByEmail);
 
     if (userByEmail.length > 0) {
       res.status(200).json({
@@ -87,14 +83,11 @@ const getUserByEmail = async (req, res) => {
 };
 
 const uploadImage = async (req, res) => {
-  console.log(req.file);
-
   if (req.file) {
     try {
       const uploadedImage = await cloudinary.uploader.upload(req.file.path, {
         folder: "voyageApp/userphotos",
       });
-      console.log("uploadedImage", uploadedImage);
       res.status(200).json({
         message: "Image uploaded successfully",
         user_image: uploadedImage.secure_url,
@@ -158,8 +151,6 @@ const signUp = async (req, res) => {
 };
 
 const logIn = async (req, res) => {
-  console.log("req.body :>> ", req.body);
-
   try {
     const existingUser = await userModel.findOne({ email: req.body.email });
     if (!existingUser) {
@@ -207,8 +198,6 @@ const logIn = async (req, res) => {
 };
 
 const getProfile = async (req, res) => {
-  console.log("req.USER :>> ", req.user);
-
   if (req.user) {
     res.status(200).json({
       userProfile: {

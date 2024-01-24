@@ -144,7 +144,7 @@ function ExpCards({ experience }: ExperienceCardProp) {
           {/* REDIRECTION BUTTON */}
           <Link
             className="nakdButton"
-            to={`title/${title}`}
+            to={`id/${_id}`}
             state={{
               experience: experience,
             }}

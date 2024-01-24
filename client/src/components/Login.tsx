@@ -4,6 +4,7 @@ import "../styles/Home.css";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "../types/customTypes";
 import { AuthContext } from "../context/AuthContext";
+import Modal from "./Modal";
 
 export interface LogInCredentials {
   _id: string;
@@ -33,18 +34,22 @@ function Login() {
     if (passwordType === "password") {
       setPasswordType("text");
       setShowOrHide("hide");
-      console.log("hide button pressed");
+
       return;
     }
     setPasswordType("password");
     setShowOrHide("show");
-    console.log("show button pressed");
   };
 
   const navigateTo = useNavigate();
 
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const handleCloseLoginModal = () => {
+    setShowLoginModal(false);
+  };
+
   const handleLoginInput = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("e.target.name :>> ", e.target.name);
     setLoginCredentials({
       ...(loginCredentials as LogInCredentials),
       [e.target.name]: e.target.value,
@@ -78,14 +83,14 @@ function Login() {
           requestOptions
         );
         const result = await response.json();
-        console.log("result of Email Find :>> ", result);
 
-        if (result.data.length > 0) {
-          console.log("login works");
+        if (result?.data?.length > 0) {
           logIn();
-          navigateTo("/profile");
+          navigateTo("/profile", { replace: true });
         } else {
-          alert("This email does not exist in the database. Sign up first");
+          await alert(
+            "This email does not exist in the database. Sign up first"
+          );
           navigateTo("/signup");
         }
       } catch (error) {
@@ -153,6 +158,12 @@ function Login() {
           </Link>
         </p>
       </div>
+      {showLoginModal && (
+        <Modal
+          message="Email does not exist! Please sign up first."
+          onClose={handleCloseLoginModal}
+        />
+      )}
       <br />
       <br />
       <br />

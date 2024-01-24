@@ -6,6 +6,7 @@ import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import LocationMarker from "../assets/marker.png";
 import { Link, useNavigate } from "react-router-dom";
+import Modal from "./Modal";
 
 function LeafletMap() {
   const { experiences } = useContext(ExperiencesContext);
@@ -14,15 +15,21 @@ function LeafletMap() {
 
   const navigateTo = useNavigate();
 
-  const redirectToLink = (experienceTitle: string) => {
-    navigateTo(`/experiences/title/${experienceTitle}`);
+  const [showMapModal, setShowMapModal] = useState(false);
+
+  const handleCloseMapModal = () => {
+    setShowMapModal(false);
+  };
+
+  const redirectToLink = (experienceID: string) => {
+    navigateTo(`/experiences/id/${experienceID}`);
   };
 
   const geoLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
     } else {
-      alert("Cannot display location");
+      setShowMapModal(true);
     }
   };
 
@@ -81,11 +88,10 @@ function LeafletMap() {
                 <div
                   className="experiencePopUp"
                   onClick={() => {
-                    redirectToLink(experience.title);
+                    redirectToLink(experience._id);
                   }}
                 >
                   <Popup>
-                    {/* <Link to={}> */}
                     <p
                       style={{
                         color: "black",
@@ -96,7 +102,6 @@ function LeafletMap() {
                     >
                       {experience.title}
                     </p>
-                    {/* </Link> */}
                     <img
                       style={{ cursor: "pointer" }}
                       src={experience.photo}
@@ -110,6 +115,12 @@ function LeafletMap() {
             ))}
         </MapContainer>
       </span>
+      {showMapModal && (
+        <Modal
+          message="Cannot display location"
+          onClose={handleCloseMapModal}
+        />
+      )}
     </div>
   );
 }

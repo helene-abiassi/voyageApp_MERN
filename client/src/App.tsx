@@ -22,7 +22,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Submit from "./views/Submit";
 import { ExperiencesContextProvider } from "./context/ExperiencesContext";
 import { AuthContextProvider } from "./context/AuthContext";
-import ExperienceWithCHook from "./components/ExperienceWithCHook";
 import Update from "./views/Update";
 import UpdateProfileView from "./views/UpdateProfile";
 
@@ -37,7 +36,7 @@ function App() {
         </Route>
 
         <Route
-          path="experiences/title/:experienceTitle"
+          path="experiences/id/:experienceID"
           element={<ExperienceDetails />}
         />
         <Route
@@ -60,7 +59,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="custom" element={<ExperienceWithCHook />} />
         <Route path="map" element={<Map />} />
         <Route path="about" element={<About />} />
         <Route path="signup" element={<SignUp />} />

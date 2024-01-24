@@ -77,7 +77,9 @@ function ExperienceDetails() {
     setIsBookmarked(!isBookmarked);
   };
 
-  useEffect(() => {}, [fetchExperiences, experience, experience.comments]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [fetchExperiences, experience, experience.comments]);
 
   return (
     <div>

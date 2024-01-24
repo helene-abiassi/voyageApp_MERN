@@ -11,7 +11,6 @@ function SubmitExperience() {
   const [photoAlbum, setPhotoAlbum] = useState<File[] | string[]>([]);
 
   const { user, isLoggedIn } = useContext(AuthContext);
-  console.log("user on my Submit page :>> ", user);
 
   const [newExperience, setNewExperience] = useState<Experience>({
     _id: "",
@@ -59,12 +58,10 @@ function SubmitExperience() {
   };
 
   const handleTypeInput = (e: ChangeEvent<HTMLSelectElement>) => {
-    console.log("e.target.value :>> ", e.target.value);
     setNewExperience({ ...newExperience, experienceType: e.target.value });
   };
 
   const handlePhotoInput = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("e :>> ", e);
     setDisplayPhoto(e.target.files?.[0] || "");
   };
 
@@ -73,7 +70,6 @@ function SubmitExperience() {
 
     const formdata = new FormData();
     formdata.append("photo", displayPhoto);
-    console.log("formdata :>> ", formdata);
 
     const requestOptions = {
       method: "POST",
@@ -86,7 +82,6 @@ function SubmitExperience() {
         requestOptions
       );
       const result = (await response.json()) as ExperienceImage;
-      console.log("result single photo:>> ", result);
 
       setNewExperience({ ...newExperience, photo: result.photo });
     } catch (error) {
@@ -101,7 +96,6 @@ function SubmitExperience() {
       for (let i = 0; i < files.length; i++) {
         photoArray.push(files[i]);
       }
-      console.log("photoArray :>> ", photoArray);
       setPhotoAlbum(photoArray);
     }
   };
@@ -112,8 +106,6 @@ function SubmitExperience() {
     for (let i = 0; i < photoAlbum.length; i++) {
       formdata.append("photo_body", photoAlbum[i]);
     }
-
-    console.log("formdata :>> ", formdata);
     const requestOptions = {
       method: "POST",
       body: formdata,
@@ -126,8 +118,6 @@ function SubmitExperience() {
       );
 
       const result = await response.json();
-      console.log("result album photo:>> ", result);
-      console.log("result.photo_urls :>> ", result.photo_urls);
       setNewExperience({ ...newExperience, photo_body: result.photo_urls });
     } catch (error) {
       console.log("error :>> ", error);
@@ -173,13 +163,11 @@ function SubmitExperience() {
         requestOptions
       );
       const results = await response.json();
-      console.log("results :>> ", results);
     } catch (error) {
       console.log("error :>> ", error);
     }
     alert("experience posted!!");
     navigateTo("/experiences");
-    console.log("newExperience :>> ", newExperience);
   };
 
   useEffect(() => {

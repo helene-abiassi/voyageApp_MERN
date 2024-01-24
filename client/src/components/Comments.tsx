@@ -56,7 +56,6 @@ function Comments({ comments, _id }: CommentsProps) {
 
         setUpdatedComments(data.comments);
         fetchExperiences();
-        console.log("updatedComments :>> ", data.comments);
       }
     } catch (error) {
       console.log("error :>> ", error);
@@ -72,7 +71,6 @@ function Comments({ comments, _id }: CommentsProps) {
     }
 
     if (token) {
-      console.log("newComment :>> ", newComment);
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
       myHeaders.append("Authorization", `Bearer ${token}`);
@@ -96,11 +94,8 @@ function Comments({ comments, _id }: CommentsProps) {
           requestOptions
         );
 
-        console.log("results for posting comments :>> ", response);
-
         if (response.ok) {
           const data = await response.json();
-          console.log("data for my new comment :>> ", data);
           const newComment: CommentsType = data.comment;
           fetchExperiences();
         } else {
@@ -139,10 +134,7 @@ function Comments({ comments, _id }: CommentsProps) {
           requestOptions
         );
 
-        console.log("Response status:", response.status);
-
         if (response.ok) {
-          console.log("comment deleted successfully!");
           fetchExperiences();
         } else {
           console.log("error with response when deleting comment");
@@ -168,9 +160,14 @@ function Comments({ comments, _id }: CommentsProps) {
               name="message"
               type="text"
               className="commentInput"
-              placeholder="Leave a comment..."
+              placeholder={
+                user
+                  ? "Leave a comment..."
+                  : "You need to log in to leave a comment..."
+              }
               onChange={handleNewComments}
               value={textInput}
+              disabled={!user}
             />
             <button
               style={{ backgroundColor: "white" }}

@@ -1,6 +1,5 @@
 const formatDate = (date: Date | string) => {
   const formattedDate = new Date(date).toLocaleDateString();
-  // console.log("formattedDate :>> ", formattedDate);
   return formattedDate;
 };
 

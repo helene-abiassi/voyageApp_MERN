@@ -23,7 +23,6 @@ interface ExperiencesContextType {
 }
 const initialContext: ExperiencesContextType = {
   experiences: null,
-  // urlParams: "all",
   fetchExperiences: () => Promise.resolve(),
   deleteExperience: (experienceID: string) =>
     console.log("context not initialized"),
@@ -31,10 +30,6 @@ const initialContext: ExperiencesContextType = {
     console.log("context not initialized"),
   bookmarkExperience: (experienceID: string) =>
     console.log("context not initialized"),
-  // setUrlParams: () => console.log("context not initialized"),
-
-  // loading: true,
-  // error: "",
 };
 
 interface ProviderPropsType {
@@ -101,11 +96,9 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
         requestOptions
       );
 
-      console.log("response with bookmarks :>> ", response);
-
       if (response.ok) {
         const data = await response.json();
-        console.log("data :>> ", data);
+
         fetchExperiences();
       }
     } catch (error) {
@@ -137,12 +130,9 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
         requestOptions
       );
 
-      console.log("response remvBok :>> ", response);
-
       if (response.ok) {
         const results = await response.json();
 
-        console.log("results remvBok :>> ", results);
         fetchExperiences();
       }
     } catch (error) {
@@ -170,7 +160,6 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
           `http://localhost:5005/api/experiences/deleteexperience/${experienceID}`,
           requestOptions
         );
-        console.log("Response status:", response.status);
 
         if (response.ok) {
           console.log("experience deleted successfully!");

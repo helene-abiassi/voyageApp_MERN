@@ -23,10 +23,9 @@ function ProfileCard() {
     logOut();
     navigateTo("/");
   };
-  // console.log("user in PROFILE :>> ", user);
 
-  const redirectToExperience = (experienceTitle: string) => {
-    navigateTo(`/experiences/title/${experienceTitle}`);
+  const redirectToExperience = (experiencID: string) => {
+    navigateTo(`/experiences/id/${experiencID}`);
   };
 
   useEffect(() => {
@@ -92,7 +91,7 @@ function ProfileCard() {
                   <div key={bookInd}>
                     <div
                       onClick={() => {
-                        redirectToExperience(bookmark.title);
+                        redirectToExperience(bookmark._id);
                       }}
                       className="profileCards"
                     >
@@ -128,9 +127,9 @@ function ProfileCard() {
               user.submissions.map((submission, submInd) => {
                 return (
                   <div
-                    onClick={() => {
-                      redirectToExperience(submission.title);
-                    }}
+                    // onClick={() => {
+                    //   redirectToExperience(submission._id);
+                    // }}
                     className="profileCards"
                     key={submInd}
                   >
@@ -140,6 +139,13 @@ function ProfileCard() {
                       alt={submission.title}
                     />
                     <p style={{ fontWeight: "600" }}>{submission.title}</p>
+                    {/* //!SOLUTION */}
+                    <Link
+                      to={`/experiences/id/${submission._id}`}
+                      state={{ experience: submission }}
+                    >
+                      View
+                    </Link>
                     <p>by you, on {formatDate(submission.publication_date)}</p>
                     <p>
                       <span>

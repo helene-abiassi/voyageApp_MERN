@@ -68,18 +68,17 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
       if (response.ok) {
         const results: LogInResponse = await response.json();
-        console.log("results for login response :>> ", results);
+
         const token = results.token;
         if (token) {
           localStorage.setItem("token", token);
           setUser(results.user);
-          console.log("user is set after login");
+
           setIsLoggedIn(true);
         }
       }
     } catch (err) {
       const error = err as Error;
-      console.log("error :>> ", error.message);
     }
   };
 
@@ -111,7 +110,6 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
         if (response.ok) {
           const result = await response.json();
-          // console.log("result to get my user profile :>> ", result);
           const user = result.userProfile as User;
 
           setUser(user);
@@ -120,8 +118,6 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       } catch (err) {
         const error = err as Error;
         setIsLoading(false);
-
-        console.log("error :>> ", error.message);
       }
     }
   };
@@ -141,7 +137,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      console.log("No token available!");
+      // console.log("No token available!");
     }
 
     const myHeaders = new Headers();
@@ -157,17 +153,14 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         `http://localhost:5005/api/users//deleteuser/${userID}`,
         requestOptions
       );
-      console.log("Response status:", response.status);
+      // console.log("Response status:", response.status);
 
       if (response.ok) {
-        console.log("profile deleted successfully!");
+        // console.log("profile deleted successfully!");
         setUser(null);
       } else {
-        console.log("error with response when deleting profile");
       }
-    } catch (error) {
-      console.log("error when trying to delete a user :>> ", error);
-    }
+    } catch (error) {}
   };
 
   const authenticateUser = async () => {
@@ -190,10 +183,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
         if (response.ok) {
           const result = await response.json();
-          console.log("result to get my user profile :>> ", result); //This works
           const user = result.userProfile as User;
           setUser(user);
-          // console.log("user is set");
           setIsLoggedIn(true);
           setIsLoading(false);
         } else {
@@ -204,18 +195,14 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       } catch (err) {
         const error = err as Error;
         setIsLoading(false);
-        console.log("error :>> ", error.message);
       }
     } else {
-      // console.log("there is no token!");
       setIsLoggedIn(false);
-      // setIsLoading(false);
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    // console.log("checking if user is logged in");
-
     authenticateUser();
   }, [user?.username]);
 

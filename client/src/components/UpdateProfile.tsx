@@ -15,12 +15,9 @@ function UpdateProfile() {
   const handleUpdateProfile = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("updatedUser :>> ", updatedUser);
-
     const token = localStorage.getItem("token");
 
     if (!token) {
-      console.log("no token available");
     }
 
     const myHeaders = new Headers();
@@ -52,26 +49,20 @@ function UpdateProfile() {
         requestOptions
       );
 
-      console.log("response :>> ", response);
-
       if (response.ok) {
         const results = await response.json();
 
-        console.log("results for updated User :>> ", results);
         setUpdatedUser(results.data);
         getProfile();
       }
-    } catch (error) {
-      console.log("error when trying to update profile :>> ", error);
-    }
+    } catch (error) {}
     alert("Profile updated successfully!");
-    console.log("updatedUser :>> ", updatedUser);
+
     navigateTo("/profile");
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    console.log("value, name :>> ", value, name);
     setUpdatedUser((prevUser) => ({
       ...prevUser,
       [name]: value,
@@ -89,7 +80,6 @@ function UpdateProfile() {
   }, [user]);
 
   const handlePhotoInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("e :>> ", e);
     setUpdatedPhoto(e.target.files?.[0] || "");
   };
 
@@ -98,8 +88,6 @@ function UpdateProfile() {
 
     const formdata = new FormData();
     formdata.append("user_image", updatedPhoto);
-
-    console.log("formdata :>> ", formdata);
 
     const requestOptions = {
       method: "POST",
@@ -112,14 +100,11 @@ function UpdateProfile() {
         requestOptions
       );
       const result = (await response.json()) as UserImage;
-      console.log("result single photo:>> ", result);
 
       setUpdatedUser((prevUser) => {
         return { ...prevUser, user_image: result.user_image };
       });
-    } catch (error) {
-      console.log("error :>> ", error);
-    }
+    } catch (error) {}
   };
 
   return (

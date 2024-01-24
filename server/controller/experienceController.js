@@ -49,7 +49,7 @@ const getExperiencesById = async (req, res) => {
       },
     ]);
 
-    console.log("experienceByID :>> ", experienceByID);
+    // console.log("experienceByID :>> ", experienceByID);
 
     if (experienceByID) {
       res.status(200).json({
@@ -129,7 +129,6 @@ const getExperiencesByCountry = async (req, res) => {
 
 const getExperiencesByCity = async (req, res) => {
   const { city } = req.params;
-  console.log("city :>> ", city);
 
   try {
     // const experienceByCity = await experienceModel.find({
@@ -186,7 +185,6 @@ const getExperiencesByCity = async (req, res) => {
 
 const submitExperience = async (req, res) => {
   const photosArray = JSON.parse(req.body.photo_body);
-  console.log("req.body :>> ", req.body);
 
   try {
     const existingUser = await userModel.findOne({ email: req.body.email });
@@ -237,14 +235,11 @@ const submitExperience = async (req, res) => {
   }
 };
 const uploadPhoto = async (req, res) => {
-  console.log(req.file);
-
   if (req.file) {
     try {
       const uploadedImage = await cloudinary.uploader.upload(req.file.path, {
         folder: "voyageApp/experienceMainPhotos",
       });
-      console.log("uploadedImage", uploadedImage);
       res.status(200).json({
         message: "Image uploaded successfully",
         photo: uploadedImage.secure_url,
@@ -261,7 +256,6 @@ const uploadPhoto = async (req, res) => {
 
 const uploadMultiplePhotos = async (req, res) => {
   const photos = req.files;
-  console.log("photos :>> ", photos);
 
   if (!photos || photos.length === 0) {
     res.status(400).json({ error: "No files were uploaded." });
@@ -276,7 +270,6 @@ const uploadMultiplePhotos = async (req, res) => {
         return uploadedImage.secure_url;
       })
     );
-    console.log("uploadedImages :>> ", uploadedImages);
     res.status(200).json({
       message: "Images uploaded successfully",
       photo_urls: uploadedImages,
@@ -291,13 +284,9 @@ const uploadMultiplePhotos = async (req, res) => {
 
 const submitComment = async (req, res) => {
   const experienceID = req.params._id;
-  console.log("experienceID :>> ", experienceID);
-  console.log("req.user :>> ", req.user);
-  console.log("req.body :>> ", req.body);
 
   try {
     const existingUser = await userModel.findOne({ email: req.body.email });
-    console.log("existingUser :>> ", existingUser);
     if (existingUser) {
       try {
         const newComment = new commentModel({
@@ -474,8 +463,6 @@ const updateExperience = async (req, res) => {
 const addBookmark = async (req, res) => {
   const experienceId = req.params._id;
 
-  console.log("experienceId :>> ", experienceId);
-
   try {
     const existingUser = await userModel.findOne({ email: req.body.email });
     //replace req.user
@@ -497,8 +484,6 @@ const addBookmark = async (req, res) => {
     const experience = await experienceModel.findById(experienceId);
     experience.bookmarked_by.push(existingUser._id);
     await experience.save();
-
-    console.log("experience :>> ", experience);
 
     res.status(200).json({
       message: "Experience bookmarked successfully",

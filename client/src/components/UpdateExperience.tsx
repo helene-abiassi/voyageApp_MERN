@@ -4,7 +4,6 @@ import { Experience, ExperienceImage } from "../types/customTypes";
 
 function UpdateExperience() {
   const { experienceId } = useParams();
-  console.log("experienceId :>> ", experienceId);
 
   const [existingExperience, setExistingExperience] = useState<Experience>();
   const [updatedExperience, setUpdatedExperience] = useState<Experience>({
@@ -42,12 +41,9 @@ function UpdateExperience() {
   const handleUpdateExperience = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("updatedExperience :>> ", updatedExperience);
-
     const token = localStorage.getItem("token");
 
     if (!token) {
-      console.log("no token found!");
     }
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -112,15 +108,11 @@ function UpdateExperience() {
 
       if (response.ok) {
         const results = await response.json();
-        console.log("results for my Updated Experience :>> ", results);
         setUpdatedExperience(results.data);
       }
       fetchExistingData();
-    } catch (error) {
-      console.log("error when trying to update your experience :>> ", error);
-    }
+    } catch (error) {}
     alert("Experience updated successfully!");
-    console.log("updatedExperience :>> ", updatedExperience);
     navigateTo("/experiences");
   };
 
@@ -137,18 +129,15 @@ function UpdateExperience() {
 
       if (response.ok) {
         const results = await response.json();
-        console.log("results on Update :>> ", results);
+
         setExistingExperience(results.data);
-        console.log("existingExperience :>> ", existingExperience);
       }
-    } catch (error) {
-      console.log("error in your update comp:>> ", error);
-    }
+    } catch (error) {}
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    console.log("value, name :>> ", value, name);
+
     setUpdatedExperience((prevExperience) => ({
       ...prevExperience,
       [name]: value,
@@ -156,7 +145,6 @@ function UpdateExperience() {
   };
 
   const handleTypeInputChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    console.log("e.target.value :>> ", e.target.value);
     setUpdatedExperience({
       ...updatedExperience,
       experienceType: e.target.value,
@@ -175,7 +163,6 @@ function UpdateExperience() {
   };
 
   const handlePhotoInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("e :>> ", e);
     setUpdatedPhoto(e.target.files?.[0] || "");
   };
 
@@ -184,8 +171,6 @@ function UpdateExperience() {
 
     const formdata = new FormData();
     formdata.append("photo", updatedPhoto);
-
-    console.log("formdata :>> ", formdata);
 
     const requestOptions = {
       method: "POST",
@@ -198,14 +183,11 @@ function UpdateExperience() {
         requestOptions
       );
       const result = (await response.json()) as ExperienceImage;
-      console.log("result single photo:>> ", result);
 
       setUpdatedExperience((prevExperience) => {
         return { ...prevExperience, photo: result.photo };
       });
-    } catch (error) {
-      console.log("error :>> ", error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

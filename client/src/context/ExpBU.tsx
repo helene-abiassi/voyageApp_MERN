@@ -21,7 +21,6 @@ interface ExperiencesContextType {
 }
 const initialContext: ExperiencesContextType = {
   experiences: null,
-  // urlParams: "all",
   fetchExperiences: () => Promise.resolve(),
   deleteExperience: (experienceID: string) =>
     console.log("context not initialized"),
@@ -29,8 +28,7 @@ const initialContext: ExperiencesContextType = {
     console.log("context not initialized"),
   bookmarkExperience: (experienceID: string) =>
     console.log("context not initialized"),
-  // loading: true,
-  // error: "",
+ 
 };
 
 interface ProviderPropsType {
@@ -44,15 +42,10 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
   const [experiences, setExperiences] = useState<Experience[] | null>(null);
 
   const { user } = useContext(AuthContext);
-  //FIXME think about the use of urlParams in a context (no specific url to be at when the context is rendered)
 
   const [urlParams, setUrlParams] = useState("all");
 
-  // const { data, error, loading } = useMyFetch<Experience[]>(
-  //   `http://localhost:5005/api/experiences/${urlParams}`
-  // );
-
-  const fetchExperiences = async (urlParams) => {
+  const fetchExperiences = async (urlParams:string) => {
     const requestOptions = {
       method: "GET",
     };
@@ -65,16 +58,16 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
 
       if (results.status === 200) {
         const data = await results.json();
-        console.log("data  of fetchExp:>> ", data);
+        // console.log("data  of fetchExp:>> ", data);
         const experienceList = data.data as Experience[];
 
-        console.log("experienceList :>> ", experienceList);
+        // console.log("experienceList :>> ", experienceList);
 
         // setUrlParams(urlParams);
         setExperiences(experienceList);
       }
     } catch (error) {
-      console.log("error :>> ", error);
+      // console.log("error :>> ", error);
     }
   };
 
@@ -82,7 +75,7 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      console.log("No token available");
+      // console.log("No token available");
     }
 
     const myHeaders = new Headers();
@@ -104,15 +97,15 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
         requestOptions
       );
 
-      console.log("response with bookmarks :>> ", response);
+      // console.log("response with bookmarks :>> ", response);
 
       if (response.ok) {
         const data = await response.json();
-        console.log("data :>> ", data);
+        // console.log("data :>> ", data);
         fetchExperiences();
       }
     } catch (error) {
-      console.log("error :>> ", error);
+      // console.log("error :>> ", error);
     }
   };
 
@@ -120,7 +113,7 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      console.log("No token available!");
+      // console.log("No token available!");
     }
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -140,16 +133,16 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
         requestOptions
       );
 
-      console.log("response remvBok :>> ", response);
+      // console.log("response remvBok :>> ", response);
 
       if (response.ok) {
         const results = await response.json();
 
-        console.log("results remvBok :>> ", results);
+        // console.log("results remvBok :>> ", results);
         fetchExperiences();
       }
     } catch (error) {
-      console.log("error when removing bookmark:>> ", error);
+      // console.log("error when removing bookmark:>> ", error);
     }
   };
 
@@ -157,7 +150,7 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      console.log("Token not found!");
+      // console.log("Token not found!");
     }
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -173,34 +166,18 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
           `http://localhost:5005/api/experiences/deleteexperience/${experienceID}`,
           requestOptions
         );
-        console.log("Response status:", response.status);
 
         if (response.ok) {
-          console.log("experience deleted successfully!");
+          // console.log("experience deleted successfully!");
         } else {
-          console.log("error with response when deleting experience");
+          // console.log("error with response when deleting experience");
         }
       }
     } catch (error) {
-      console.log("error when deleting experience:>> ", error);
+      // console.log("error when deleting experience:>> ", error);
     }
   };
 
   useEffect(() => {
     fetchExperiences();
   }, []);
-
-//   return (
-//     <ExperiencesContext.Provider
-//       value={{
-//         experiences,
-//         fetchExperiences,
-//         deleteExperience,
-//         bookmarkExperience,
-//         removeBookmark,
-//       }}
-//     >
-//       {props.children}
-//     </ExperiencesContext.Provider>
-//   );
-// };

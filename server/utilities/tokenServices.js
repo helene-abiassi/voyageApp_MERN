@@ -12,7 +12,6 @@ const generateToken = (userID) => {
   };
 
   const token = jwt.sign(payload, secretOrPrivateKey, options);
-  console.log("token :>> ", token);
   return token;
 };
 
