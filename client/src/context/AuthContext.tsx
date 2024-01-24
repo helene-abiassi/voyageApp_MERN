@@ -62,6 +62,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
     try {
       const response = await fetch(
+        // REVIEW for deployment, do not forget to protect the url with a env variable.
         "http://localhost:5005/api/users/login",
         requestOptions
       );
@@ -76,10 +77,12 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
           console.log("user is set after login");
           setIsLoggedIn(true);
         }
+        //REVIEW what happens if there is no token coming in results.token?. Better cover that possibility. And better do it with a "guard close" (read more https://learningactors.com/javascript-guard-clauses-how-you-can-refactor-conditional-logic/), rather than with an else
       }
     } catch (err) {
       const error = err as Error;
       console.log("error :>> ", error.message);
+      // REVIEW No feedback for the user if something goes wrong? poor user 😢
     }
   };
 
@@ -87,6 +90,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     const token = localStorage.getItem("token");
 
     if (!token) {
+      // REVIEW this is exactly what I was meaning in the comment about guard clauses before! well done :)  ...but no alert!
       alert("you need to log in first!");
       setUser(null);
     }
@@ -125,6 +129,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       }
     }
   };
+  // REVIEW Are you using the function below somewhere? if not, remove it.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const isUserLoggedIn = () => {
     const token = localStorage.getItem("token");
 
@@ -141,6 +147,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     const token = localStorage.getItem("token");
 
     if (!token) {
+      // REVIEW if there is no token, means there is no logged in user. No idea how an user could manage to end in that situation, but give a proper feedback.
       console.log("No token available!");
     }
 

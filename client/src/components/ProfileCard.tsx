@@ -26,6 +26,7 @@ function ProfileCard() {
   // console.log("user in PROFILE :>> ", user);
 
   const redirectToExperience = (experienceTitle: string) => {
+    // REVIEW as explaind later, since you are not sending any state when you navigate here, but in ExperienceDetails.tsx you use location.state, when it is null, it breaks the code.
     navigateTo(`/experiences/profile/${experienceTitle}`);
   };
 
@@ -91,6 +92,7 @@ function ProfileCard() {
                 return (
                   <div key={bookInd}>
                     <div
+                      // REVIEW a clickable div to go to another URL...did you heard about Links??? you are gonna need some extra 1on1 sessions ... (not good for accesibility. The problem with the error page after the redirect stays the same, because the component  needs the experience state). Either you send that state, or you fecht a single experience by the tile in the ExperienceDetails component
                       onClick={() => {
                         redirectToExperience(bookmark.title);
                       }}
@@ -102,7 +104,10 @@ function ProfileCard() {
                         alt={bookmark.title}
                       />
                       <p style={{ fontWeight: "600" }}>{bookmark.title}</p>
-                      <p>by {bookmark.author.username}</p>
+                      {/* //REVIEW this link below is doing what the DIV with the onClik  */}
+                      <Link to={`/experiences/profile/${bookmark.title}}`}>
+                        <p>by {bookmark.author.username}</p>
+                      </Link>
                       <p>{formatDate(bookmark.publication_date)}</p>
                       <p>
                         <FiMapPin />
@@ -119,6 +124,7 @@ function ProfileCard() {
           {/* SUBMISSIONS */}
           <h2>Submissions:</h2>
           <div style={{ justifyContent: "center" }} className="profileSection">
+            {/* //REVIEW not quite sure about this types of checks. user?.submissions?.length=== 0 feels like enough, since it is what you are actually looking for here. And with an && the ternary "null" wouldn't be needed */}
             {user?.submissions && user?.submissions.length === 0 ? (
               <div className="profileCards">
                 <p>You don't have any submissions yet.</p>

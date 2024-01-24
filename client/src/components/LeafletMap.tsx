@@ -35,6 +35,7 @@ function LeafletMap() {
 
   useEffect(() => {
     geoLocation();
+    // REVIEW referential equiality : experiences is an array of objects, so this useEffect is supposed to run everytime the array of experiences is sent to this component, even if they are the same ones.
   }, [experiences]);
 
   return (
@@ -51,6 +52,7 @@ function LeafletMap() {
             <p></p>
           )}
         </div>
+        {/* //REVIEW TS is complaining about the attributtes . Try installing leaflet types  npm i -D @types/leaflet , and import the right one. https://react-leaflet.js.org/docs/start-installation/#typescript-support */}
         <MapContainer
           center={positions}
           zoom={2}
@@ -74,7 +76,10 @@ function LeafletMap() {
               >
                 <div className="experiencePopUp">
                   <Popup>
-                    <Link to={`/experiences/title/${experience.title}`}>
+                    <Link
+                      to={`/experiences/title/${experience.title}`}
+                      state={{ experience: experience }}
+                    >
                       <p
                         style={{ color: "black", fontWeight: "500" }}
                         id="popup-text"

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 function NavBar() {
+  // REVIEW do not leave unused variables behind
   const { user, isLoggedIn } = useContext(AuthContext);
 
   return (
@@ -18,6 +19,7 @@ function NavBar() {
             />
           </NavLink>
         </div>
+        {/* //REVIEW try not to mix ways of styling. better create a class for that inline style and use it */}
         <div style={{ cursor: "pointer" }} className="navMiddle">
           <NavLink to="/experiences">experiences</NavLink>
           <span> | </span>

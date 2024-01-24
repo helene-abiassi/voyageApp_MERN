@@ -65,6 +65,7 @@ const getExperiencesById = async (req, res) => {
   } catch (error) {
     console.log("expType error :>> ", error);
     res.status(500).json({
+      // REVIEW think about standarising the error responses, or even the responses in general. Think about the response object of a graphQL query, for example.
       errorMessage: "Something went wrong in the request",
       error: error.message,
     });
@@ -72,6 +73,7 @@ const getExperiencesById = async (req, res) => {
 };
 
 const getExperiencesByType = async (req, res) => {
+  //REVIEW it wouldn't be a bad idea to make our functions more solid , by making sure in the 1st place that req.params contains what we need to run the function, and if not, we send already a response.
   const { experienceType } = req.params;
 
   try {
@@ -126,7 +128,7 @@ const getExperiencesByCountry = async (req, res) => {
     });
   }
 };
-
+//REVIEW it looks like you are not using this endpoint in your client, but it looks fine initially. Maybe try to implement it?
 const getExperiencesByCity = async (req, res) => {
   const { city } = req.params;
   console.log("city :>> ", city);
@@ -236,6 +238,7 @@ const submitExperience = async (req, res) => {
     });
   }
 };
+// REVIEW this function below is exactly the same as "uploadImage" from userController.js. It would be a good exercise to try to reuse it, either passing the folder name as argument or and object witht he different folder names and think about a criteria (maybe something in the request) to use one name or another
 const uploadPhoto = async (req, res) => {
   console.log(req.file);
 
@@ -259,6 +262,7 @@ const uploadPhoto = async (req, res) => {
   }
 };
 
+//REVIEW an even better (but tougher) exercise would be to use this function for the 3 types of uploads you have.q
 const uploadMultiplePhotos = async (req, res) => {
   const photos = req.files;
   console.log("photos :>> ", photos);

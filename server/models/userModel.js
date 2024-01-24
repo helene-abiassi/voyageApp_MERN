@@ -24,8 +24,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "No bio added yet",
   },
+  // REVIEW  is it intentional to store the date with the numeric format fiven by Date.now? if you store it already in the format you need to consume it in your frontend, you won't need to do that later.
   member_since: {
     type: Date,
+    // REVIEW good catch not using Date.now() 👏👏
     default: Date.now,
     required: true,
   },

@@ -40,6 +40,7 @@ function App() {
           path="experiences/title/:experienceTitle"
           element={<ExperienceDetails />}
         />
+        {/* //REVIEW this route is apparently not working */}
         <Route
           path="experiences/profile/:experienceTitle"
           element={<ExperienceDetails />}
@@ -60,6 +61,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        {/* //REVIEW in this route there is nothing, plus there is no link to go to it ...I'd remove it if it has no use */}
         <Route path="custom" element={<ExperienceWithCHook />} />
         <Route path="map" element={<Map />} />
         <Route path="about" element={<About />} />

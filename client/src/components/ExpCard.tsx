@@ -30,11 +30,13 @@ function ExpCards({ experience }: ExperienceCardProp) {
   } = useContext(ExperiencesContext);
 
   const isBookmarkedInitially =
+    // REVIEW you can probably refactor it and use a simple conditional user?.bookmarks
     user && user.bookmarks.some((bookmark) => bookmark._id === _id);
   const [isBookmarked, setIsBookmarked] = useState(isBookmarkedInitially);
 
   const navigateTo = useNavigate();
 
+  //REVIEW keep an consistent component internal order . What goes first? states? then context variables? then regular variables? then functions?...etc... whatever, but always the same
   const [showAddBookmarkModal, setShowAddBookmarkModal] = useState(false);
   const [showRemoveBookmarkModal, setShowRemoveBookmarkModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -76,10 +78,12 @@ function ExpCards({ experience }: ExperienceCardProp) {
       handleBookmarkExperience(experienceID);
       setShowAddBookmarkModal(true);
     }
+
     fetchExperiences();
     setIsBookmarked(!isBookmarked);
   };
 
+  // REVIEW have you forgot to add any function to this useEffect? ...if it is doing nothing, you know the drill....
   useEffect(() => {}, [user, experience, isBookmarked]);
 
   return (
@@ -102,6 +106,7 @@ function ExpCards({ experience }: ExperienceCardProp) {
                 <i className="fa fa-trash"></i>
               </button>
             )}{" "}
+            {/* //REVIEW if the rendeing condition is the same as in line 99, why not putting the Link also inside  the previous? */}
             {user?.email === experience.author.email && (
               <Link className="deleteIcon" to={`/updateexperience/${_id}`}>
                 <i style={{ color: "black" }} className="fa fa-pencil"></i>
@@ -116,6 +121,7 @@ function ExpCards({ experience }: ExperienceCardProp) {
 
           {/* BOOKMARK BUTTON */}
           <div className="subPhotoHeader">
+            {/* //REVIEW if there is no author, what would be the fallback?  */}
             <p>posted by {author?.username}</p>
             <div className="bookmarkSet">
               <button

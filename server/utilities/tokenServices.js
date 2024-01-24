@@ -5,6 +5,7 @@ const generateToken = (userID) => {
     sub: userID,
   };
 
+  // REVIEW great idea to safely secure all your passwords in an .env file ..... 🙄
   const secretOrPrivateKey = "ilyaunBobby";
 
   const options = {

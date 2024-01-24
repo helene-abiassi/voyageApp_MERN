@@ -27,8 +27,10 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
 
   const handleCriteriaChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const criteria = e.target.value;
+
     setSearchCriteria(criteria);
     onCriteriaSearch(criteria);
+    //REVIEW this type of comparissons are not great. better !criteria, right?
     if (criteria === "") {
       setSearchCriteria("default");
       onCriteriaSearch("");

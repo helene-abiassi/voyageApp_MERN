@@ -56,7 +56,7 @@ const getUserById = async (req, res) => {
     });
   }
 };
-
+// REVIEW below function is similar to previous getUserById, you might consider turning them into a single one.
 const getUserByEmail = async (req, res) => {
   const email = req.params.email;
 
@@ -110,7 +110,9 @@ const uploadImage = async (req, res) => {
 };
 
 const signUp = async (req, res) => {
+  // REVIEW , form validation. Check that email and password are valid ones.. It is not optimat to make your hasPassword() function work if the password is not a valid one.
   try {
+    // REVIEW interesting structure. Instead of checking if the user is in the database first, you hash the password . Did you checked which process takes less time to complete?, hashing the password or getting a reponse from the database? it is true that you save one request...
     const hashedPassword = await hashPassword(req.body.password);
 
     if (hashedPassword) {
@@ -194,6 +196,7 @@ const logIn = async (req, res) => {
         } else {
           console.log("error generating token");
           res.status(400).json({
+            // REVIEW if we standarise the object we send in case of "error", with an extra field, or "error" instead of "message", it can be of great help to our Client, in our logic, and to improve the feedback to the user‚
             message: "something went wrong with your request",
           });
         }
@@ -223,6 +226,7 @@ const getProfile = async (req, res) => {
       },
     });
   }
+  // REVIEW in this type of situation, using guard clauses, the "else" scenario it is usually put first.
   if (!req.user) {
     res.status(200).json({
       message: "You need to log in to access this page",
@@ -244,10 +248,11 @@ const deleteUser = async (req, res) => {
 
     if (!deletedUser) {
       return res.status(404).json({
+        //REVIEW  "message", here "msg". Consistency.
         msg: "User not found",
       });
     }
-
+    // REVIEW don't we delete also the uploaded pictures?
     await experienceModel.deleteMany({ author: userId });
 
     await commentModel.deleteMany({ author: userId });

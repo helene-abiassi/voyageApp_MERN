@@ -31,6 +31,7 @@ router.get("/city/:city", getExperiencesByCity);
 //POST Routes
 router.post("/experiencesubmission", submitExperience);
 router.post("/experiences/:_id/comments", jwtAuth, submitComment);
+
 router.post("/mainphotoupload", multerUpload.single("photo"), uploadPhoto);
 router.post(
   "/photoalbumupload",

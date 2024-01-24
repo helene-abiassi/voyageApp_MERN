@@ -7,6 +7,7 @@ import {
 } from "react";
 import { Experience } from "../types/customTypes";
 import { AuthContext } from "./AuthContext";
+// REVIEW get rid of commented out stuff, unless you can explain why you keep it (learning purposes, future reference, etc...)
 // import useMyFetch from "../hooks/useMyFetch";
 
 interface ExperiencesContextType {
@@ -31,6 +32,7 @@ const initialContext: ExperiencesContextType = {
     console.log("context not initialized"),
   bookmarkExperience: (experienceID: string) =>
     console.log("context not initialized"),
+
   // setUrlParams: () => console.log("context not initialized"),
 
   // loading: true,

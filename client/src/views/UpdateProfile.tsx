@@ -10,6 +10,7 @@ function UpdateProfileView() {
         <h1>update your profile</h1>
       </div>
       <UpdateProfile />
+      {/* //REVIEW 🤌🏽🤌🏽🤌🏽🤌🏽 */}
       <br />
       <br />
       <br />

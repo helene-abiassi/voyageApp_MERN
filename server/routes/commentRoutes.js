@@ -4,6 +4,7 @@ import {
   getCommentsByExperienceId,
   getCommentsByUserId,
 } from "../controller/commentController.js";
+// REVIEW unused imports? a la basura con ellos!
 import jwtAuth from "../middlewares/jwtAuth.js";
 import multer from "multer";
 import { multerUpload } from "../middlewares/multer.js";

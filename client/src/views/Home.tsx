@@ -10,8 +10,8 @@ function Home() {
   const { user } = useContext(AuthContext);
 
   const navigateTo = useNavigate();
-
   useEffect(() => {
+    // REVIEW double check that this is doing what is supposed to do
     window.scrollTo(0, 0);
   }, []);
   return (
@@ -27,6 +27,7 @@ function Home() {
         <div className="beigeBox">
           {user ? (
             <>
+              {/* //REVIEW in this parenthesis you are inside the expresion executed if true, so no need of conditionally check if tthere is a user (user?.name). there has to be one if this part of the code gets executed    */}
               <h2>Welcome {user?.username}!</h2>
             </>
           ) : (
@@ -65,6 +66,7 @@ function Home() {
                 {" "}
                 <span className="dot">
                   <p style={{ paddingTop: "20pt" }}>
+                    {/* //REVIEW same as in previous comment about the conditional render. */}
                     {experiences?.length} <br /> experiences
                     <br />
                     to discover!

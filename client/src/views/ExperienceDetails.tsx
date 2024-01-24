@@ -13,6 +13,8 @@ import Modal from "../components/Modal";
 
 function ExperienceDetails() {
   const location = useLocation();
+  console.log("location :>> ", location);
+  // REVIEW If location.state is null (and happens when you don't send any state in the Link),this component breaks. Either you make sure you always send the experience object (which it might not be ideal in some components), or here you fetch the single expereience by name/id etc...
   const { experience } = location.state;
 
   const { _id, bookmarked_by, photo_body } = experience as Experience;
