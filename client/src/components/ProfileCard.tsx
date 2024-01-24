@@ -26,7 +26,7 @@ function ProfileCard() {
   // console.log("user in PROFILE :>> ", user);
 
   const redirectToExperience = (experienceTitle: string) => {
-    navigateTo(`/experiences/profile/${experienceTitle}`);
+    navigateTo(`/experiences/title/${experienceTitle}`);
   };
 
   useEffect(() => {

@@ -35,9 +35,9 @@ function Home() {
             </>
           )}
           <p>
-            Discovers voyage, <br />a public travel blog, where people share
-            some of the unique experiences and activities they came up with
-            while on vacation. <br />
+            Discover voyage, <br />a public travel blog, where people share some
+            of the unique experiences and activities they came up with while on
+            vacation. <br />
             <br />
             Whether you went on an alchemy walk in Prague, listened to live Faro
             music at a miradouro in Lisbon, or other, share your story with us.
