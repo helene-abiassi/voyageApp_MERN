@@ -6,8 +6,7 @@ import "../styles/ProfilePage.css";
 import { FiMapPin } from "react-icons/fi";
 
 function ProfileCard() {
-  const { user, getProfile, logOut, isLoggedIn, deleteProfile } =
-    useContext(AuthContext);
+  const { user, getProfile, logOut, deleteProfile } = useContext(AuthContext);
   const navigateTo = useNavigate();
 
   const handleDeleteProfile = (userID: string) => {
@@ -22,10 +21,6 @@ function ProfileCard() {
 
     logOut();
     navigateTo("/");
-  };
-
-  const redirectToExperience = (experiencID: string) => {
-    navigateTo(`/experiences/id/${experiencID}`);
   };
 
   useEffect(() => {
@@ -89,25 +84,27 @@ function ProfileCard() {
               user.bookmarks.map((bookmark, bookInd) => {
                 return (
                   <div key={bookInd}>
-                    <div
-                      onClick={() => {
-                        redirectToExperience(bookmark._id);
-                      }}
-                      className="profileCards"
-                    >
-                      <img
-                        style={{ width: "100%", borderRadius: "10px" }}
-                        src={bookmark.photo}
-                        alt={bookmark.title}
-                      />
-                      <p style={{ fontWeight: "600" }}>{bookmark.title}</p>
-                      <p>by {bookmark.author.username}</p>
-                      <p>{formatDate(bookmark.publication_date)}</p>
-                      <p>
-                        <FiMapPin />
-                        <span> </span>
-                        {bookmark.location.country}, {bookmark.location.city}
-                      </p>
+                    <div className="profileCards">
+                      <Link
+                        to={`/experiences/id/${bookmark._id}`}
+                        state={{ experience: bookmark }}
+                      >
+                        <img
+                          style={{ width: "100%", borderRadius: "10px" }}
+                          src={bookmark.photo}
+                          alt={bookmark.title}
+                        />
+                        <p style={{ fontWeight: "600" }}>{bookmark.title}</p>
+                        <p>by {bookmark.author.username}</p>
+                        <p>{formatDate(bookmark.publication_date)}</p>
+                        <p>
+                          <span>
+                            {" "}
+                            <FiMapPin />{" "}
+                          </span>
+                          {bookmark.location.city}, {bookmark.location.country}
+                        </p>
+                      </Link>
                     </div>
                   </div>
                 );
@@ -126,33 +123,27 @@ function ProfileCard() {
             {user?.submissions &&
               user.submissions.map((submission, submInd) => {
                 return (
-                  <div
-                    // onClick={() => {
-                    //   redirectToExperience(submission._id);
-                    // }}
-                    className="profileCards"
-                    key={submInd}
-                  >
-                    <img
-                      style={{ width: "100%", borderRadius: "10px" }}
-                      src={submission.photo}
-                      alt={submission.title}
-                    />
-                    <p style={{ fontWeight: "600" }}>{submission.title}</p>
-                    {/* //!SOLUTION */}
+                  <div className="profileCards" key={submInd}>
                     <Link
                       to={`/experiences/id/${submission._id}`}
                       state={{ experience: submission }}
                     >
-                      View
+                      <img
+                        style={{ width: "100%", borderRadius: "10px" }}
+                        src={submission.photo}
+                        alt={submission.title}
+                      />
+                      <p style={{ fontWeight: "600" }}>{submission.title}</p>
+                      <p>by you</p>
+                      <p>{formatDate(submission.publication_date)}</p>
+                      <p>
+                        <span>
+                          <FiMapPin />{" "}
+                        </span>
+                        {submission.location.city},{" "}
+                        {submission.location.country}
+                      </p>{" "}
                     </Link>
-                    <p>by you, on {formatDate(submission.publication_date)}</p>
-                    <p>
-                      <span>
-                        <FiMapPin />{" "}
-                      </span>
-                      {submission.location.country}, {submission.location.city}
-                    </p>
                   </div>
                 );
               })}

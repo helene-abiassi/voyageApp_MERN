@@ -104,7 +104,9 @@ function UpdateProfile() {
       setUpdatedUser((prevUser) => {
         return { ...prevUser, user_image: result.user_image };
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log("error :>> ", error);
+    }
   };
 
   return (

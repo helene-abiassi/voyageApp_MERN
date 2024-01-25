@@ -265,6 +265,40 @@ function UpdateExperience() {
             />
           </div>
         </div>
+        <div className="formColumn">
+          <div className="formRow">
+            <label style={{ marginRight: "1rem" }} htmlFor="latitude">
+              latitude*
+            </label>
+            <input
+              value={
+                updatedExperience.location.latitude ||
+                existingExperience?.location.latitude ||
+                ""
+              }
+              onChange={handleLocationInputChange}
+              name="latitude"
+              type="text"
+              required
+            />
+          </div>
+          <div className="formRow">
+            <label style={{ marginRight: "1rem" }} htmlFor="longitude">
+              longitude*
+            </label>
+            <input
+              value={
+                updatedExperience.location.longitude ||
+                existingExperience?.location.longitude ||
+                ""
+              }
+              onChange={handleLocationInputChange}
+              name="longitude"
+              type="text"
+              required
+            />
+          </div>
+        </div>
 
         <div className="formColumn">
           <div className="formRow">

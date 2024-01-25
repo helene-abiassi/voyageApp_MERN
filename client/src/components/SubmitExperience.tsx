@@ -4,6 +4,7 @@ import "../styles/Home.css";
 import "../styles/Experiences.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { ExperiencesContext } from "../context/ExperiencesContext";
 // import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 function SubmitExperience() {
@@ -11,6 +12,7 @@ function SubmitExperience() {
   const [photoAlbum, setPhotoAlbum] = useState<File[] | string[]>([]);
 
   const { user, isLoggedIn } = useContext(AuthContext);
+  const { fetchExperiences } = useContext(ExperiencesContext);
 
   const [newExperience, setNewExperience] = useState<Experience>({
     _id: "",
@@ -25,7 +27,8 @@ function SubmitExperience() {
     title: "",
     caption: "",
     publication_date: new Date(),
-    photo: "",
+    photo:
+      "https://res.cloudinary.com/dfm1r4ikr/image/upload/v1699830493/voyageApp/logo-variations-01_atukuy.png",
     location: {
       country: "",
       city: "",
@@ -163,10 +166,12 @@ function SubmitExperience() {
         requestOptions
       );
       const results = await response.json();
+      console.log("results from submitExperience :>> ", results);
     } catch (error) {
       console.log("error :>> ", error);
     }
     alert("experience posted!!");
+    await fetchExperiences();
     navigateTo("/experiences");
   };
 
@@ -177,33 +182,50 @@ function SubmitExperience() {
   return (
     <div>
       <div className="inputColorBox">
-        <form onSubmit={handleDisplayPhotoSubmit}>
-          <div className="formColumn">
-            <div className="formRow">
-              <span style={{ marginRight: "1rem" }}>photo*</span>
-              <input onChange={handlePhotoInput} name="photo" type="file" />
+        <div className="formRow">
+          <img
+            style={{
+              width: "16%",
+              height: "16%",
+              marginBottom: "1.5rem",
+              borderRadius: "10px",
+            }}
+            src={newExperience.photo}
+            alt=""
+          />
+          <form onSubmit={handleDisplayPhotoSubmit}>
+            <div className="formColumn">
+              <div className="formRow">
+                <span style={{ marginRight: "1rem" }}>photo*</span>
+                <input onChange={handlePhotoInput} name="photo" type="file" />
+              </div>
+              <button className="nakdButton" type="submit">
+                upload
+              </button>
             </div>
-            <button className="nakdButton" type="submit">
-              upload
-            </button>
-          </div>
-        </form>
-        <form onSubmit={handlePhotoAlbumSubmit}>
-          <div className="formColumn">
-            <div className="formRow">
-              <span style={{ marginRight: "1rem" }}>photo album (up to 4)</span>
-              <input
-                onChange={handlePhotoAlbumInput}
-                multiple
-                name="photo_body"
-                type="file"
-              />
+          </form>
+        </div>
+
+        <div className="formRow">
+          <form onSubmit={handlePhotoAlbumSubmit}>
+            <div className="formColumn">
+              <div className="formRow">
+                <span style={{ marginRight: "1rem" }}>
+                  photo album (up to 4)
+                </span>
+                <input
+                  onChange={handlePhotoAlbumInput}
+                  multiple
+                  name="photo_body"
+                  type="file"
+                />
+              </div>
+              <button className="nakdButton" type="submit">
+                upload
+              </button>
             </div>
-            <button className="nakdButton" type="submit">
-              upload
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
         <form onSubmit={handleSubmitExperience}>
           <div className="formColumn">
             <div className="formRow">
@@ -255,23 +277,23 @@ function SubmitExperience() {
           </div>
           <div className="formColumn">
             <div className="formRow">
-              <label style={{ marginRight: "1rem" }} htmlFor="longitude">
-                longitude*
-              </label>
-              <input
-                onChange={handleLocationInput}
-                name="longitude"
-                type="text"
-                required
-              />
-            </div>
-            <div className="formRow">
               <label style={{ marginRight: "1rem" }} htmlFor="latitude">
                 latitude*
               </label>
               <input
                 onChange={handleLocationInput}
                 name="latitude"
+                type="text"
+                required
+              />
+            </div>
+            <div className="formRow">
+              <label style={{ marginRight: "1rem" }} htmlFor="longitude">
+                longitude*
+              </label>
+              <input
+                onChange={handleLocationInput}
+                name="longitude"
                 type="text"
                 required
               />

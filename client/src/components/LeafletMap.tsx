@@ -85,31 +85,32 @@ function LeafletMap() {
                 ]}
                 // position={positions}
               >
-                <div
-                  className="experiencePopUp"
-                  onClick={() => {
-                    redirectToLink(experience._id);
-                  }}
-                >
-                  <Popup>
-                    <p
-                      style={{
-                        color: "black",
-                        fontWeight: "500",
-                        cursor: "pointer",
-                      }}
-                      id="popup-text"
-                    >
-                      {experience.title}
-                    </p>
-                    <img
-                      style={{ cursor: "pointer" }}
-                      src={experience.photo}
-                      alt="Encounter"
-                      id="popup-image"
-                    />{" "}
-                    {experience.location.city}, {experience.location.country}
-                  </Popup>
+                <div className="experiencePopUp">
+                  <Link
+                    to={`/experiences/id/${experience._id}`}
+                    state={{ experience: experience }}
+                  >
+                    experience
+                    <Popup>
+                      <p
+                        style={{
+                          color: "black",
+                          fontWeight: "500",
+                          cursor: "pointer",
+                        }}
+                        id="popup-text"
+                      >
+                        {experience.title}
+                      </p>
+                      <img
+                        style={{ cursor: "pointer" }}
+                        src={experience.photo}
+                        alt="Encounter"
+                        id="popup-image"
+                      />{" "}
+                      {experience.location.city}, {experience.location.country}
+                    </Popup>
+                  </Link>
                 </div>
               </Marker>
             ))}

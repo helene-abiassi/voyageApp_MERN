@@ -69,6 +69,6 @@
   object-fit: cover;
 }
 
-.profileCards img {
-  heigth: 100%;
+.profileCards p {
+  color: black !important;
 }

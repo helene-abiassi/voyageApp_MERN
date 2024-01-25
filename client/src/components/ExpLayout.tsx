@@ -125,13 +125,6 @@ function ExpLayout() {
         <Outlet />
 
         <div className="storyCards">
-          {/* {filteredExperiences && filteredExperiences.length === 0 ? (
-            <h2>No encounters found.</h2>
-          ) : experiences && experiences.length === 0 ? (
-            <h2>No encounters found.</h2>
-          ) : null} isLoading ? (
-            <Loader />
-          ) :*/}
           {filteredExperiences && filteredExperiences.length > 0 ? (
             filteredExperiences.map((experience, expID) => (
               <div key={expID}>
@@ -150,12 +143,8 @@ function ExpLayout() {
                 />
               </div>
             ))
-          ) : isLoading ? (
-            <Loader />
           ) : (
-            <div>
-              {!experiences ? <h2>...something went wrong...</h2> : null}
-            </div>
+            <Loader />
           )}
         </div>
       </div>

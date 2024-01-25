@@ -51,7 +51,8 @@ function ExpCards({ experience }: ExperienceCardProp) {
 
   const handleDeleteExperience = async (experienceID: string) => {
     deleteExperience(experienceID);
-    navigateTo("/experiences");
+    fetchExperiences();
+    // navigateTo("/experiences");
   };
 
   const handleBookmarkExperience = async (experienceID: string) => {
@@ -80,7 +81,9 @@ function ExpCards({ experience }: ExperienceCardProp) {
     setIsBookmarked(!isBookmarked);
   };
 
-  useEffect(() => {}, [user, experience, isBookmarked]);
+  useEffect(() => {
+    fetchExperiences();
+  }, [user, experience, isBookmarked]);
 
   return (
     <>

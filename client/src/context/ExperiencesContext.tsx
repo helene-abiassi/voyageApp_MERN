@@ -42,6 +42,8 @@ export const ExperiencesContext =
 export const ExperiencesContextProvider = (props: ProviderPropsType) => {
   const [experiences, setExperiences] = useState<Experience[] | null>(null);
 
+  const [isExperienceLoading, setIsExperienceLoading] = useState(true); //!Add isLoading state to experience
+
   const { user } = useContext(AuthContext);
 
   const fetchExperiences = async () => {
@@ -55,12 +57,13 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
         requestOptions
       );
 
+      if (!results.ok) {
+        setIsExperienceLoading(false);
+      }
+
       if (results.status === 200) {
         const data = await results.json();
-        // console.log("data  of fetchExp:>> ", data);
         const experienceList = data.data as Experience[];
-
-        // console.log("experienceList :>> ", experienceList);
 
         // setUrlParams(urlParams);
         setExperiences(experienceList);

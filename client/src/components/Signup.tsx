@@ -140,7 +140,9 @@ function Signup() {
       const result = await response.json();
       alert("Congrats!");
       navigateTo("/login");
-    } catch (error) {}
+    } catch (error) {
+      console.log("error :>> ", error);
+    }
   };
 
   useEffect(() => {
@@ -173,7 +175,6 @@ function Signup() {
         </div>
         <br />
         <form className="infoForm" onSubmit={handleSubmitRegister}>
-          {/* <div className="pswEmailBox"> */}
           <div className="formColumnLogup">
             <div className="inputContainer">
               <label htmlFor="email">e-mail*</label>
@@ -226,7 +227,6 @@ function Signup() {
             </div>
           </div>
 
-          {/* </div> */}
           <button className="nakdButton" type="submit">
             sign up
           </button>
