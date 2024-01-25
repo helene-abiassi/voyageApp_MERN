@@ -18,9 +18,8 @@ const router = express.Router();
 //GET Routes
 router.get("/all", getAllUsers);
 router.get("/id/:_id", getUserById);
-router.get("/email/:email", getUserByEmail);
-
 router.get("/profile", jwtAuth, getProfile);
+router.get("/email/:email", getUserByEmail);
 
 //POST Routes
 router.post("/imageUpload", multerUpload.single("user_image"), uploadImage);

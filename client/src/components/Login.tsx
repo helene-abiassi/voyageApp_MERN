@@ -72,31 +72,31 @@ function Login() {
     } else if (!email.includes("@")) {
       alert("Your email seems to be invalid");
       return;
-    } else {
-      const requestOptions = {
-        method: "GET",
-      };
-
-      try {
-        const response = await fetch(
-          `http://localhost:5005/api/users/email/${email}`,
-          requestOptions
-        );
-        const result = await response.json();
-
-        if (result?.data?.length > 0) {
-          logIn();
-          navigateTo("/profile", { replace: true });
-        } else {
-          await alert(
-            "This email does not exist in the database. Sign up first"
-          );
-          navigateTo("/signup");
-        }
-      } catch (error) {
-        console.error("Error checking email existence:", error);
-      }
     }
+    // else {
+    //! Redo this in context with server message
+    //Check if email exists in the database
+    // try {
+    //   const requestOptions = {
+    //     method: "GET",
+    //   };
+    //   const response = await fetch(
+    //     `http://localhost:5005/api/users/email/${email}`,
+    //     requestOptions
+    //   );
+    //   const result = await response.json();
+    //   console.log("result :>> ", result);
+    //   if (result?.data?.length > 0) {
+    //     logIn();
+    //     navigateTo("/profile", { replace: true });
+    //   } else {
+    //     alert("This email does not exist in the database. Sign up first");
+    //     return;
+    //   }
+    // } catch (error) {
+    //   console.error("Error checking email existence:", error);
+    // }
+    // }
   };
 
   useEffect(() => {}, [isLoggedIn, user]);

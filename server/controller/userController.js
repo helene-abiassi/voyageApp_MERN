@@ -2,7 +2,6 @@ import { v2 as cloudinary } from "cloudinary";
 import userModel from "../models/userModel.js";
 import { experienceModel } from "../models/experienceModel.js";
 import { commentModel } from "../models/commentModel.js";
-
 import { hashPassword, verifyPassword } from "../utilities/passwordServices.js";
 import { generateToken } from "../utilities/tokenServices.js";
 
@@ -155,7 +154,7 @@ const logIn = async (req, res) => {
     const existingUser = await userModel.findOne({ email: req.body.email });
     if (!existingUser) {
       res.status(404).json({
-        msg: "no user found with this email",
+        message: "no user found with this email",
       });
     } else {
       const checkPassword = await verifyPassword(
@@ -164,7 +163,7 @@ const logIn = async (req, res) => {
       );
 
       if (!checkPassword) {
-        res.status(404).json({
+        res.status(401).json({
           message: "Wrong password, try again",
         });
       }

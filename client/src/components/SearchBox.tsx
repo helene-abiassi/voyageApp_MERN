@@ -101,9 +101,6 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
           <option value={"Most Commented"}>Most Commented</option>
         </select>{" "}
       </div>
-      {/* <button className="nakdButton" onClick={resetFilters}>
-          Reset
-        </button> */}
 
       {showModal && (
         <Modal

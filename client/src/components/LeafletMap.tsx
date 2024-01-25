@@ -83,7 +83,6 @@ function LeafletMap() {
                   experience.location.latitude,
                   experience.location.longitude,
                 ]}
-                // position={positions}
               >
                 <div className="experiencePopUp">
                   <Link
