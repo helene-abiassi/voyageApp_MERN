@@ -1,11 +1,11 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
-import { CommentsType } from "../types/customTypes";
-import { AuthContext } from "../context/AuthContext";
-import { formatDate } from "./Functions";
 import { ExperiencesContext } from "../context/ExperiencesContext";
-import "../styles/Comments.css";
-import { IoIosSend } from "react-icons/io";
+import { AuthContext } from "../context/AuthContext";
+import { CommentsType } from "../types/customTypes";
+import { formatDate } from "./Functions";
 import Modal from "./Modal";
+import { IoIosSend } from "react-icons/io";
+import "../styles/Comments.css";
 
 type CommentsProps = {
   comments: CommentsType[];
@@ -152,9 +152,11 @@ function Comments({ comments, _id }: CommentsProps) {
   return (
     <div className="commentsSection">
       <br />
+      {/* TITLE SECTION */}
       <h2>comments:</h2>
       <div className="inputContainer">
         <form onSubmit={handleSubmitComment}>
+          {/* NEW COMMENT */}
           <div className="newComment">
             <input
               name="message"
@@ -181,6 +183,7 @@ function Comments({ comments, _id }: CommentsProps) {
         </form>
       </div>
       <br />
+      {/* ALL COMMENTS */}
 
       {experiences && experiences.length > 0 ? (
         experiences.map((experience) => {
@@ -193,21 +196,12 @@ function Comments({ comments, _id }: CommentsProps) {
                   .map((comment) => {
                     return (
                       <div className="singleComment" key={comment._id}>
+                        {/* COMMENT HEADER */}
                         <div className="singleCommentHeader">
                           {comment.author && (
-                            <div
-                              style={{
-                                display: "flex",
-                                flexDirection: "row",
-                                height: "3rem",
-                              }}
-                            >
+                            <div className="commentHeader">
                               <img
-                                style={{
-                                  height: "100%",
-                                  borderRadius: "50%",
-                                  marginRight: "1rem",
-                                }}
+                                className="userImage"
                                 src={comment.author.user_image}
                                 alt={comment.author.username}
                               />

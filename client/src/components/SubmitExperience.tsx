@@ -1,11 +1,10 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
-import { Experience, ExperienceImage } from "../types/customTypes";
-import "../styles/Home.css";
-import "../styles/Experiences.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { ExperiencesContext } from "../context/ExperiencesContext";
-// import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { Experience, ExperienceImage } from "../types/customTypes";
+import "../styles/Experiences.css";
+import "../styles/Home.css";
 
 function SubmitExperience() {
   const [displayPhoto, setDisplayPhoto] = useState<File | string>("");
@@ -148,8 +147,8 @@ function SubmitExperience() {
     urlencoded.append("photo", newExperience.photo);
     urlencoded.append("country", newExperience.location.country);
     urlencoded.append("city", newExperience.location.city);
-    urlencoded.append("longitude", newExperience.location.latitude);
-    urlencoded.append("latitude", newExperience.location.longitude);
+    urlencoded.append("longitude", newExperience.location.latitude as string);
+    urlencoded.append("latitude", newExperience.location.longitude as string);
     urlencoded.append("experienceType", newExperience.experienceType);
     urlencoded.append("text_body", newExperience.text_body);
     urlencoded.append("photo_body", photoBodyJSON);
@@ -183,16 +182,7 @@ function SubmitExperience() {
     <div>
       <div className="inputColorBox">
         <div className="formRow">
-          <img
-            style={{
-              width: "16%",
-              height: "16%",
-              marginBottom: "1.5rem",
-              borderRadius: "10px",
-            }}
-            src={newExperience.photo}
-            alt=""
-          />
+          <img src={newExperience.photo} alt="" />
           <form onSubmit={handleDisplayPhotoSubmit}>
             <div className="formColumn">
               <div className="formRow">
@@ -347,30 +337,3 @@ function SubmitExperience() {
 }
 
 export default SubmitExperience;
-
-{
-  /* <MapContainer center={location} zoom={13} scrollWheelZoom={true}>
-<TileLayer
-  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-/>
-{/* //RAULNOTE - poor attempt of creating markers dynamically */
-}
-{
-  /* experiences.map((experience) => {
-  return (
-    <Marker position={[experience.location.latitude, experience.location.longitude]}></Marker>
-  )
-}) */
-}
-{
-  /* <Marker position={location}> */
-}
-{
-  /* Map through marker to show pins of all locations  */
-}
-// <Popup>
-// A pretty CSS3 popup. <br /> Easily customizable.
-// </Popup>
-// </Marker>
-// </MapContainer> */}

@@ -46,4 +46,11 @@
   border-radius: 5px;
   width: 100%;
   margin-top: -3rem;
+  cursor: pointer;
+}
+
+#popup-text {
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
 }

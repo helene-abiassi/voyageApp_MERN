@@ -71,3 +71,15 @@ input {
   background-color: transparent !important;
   color: #242424;
 }
+
+.userImage {
+  height: 100%;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.commentHeader {
+  display: flex;
+  flex-direction: row;
+  height: 3rem;
+}

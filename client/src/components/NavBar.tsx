@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 function NavBar() {
-  const { user, isLoggedIn, isLoading } = useContext(AuthContext);
+  const { isLoggedIn, isLoading } = useContext(AuthContext);
 
   useEffect(() => {}, [isLoggedIn, isLoading]);
 

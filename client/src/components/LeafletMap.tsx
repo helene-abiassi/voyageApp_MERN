@@ -5,15 +5,13 @@ import "../styles/Map.css";
 import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import LocationMarker from "../assets/marker.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Modal from "./Modal";
 
 function LeafletMap() {
   const { experiences } = useContext(ExperiencesContext);
   const [location, setLocation] = useState([0, 0]);
   const positions = [52.52, 13.405];
-
-  const navigateTo = useNavigate();
 
   const [showMapModal, setShowMapModal] = useState(false);
 
@@ -30,6 +28,7 @@ function LeafletMap() {
   };
 
   const showPosition = (position) => {
+    console.log("position :>> ", position);
     const { longitude, latitude } = position.coords;
     const positionArray = [latitude, longitude];
     setLocation(positionArray);
@@ -76,8 +75,8 @@ function LeafletMap() {
                 icon={customIcon}
                 key={index}
                 position={[
-                  experience.location.latitude,
-                  experience.location.longitude,
+                  experience.location.latitude as number,
+                  experience.location.longitude as number,
                 ]}
               >
                 <Link
@@ -85,17 +84,8 @@ function LeafletMap() {
                   state={{ experience: experience }}
                 >
                   <Popup>
-                    <p
-                      style={{
-                        color: "black",
-                        fontWeight: "500",
-                        cursor: "pointer",
-                      }}
-                    >
-                      {experience.title}
-                    </p>
+                    <p id="popup-text">{experience.title}</p>
                     <img
-                      style={{ cursor: "pointer" }}
                       src={experience.photo}
                       alt="Encounter"
                       id="popup-image"
@@ -107,12 +97,12 @@ function LeafletMap() {
             ))}
         </MapContainer>
       </span>
-      {/* {showMapModal && (
+      {showMapModal && (
         <Modal
           message="Cannot display location"
           onClose={handleCloseMapModal}
         />
-      )} */}
+      )}
     </div>
   );
 }

@@ -1,14 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { NavLink, Outlet, useParams } from "react-router-dom";
-import ExpCards from "./ExpCard";
 import { ExperiencesContext } from "../context/ExperiencesContext";
+import ExpCards from "./ExpCard";
 import Loader from "./Loader";
 import SearchBox from "./SearchBox";
-import { AuthContext } from "../context/AuthContext";
 
 function ExpLayout() {
   const { experiences, fetchExperiences } = useContext(ExperiencesContext);
-  const { isLoading } = useContext(AuthContext);
   const [filteredExperiences, setFilteredExperiences] = useState(experiences);
 
   const { experienceType } = useParams();

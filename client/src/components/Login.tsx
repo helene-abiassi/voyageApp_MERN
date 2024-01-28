@@ -1,10 +1,10 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
-import "../styles/logUp.css";
-import "../styles/Home.css";
 import { Link, useNavigate } from "react-router-dom";
-import { User } from "../types/customTypes";
 import { AuthContext } from "../context/AuthContext";
+import { User } from "../types/customTypes";
 import Modal from "./Modal";
+import "../styles/Home.css";
+import "../styles/logUp.css";
 
 export interface LogInCredentials {
   _id: string;
@@ -25,7 +25,6 @@ function Login() {
     logIn,
     isLoggedIn,
     setIsLoggedIn,
-    credentialsCheck,
     user,
   } = useContext(AuthContext);
 
@@ -76,7 +75,7 @@ function Login() {
     } else {
       try {
         await logIn();
-        setIsLoggedIn((prevIsLoggedIn: boolean) => {
+        setIsLoggedIn((prevIsLoggedIn) => {
           if (prevIsLoggedIn) {
             navigateTo("/profile", { replace: true });
           } else {
@@ -96,11 +95,7 @@ function Login() {
     <>
       <div className="LogUpColorBox">
         <img
-          style={{
-            width: "20%",
-            height: "20%",
-            marginLeft: "400px",
-          }}
+          className="loginFormPhoto"
           src="https://res.cloudinary.com/dfm1r4ikr/image/upload/v1698010076/voyageApp/logo-variations-01_atukuy.png"
           alt=""
         />

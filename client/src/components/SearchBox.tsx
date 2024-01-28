@@ -1,8 +1,8 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import "../styles/SearchBox.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import Modal from "./Modal";
+import "../styles/SearchBox.css";
 
 export interface SearchBoxProps {
   onCriteriaSearch: (criteria: string) => void;
@@ -42,14 +42,6 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
 
     onCitySearch(searchCityInput);
   };
-
-  // const resetFilters = () => {
-  //    setSearchCity("");
-  //    setSearchCityInput("");
-  //    onCriteriaSearch("");
-  //    setSearchCriteria("default");
-  //    onCitySearch("");
-  // };
 
   useEffect(() => {}, [searchCityInput]);
 

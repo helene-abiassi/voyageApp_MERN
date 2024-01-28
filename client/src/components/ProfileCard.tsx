@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { formatDate } from "./Functions";
-import { Link, useNavigate } from "react-router-dom";
-import "../styles/ProfilePage.css";
 import { FiMapPin } from "react-icons/fi";
+import "../styles/ProfilePage.css";
 
 function ProfileCard() {
   const { user, getProfile, logOut, deleteProfile } = useContext(AuthContext);

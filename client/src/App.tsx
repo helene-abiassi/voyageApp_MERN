@@ -40,10 +40,6 @@ function App() {
           element={<ExperienceDetails />}
         />
         <Route
-          path="experiences/profile/:experienceTitle"
-          element={<ExperienceDetails />}
-        />
-        <Route
           path="updateexperience/:experienceId"
           element={
             <ProtectedRoute>

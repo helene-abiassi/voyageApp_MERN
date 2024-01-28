@@ -4,7 +4,6 @@
   width: 100%;
 
   margin-top: 0%;
-  /* padding: 2rem; */
   text-align: center;
   color-scheme: light dark;
   color: black;
@@ -150,4 +149,10 @@ Link {
 
 .submitHeader .backButton {
   padding: 0em 0.8em !important;
+}
+
+.backButton {
+  font-size: 36pt;
+  color: black;
+  background-color: transparent;
 }

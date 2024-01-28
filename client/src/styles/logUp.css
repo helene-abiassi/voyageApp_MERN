@@ -54,6 +54,7 @@ input {
   word-wrap: break-word !important;
 }
 
+
 .formColumnLogup {
   display: flex;
   flex-direction: row;
@@ -113,4 +114,17 @@ input {
   flex-direction: column;
   width: 55%;
   justify-content: space-between;
+}
+
+.loginFormPhoto {
+    width: 20%;
+    height: 20%;
+    margin-left: 400px;
+}
+
+.photoLine img {
+    width: 16%;
+    height: 16%;
+    margin-left: 70px;
+    border-radius: 50%;
 }

@@ -55,8 +55,8 @@ export interface User extends UserImage {
     location: {
       country: string;
       city: string;
-      longitude: string;
-      latitude: string;
+      longitude: string | number;
+      latitude: string | number;
     };
     experienceType: string;
     text_body: string;

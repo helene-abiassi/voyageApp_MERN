@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import "../styles/logUp.css";
-import "../styles/Home.css";
 import { Link, useNavigate } from "react-router-dom";
 import { User, UserImage } from "../types/customTypes";
+import "../styles/logUp.css";
+import "../styles/Home.css";
 
 function Signup() {
   const [selectedFile, setSelectedFile] = useState<File | string>("");
@@ -162,16 +162,7 @@ function Signup() {
             </form>
           </div>
 
-          <img
-            style={{
-              width: "16%",
-              height: "16%",
-              marginLeft: "70px",
-              borderRadius: "50%",
-            }}
-            src={newUser.user_image}
-            alt=""
-          />
+          <img src={newUser.user_image} alt="" />
         </div>
         <br />
         <form className="infoForm" onSubmit={handleSubmitRegister}>

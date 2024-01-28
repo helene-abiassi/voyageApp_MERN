@@ -1,9 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Experience } from "../types/customTypes";
 import { useContext, useEffect, useState } from "react";
-import { formatDate } from "./Functions";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { ExperiencesContext } from "../context/ExperiencesContext";
+import { Experience } from "../types/customTypes";
+import { formatDate } from "./Functions";
 import Modal from "./Modal";
 
 export interface ExperienceCardProp {
@@ -11,15 +11,8 @@ export interface ExperienceCardProp {
 }
 
 function ExpCards({ experience }: ExperienceCardProp) {
-  const {
-    _id,
-    author,
-    title,
-    publication_date,
-    photo,
-    bookmarked_by,
-    experienceType,
-  } = experience as Experience;
+  const { _id, author, title, publication_date, photo, bookmarked_by } =
+    experience as Experience;
 
   const { user } = useContext(AuthContext);
   const {
@@ -32,8 +25,6 @@ function ExpCards({ experience }: ExperienceCardProp) {
   const isBookmarkedInitially =
     user && user.bookmarks.some((bookmark) => bookmark._id === _id);
   const [isBookmarked, setIsBookmarked] = useState(isBookmarkedInitially);
-
-  const navigateTo = useNavigate();
 
   const [showAddBookmarkModal, setShowAddBookmarkModal] = useState(false);
   const [showRemoveBookmarkModal, setShowRemoveBookmarkModal] = useState(false);
@@ -52,7 +43,6 @@ function ExpCards({ experience }: ExperienceCardProp) {
   const handleDeleteExperience = async (experienceID: string) => {
     deleteExperience(experienceID);
     fetchExperiences();
-    // navigateTo("/experiences");
   };
 
   const handleBookmarkExperience = async (experienceID: string) => {
