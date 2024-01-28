@@ -76,12 +76,14 @@ function Login() {
     } else {
       try {
         await logIn();
-
-        if (isLoggedIn === true) {
-          navigateTo("/profile", { replace: true });
-        } else {
-          navigateTo("/login");
-        }
+        setIsLoggedIn((prevIsLoggedIn: boolean) => {
+          if (prevIsLoggedIn) {
+            navigateTo("/profile", { replace: true });
+          } else {
+            navigateTo("/login");
+          }
+          return prevIsLoggedIn;
+        });
       } catch (error) {
         console.error("Error during login:", error);
       }

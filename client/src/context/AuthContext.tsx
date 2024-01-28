@@ -79,9 +79,11 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       }
       if (response.status === 404) {
         await alert("This email does not exist!");
+        setIsLoggedIn(false);
       }
       if (response.status === 401) {
         await alert("Wrong password!");
+        setIsLoggedIn(false);
       }
     } catch (err) {
       const error = err as Error;

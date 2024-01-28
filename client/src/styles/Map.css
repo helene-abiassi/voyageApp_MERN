@@ -4,7 +4,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin-bottom: 2rem;
 }
@@ -12,9 +12,10 @@
 .general-map-card {
   margin-top: 1rem;
   padding: 1rem;
-  width: 100vh;
+  min-width: 50rem;
+  width: 100%;
   height: 61vh;
-  background: radial-gradient(rgb(232, 237, 237) 0%, rgb(227, 236, 239) 100%);
+  background: #efcb59;
   border: 1px solid rgb(91, 90, 90);
   border-radius: 5px;
   overflow: hidden;
@@ -26,32 +27,23 @@
   padding-top: 1rem;
 }
 
-.general-map-popup p {
-  text-align: center;
-}
-
 #map-container {
   margin-left: auto;
   margin-right: auto;
+  background: #1b729d;
   display: block;
   width: 100%;
   height: 100%;
-  /* height: 61vh; */
 }
 
 .experiencePopUp {
   height: 1.2rem;
-  /* cursor: pointer; */
+  text-align: center;
+  background-color: black;
 }
 
 #popup-image {
   border-radius: 5px;
   width: 100%;
   margin-top: -3rem;
-}
-
-@media (max-width: 700px) {
-  .general-map-card {
-    width: 85%;
-  }
 }

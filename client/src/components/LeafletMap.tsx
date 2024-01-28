@@ -21,10 +21,6 @@ function LeafletMap() {
     setShowMapModal(false);
   };
 
-  const redirectToLink = (experienceID: string) => {
-    navigateTo(`/experiences/id/${experienceID}`);
-  };
-
   const geoLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
@@ -52,18 +48,18 @@ function LeafletMap() {
 
   return (
     <div className="main-container">
+      <div>
+        {experiences && experiences.length ? (
+          <h3 style={{ color: "black" }}>
+            {" "}
+            There are currently {experiences.length} experiences across the
+            world.
+          </h3>
+        ) : (
+          <h3></h3>
+        )}
+      </div>
       <span className="general-map-card">
-        <div>
-          {experiences && experiences.length ? (
-            <p style={{ color: "black" }}>
-              {" "}
-              There are currently {experiences.length} experiences across the
-              world.
-            </p>
-          ) : (
-            <p></p>
-          )}
-        </div>
         <MapContainer
           center={positions}
           zoom={2}
@@ -84,43 +80,39 @@ function LeafletMap() {
                   experience.location.longitude,
                 ]}
               >
-                <div className="experiencePopUp">
-                  <Link
-                    to={`/experiences/id/${experience._id}`}
-                    state={{ experience: experience }}
-                  >
-                    experience
-                    <Popup>
-                      <p
-                        style={{
-                          color: "black",
-                          fontWeight: "500",
-                          cursor: "pointer",
-                        }}
-                        id="popup-text"
-                      >
-                        {experience.title}
-                      </p>
-                      <img
-                        style={{ cursor: "pointer" }}
-                        src={experience.photo}
-                        alt="Encounter"
-                        id="popup-image"
-                      />{" "}
-                      {experience.location.city}, {experience.location.country}
-                    </Popup>
-                  </Link>
-                </div>
+                <Link
+                  to={`/experiences/id/${experience._id}`}
+                  state={{ experience: experience }}
+                >
+                  <Popup>
+                    <p
+                      style={{
+                        color: "black",
+                        fontWeight: "500",
+                        cursor: "pointer",
+                      }}
+                    >
+                      {experience.title}
+                    </p>
+                    <img
+                      style={{ cursor: "pointer" }}
+                      src={experience.photo}
+                      alt="Encounter"
+                      id="popup-image"
+                    />{" "}
+                    {experience.location.city}, {experience.location.country}
+                  </Popup>
+                </Link>
               </Marker>
             ))}
         </MapContainer>
       </span>
-      {showMapModal && (
+      {/* {showMapModal && (
         <Modal
           message="Cannot display location"
           onClose={handleCloseMapModal}
         />
-      )}
+      )} */}
     </div>
   );
 }
