@@ -33,13 +33,17 @@ function NavBar() {
             <div style={{ opacity: 0 }}>
               {" "}
               <>
-                <span>profile|</span>
+                <span>profile||share</span>
               </>
             </div>
           ) : (
             <>
               {isLoggedIn ? (
-                <NavLink to="/profile">profile</NavLink>
+                <div>
+                  <NavLink to="/profile">profile</NavLink>
+                  <span> | </span>
+                  <NavLink to="/submit">share</NavLink>
+                </div>
               ) : (
                 <>
                   <NavLink to="/login">login</NavLink>

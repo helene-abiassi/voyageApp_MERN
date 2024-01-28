@@ -24,8 +24,8 @@ function ExpCards({ experience }: ExperienceCardProp) {
 
   const isBookmarkedInitially =
     user && user.bookmarks.some((bookmark) => bookmark._id === _id);
-  const [isBookmarked, setIsBookmarked] = useState(isBookmarkedInitially);
 
+  const [isBookmarked, setIsBookmarked] = useState(isBookmarkedInitially);
   const [showAddBookmarkModal, setShowAddBookmarkModal] = useState(false);
   const [showRemoveBookmarkModal, setShowRemoveBookmarkModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -92,7 +92,7 @@ function ExpCards({ experience }: ExperienceCardProp) {
                   handleDeleteExperience(_id);
                 }}
               >
-                <i className="fa fa-trash"></i>
+                <i style={{ color: "black" }} className="fa fa-trash"></i>
               </button>
             )}{" "}
             {user?.email === experience.author.email && (
@@ -147,6 +147,7 @@ function ExpCards({ experience }: ExperienceCardProp) {
         </div>
         <br />
       </div>
+      {/* MODALS */}
       {showAddBookmarkModal && (
         <Modal
           message="Added to bookmarks!"

@@ -7,19 +7,13 @@ import {
 } from "react";
 import { Experience } from "../types/customTypes";
 import { AuthContext } from "./AuthContext";
-// import useMyFetch from "../hooks/useMyFetch";
 
 interface ExperiencesContextType {
   experiences: Experience[] | null;
-  // urlParams: string;
   fetchExperiences: () => Promise<void>;
   deleteExperience: (experienceID: string) => void;
   bookmarkExperience: (experienceID: string) => void;
   removeBookmark: (experienceID: string) => void;
-  // setUrlParams: (urlParams: string) => void;
-
-  // loading: boolean;
-  // error: string;
 }
 const initialContext: ExperiencesContextType = {
   experiences: null,
@@ -42,7 +36,7 @@ export const ExperiencesContext =
 export const ExperiencesContextProvider = (props: ProviderPropsType) => {
   const [experiences, setExperiences] = useState<Experience[] | null>(null);
 
-  const [isExperienceLoading, setIsExperienceLoading] = useState(true); //!Add isLoading state to experience
+  const [isExperienceLoading, setIsExperienceLoading] = useState(true);
 
   const { user } = useContext(AuthContext);
 
@@ -64,13 +58,9 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
       if (results.status === 200) {
         const data = await results.json();
         const experienceList = data.data as Experience[];
-
-        // setUrlParams(urlParams);
         setExperiences(experienceList);
       }
-    } catch (error) {
-      console.log("error :>> ", error);
-    }
+    } catch (error) {}
   };
 
   const bookmarkExperience = async (experienceID: string) => {
@@ -104,9 +94,7 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
 
         fetchExperiences();
       }
-    } catch (error) {
-      console.log("error :>> ", error);
-    }
+    } catch (error) {}
   };
 
   const removeBookmark = async (experienceID: string) => {
@@ -166,13 +154,12 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
 
         if (response.ok) {
           console.log("experience deleted successfully!");
+          await fetchExperiences();
         } else {
           console.log("error with response when deleting experience");
         }
       }
-    } catch (error) {
-      console.log("error when deleting experience:>> ", error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

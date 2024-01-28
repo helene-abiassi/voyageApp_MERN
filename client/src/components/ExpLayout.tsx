@@ -135,10 +135,7 @@ function ExpLayout() {
           ) : experiences && experiences.length > 0 ? (
             experiences.map((experience, expID) => (
               <div key={expID}>
-                <ExpCards
-                  key={"1" + experience.publication_date}
-                  experience={experience}
-                />
+                <ExpCards key={expID + 1} experience={experience} />
               </div>
             ))
           ) : (

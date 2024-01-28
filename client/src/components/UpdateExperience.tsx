@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Experience, ExperienceImage } from "../types/customTypes";
+import "../styles/Experiences.css";
 
 function UpdateExperience() {
   const { experienceId } = useParams();
@@ -111,7 +112,9 @@ function UpdateExperience() {
         setUpdatedExperience(results.data);
       }
       fetchExistingData();
-    } catch (error) {}
+    } catch (error) {
+      console.log("error :>> ", error);
+    }
     alert("Experience updated successfully!");
     navigateTo("/experiences");
   };
@@ -267,9 +270,7 @@ function UpdateExperience() {
         </div>
         <div className="formColumn">
           <div className="formRow">
-            <label style={{ marginRight: "1rem" }} htmlFor="latitude">
-              latitude*
-            </label>
+            <label htmlFor="latitude">latitude*</label>
             <input
               value={
                 updatedExperience.location.latitude ||
@@ -283,9 +284,7 @@ function UpdateExperience() {
             />
           </div>
           <div className="formRow">
-            <label style={{ marginRight: "1rem" }} htmlFor="longitude">
-              longitude*
-            </label>
+            <label htmlFor="longitude">longitude*</label>
             <input
               value={
                 updatedExperience.location.longitude ||
@@ -307,7 +306,6 @@ function UpdateExperience() {
               name="text_body"
               onChange={handleInputChange}
               style={{
-                marginRight: "1rem",
                 minHeight: "10rem",
               }}
               value={

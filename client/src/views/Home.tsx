@@ -1,9 +1,8 @@
-import "../styles/Home.css";
-import { Link, useNavigate } from "react-router-dom";
-// import Carousel from "../components/Carousel";
 import { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { ExperiencesContext } from "../context/ExperiencesContext";
 import { AuthContext } from "../context/AuthContext";
+import "../styles/Home.css";
 
 function Home() {
   const { experiences } = useContext(ExperiencesContext);
@@ -17,13 +16,7 @@ function Home() {
   return (
     <div>
       <h1>explore. discover. share.</h1>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
+      <div className="pageAlignment">
         <div className="beigeBox">
           {user ? (
             <>
@@ -64,7 +57,7 @@ function Home() {
               <>
                 {" "}
                 <span className="dot">
-                  <p style={{ paddingTop: "20pt" }}>
+                  <p>
                     {experiences?.length} <br /> experiences
                     <br />
                     to discover!
@@ -76,7 +69,6 @@ function Home() {
         </div>
       </div>
       <br />
-      <div className="top5Carousel">{/* <Carousel /> */}</div>
     </div>
   );
 }

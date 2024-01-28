@@ -28,7 +28,7 @@
 .message {
 }
 
-button {
+.modal-header button {
   background-color: transparent;
   color: black;
   border: none;

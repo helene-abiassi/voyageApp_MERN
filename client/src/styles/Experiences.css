@@ -166,6 +166,10 @@
   border-radius: 10px;
 }
 
+.formRow label {
+  margin-right: 1rem;
+}
+
 .formColumn {
   display: flex;
   flex-direction: row;

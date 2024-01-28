@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
-import { User } from "../types/customTypes";
 import { LogInCredentials, LogInResponse } from "../components/Login";
+import { User } from "../types/customTypes";
 
 interface AuthContextType {
   user: User | null;
@@ -127,6 +127,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       } catch (err) {
         const error = err as Error;
         setIsLoading(false);
+        console.log("error :>> ", error);
       }
     }
   };
@@ -146,7 +147,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      // console.log("No token available!");
+      console.log("No token available!");
     }
 
     const myHeaders = new Headers();
@@ -162,10 +163,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         `http://localhost:5005/api/users//deleteuser/${userID}`,
         requestOptions
       );
-      // console.log("Response status:", response.status);
 
       if (response.ok) {
-        // console.log("profile deleted successfully!");
         setUser(null);
       } else {
       }
@@ -204,6 +203,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       } catch (err) {
         const error = err as Error;
         setIsLoading(false);
+        console.log("error :>> ", error);
       }
     } else {
       setIsLoggedIn(false);

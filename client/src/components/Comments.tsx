@@ -31,14 +31,13 @@ function Comments({ comments, _id }: CommentsProps) {
   });
   const [commments, setUpdatedComments] = useState<CommentsType[] | null>(null);
   const [textInput, setTextInput] = useState("");
-
   const [showLoginModal, setShowLoginModal] = useState(false);
 
-  const handleLoginModal = () => {
+  const handleCloseLoginModal = () => {
     setShowLoginModal(false);
   };
 
-  const handleNewComments = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleNewCommentInput = (e: ChangeEvent<HTMLInputElement>) => {
     setTextInput(e.target.value);
     setNewComment({
       ...newComment,
@@ -133,7 +132,6 @@ function Comments({ comments, _id }: CommentsProps) {
           `http://localhost:5005/api/experiences/deletecomment/${commentId}`,
           requestOptions
         );
-
         if (response.ok) {
           fetchExperiences();
         } else {
@@ -167,15 +165,11 @@ function Comments({ comments, _id }: CommentsProps) {
                   ? "Leave a comment..."
                   : "You need to log in to leave a comment..."
               }
-              onChange={handleNewComments}
+              onChange={handleNewCommentInput}
               value={textInput}
               disabled={!user}
             />
-            <button
-              style={{ backgroundColor: "white" }}
-              className="nakdButton "
-              type="submit"
-            >
+            <button className="nakdButton " type="submit">
               <IoIosSend />
               submit{" "}
             </button>
@@ -185,57 +179,65 @@ function Comments({ comments, _id }: CommentsProps) {
       <br />
       {/* ALL COMMENTS */}
 
-      {experiences && experiences.length > 0 ? (
-        experiences.map((experience) => {
-          return (
-            <div key={experience._id}>
-              {experience._id === experienceID &&
-                experience.comments
-                  ?.slice()
-                  .sort((a, b) => new Date(b.date) - new Date(a.date))
-                  .map((comment) => {
-                    return (
-                      <div className="singleComment" key={comment._id}>
-                        {/* COMMENT HEADER */}
-                        <div className="singleCommentHeader">
-                          {comment.author && (
-                            <div className="commentHeader">
-                              <img
-                                className="userImage"
-                                src={comment.author.user_image}
-                                alt={comment.author.username}
-                              />
-                              <p>{comment.author.username}</p>
-                            </div>
-                          )}
-                          <p>{formatDate(comment.date)}</p>
+      {comments.length === 0 ? (
+        <p>Be the first one to leave a comment!</p>
+      ) : null}
+
+      {experiences && experiences.length > 0
+        ? experiences.map((experience) => {
+            return (
+              <div key={experience._id}>
+                {experience._id === experienceID &&
+                  experience.comments
+                    ?.slice()
+                    .sort((a, b) => new Date(b.date) - new Date(a.date))
+                    .map((comment) => {
+                      return (
+                        <div className="singleComment" key={comment._id}>
+                          {/* COMMENT HEADER */}
+                          <div className="singleCommentHeader">
+                            {comment.author && (
+                              <div className="commentHeader">
+                                <img
+                                  className="userImage"
+                                  src={comment.author.user_image}
+                                  alt={comment.author.username}
+                                />
+                                <p>{comment.author.username}</p>
+                              </div>
+                            )}
+                            <p>{formatDate(comment.date)}</p>
+                          </div>
+                          <div className="commentBody">
+                            <p className="commentMsg">{comment.message}</p>
+                            {user && user.email === comment.author?.email && (
+                              <button
+                                className="deleteIcon"
+                                onClick={() => {
+                                  handleDeleteComment(comment._id);
+                                }}
+                              >
+                                <i
+                                  style={{ color: "black" }}
+                                  className="fa fa-trash"
+                                ></i>
+                              </button>
+                            )}
+                          </div>
                         </div>
-                        <div className="commentBody">
-                          <p className="commentMsg">{comment.message}</p>
-                          {user && user.email === comment.author?.email && (
-                            <button
-                              className="deleteIcon"
-                              onClick={() => {
-                                handleDeleteComment(comment._id);
-                              }}
-                            >
-                              <i className="fa fa-trash"></i>
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-            </div>
-          );
-        })
-      ) : (
-        <p>Be the first one to leave a comment</p>
-      )}
+                      );
+                    })}
+              </div>
+            );
+          })
+        : null}
       <hr />
 
       {showLoginModal && (
-        <Modal message="You need to log in first!" onClose={handleLoginModal} />
+        <Modal
+          message="You need to log in first!"
+          onClose={handleCloseLoginModal}
+        />
       )}
     </div>
   );

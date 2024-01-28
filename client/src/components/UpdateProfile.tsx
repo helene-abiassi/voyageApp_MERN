@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { User, UserImage } from "../types/customTypes";
-import { useNavigate } from "react-router-dom";
 
 function UpdateProfile() {
   const { user, getProfile } = useContext(AuthContext);
@@ -113,19 +113,12 @@ function UpdateProfile() {
     <div className="inputColorBox">
       <div className="inputContainer">
         <img
-          style={{
-            width: "16%",
-            height: "16%",
-            marginLeft: "70px",
-            borderRadius: "50%",
-          }}
+          className="profileUpdatePhoto"
           src={updatedUser.user_image || user?.user_image}
           alt=""
         />
         <form onSubmit={handleUpdatedPhotoSubmit}>
-          <label style={{ marginRight: "1rem" }} htmlFor="photo">
-            photo:
-          </label>
+          <label htmlFor="photo">photo:</label>
           <input onChange={handlePhotoInputChange} name="photo" type="file" />
           <button type="submit">upload</button>
         </form>
@@ -133,9 +126,7 @@ function UpdateProfile() {
       <form onSubmit={handleUpdateProfile}>
         <div className="formColumnLogup">
           <div className="inputContainer">
-            <label style={{ marginRight: "1rem" }} htmlFor="username">
-              username:
-            </label>
+            <label htmlFor="username">username:</label>
             <input
               onChange={handleInputChange}
               value={updatedUser.username || user?.username || ""}
@@ -144,9 +135,7 @@ function UpdateProfile() {
             />
           </div>
           <div className="inputContainer">
-            <label style={{ marginRight: "1rem" }} htmlFor="email">
-              email:
-            </label>
+            <label htmlFor="email">email:</label>
             <input
               onChange={handleInputChange}
               value={updatedUser.email || user?.email || ""}
@@ -156,12 +145,9 @@ function UpdateProfile() {
           </div>
         </div>
         <div className="inputContainer">
-          <label style={{ marginRight: "1rem" }} htmlFor="bio">
-            bio:
-          </label>
+          <label htmlFor="bio">bio:</label>
           <input
             style={{
-              marginRight: "1rem",
               minHeight: "10rem",
               minWidth: "18rem",
             }}

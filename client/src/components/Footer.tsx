@@ -3,20 +3,14 @@ function Footer() {
   return (
     <div>
       <footer>
-        <a target="_blank" href="https://github.com/helene-abiassi">
-          <i
-            className="fa fa-github"
-            style={{ fontSize: "30px", color: "white" }}
-          ></i>
-        </a>
-        {"  "}{" "}
         <a
+          style={{ color: "white" }}
           target="_blank"
           href="https://github.com/helene-abiassi"
-          style={{ color: "white", paddingLeft: "15pt" }}
         >
           {" "}
-          Helene Abi Assi
+          <i className="fa fa-github" style={{ fontSize: "30px" }}></i>{" "}
+          <span>Helene Abi Assi</span>
         </a>
       </footer>
     </div>

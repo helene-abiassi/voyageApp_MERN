@@ -8,7 +8,7 @@ function Submit() {
         <div className="backButton">
           <BackButton />
         </div>
-        <h1>submit your story</h1>
+        <h1>share your story</h1>
       </div>
       <SubmitExperience />
       <br />

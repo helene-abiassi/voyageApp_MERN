@@ -124,6 +124,7 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   transition: border-color 0.25s;
+  cursor: pointer;
 }
 
 button:hover {
@@ -155,4 +156,14 @@ Link {
   font-size: 36pt;
   color: black;
   background-color: transparent;
+}
+
+.backButton:hover {
+  background-color: transparent;
+}
+
+.pageAlignment {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

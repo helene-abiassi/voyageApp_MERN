@@ -1,21 +1,21 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import "../styles/DetailsPage.css";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ExperiencesContext } from "../context/ExperiencesContext";
+import { AuthContext } from "../context/AuthContext";
+import { formatDate } from "../components/Functions";
+import { Experience } from "../types/customTypes";
 import Comments from "../components/Comments";
 import BackButton from "../components/BackButton";
-import { formatDate } from "../components/Functions";
-import { AuthContext } from "../context/AuthContext";
-import { Experience } from "../types/customTypes";
-import { ExperiencesContext } from "../context/ExperiencesContext";
-import { SlMap } from "react-icons/sl";
-import { FaHiking } from "react-icons/fa";
 import Modal from "../components/Modal";
+import { FaHiking } from "react-icons/fa";
+import { SlMap } from "react-icons/sl";
+import "../styles/DetailsPage.css";
 
 function ExperienceDetails() {
   const location = useLocation();
   const { experience } = location.state;
 
-  const { _id, bookmarked_by, photo_body } = experience as Experience;
+  const { _id } = experience as Experience;
 
   const { user } = useContext(AuthContext);
   const {
@@ -23,7 +23,6 @@ function ExperienceDetails() {
     bookmarkExperience,
     fetchExperiences,
     removeBookmark,
-    // experiences,
   } = useContext(ExperiencesContext);
 
   const isBookmarkedInitially =
@@ -77,9 +76,7 @@ function ExperienceDetails() {
     setIsBookmarked(!isBookmarked);
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [fetchExperiences, experience, experience.comments]);
+  useEffect(() => {}, [fetchExperiences, experience, experience.comments]);
 
   return (
     <div>
@@ -198,16 +195,13 @@ function ExperienceDetails() {
               <div className="photoRow slideshow-container">
                 {experience.photo_body.map((photo: string, idPhoto: number) => {
                   return (
-                    <>
-                      <div className={`mySlides fade`}>
-                        <img
-                          key={idPhoto}
-                          style={{ width: "100%", height: "100%" }}
-                          src={photo}
-                          alt=""
-                        />
-                      </div>
-                    </>
+                    <div key={idPhoto + 1} className={`mySlides fade`}>
+                      <img
+                        style={{ width: "100%", height: "100%" }}
+                        src={photo}
+                        alt=""
+                      />
+                    </div>
                   );
                 })}
 

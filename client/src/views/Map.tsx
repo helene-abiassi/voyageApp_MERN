@@ -10,13 +10,11 @@ function Map() {
     <div>
       <div className="detailsHeader">
         <BackButton />
-
         <h1>map</h1>
       </div>
-
-      <div>
-        <LeafletMap />
-      </div>
+      <LeafletMap />
+      <br />
+      <br />
     </div>
   );
 }

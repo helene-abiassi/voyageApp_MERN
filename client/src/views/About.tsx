@@ -10,13 +10,7 @@ function About() {
   return (
     <div>
       <h1>about</h1>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
+      <div className="pageAlignment">
         <div className="beigeBox">
           <p>
             Discovers voyage, <br />a public travel blog, where people share

@@ -7,7 +7,7 @@ function SignUp() {
   }, []);
   return (
     <div>
-      <h1></h1>
+      <h1>please sign up</h1>
       <Signup />
       <br />
       <br />

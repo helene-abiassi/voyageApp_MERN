@@ -72,3 +72,10 @@
 .profileCards p {
   color: black !important;
 }
+
+.profileUpdatePhoto {
+  width: 16%;
+  height: 16%;
+  margin-left: 70px;
+  border-radius: 50%;
+}

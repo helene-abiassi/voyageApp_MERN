@@ -87,6 +87,10 @@ Link:hover {
   box-shadow: 4px 4px black;
 }
 
+.dot p {
+  padding-top: 20pt;
+}
+
 .circleBox {
   position: absolute;
   right: -125px;

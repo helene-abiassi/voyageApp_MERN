@@ -9,16 +9,14 @@ function ProfileCard() {
   const { user, getProfile, logOut, deleteProfile } = useContext(AuthContext);
   const navigateTo = useNavigate();
 
-  const handleDeleteProfile = (userID: string) => {
+  const handleDeleteProfileButton = (userID: string) => {
     window.confirm("Are you SURE you want to delete your profile?");
-
     deleteProfile(userID);
     navigateTo("/");
   };
 
-  const handleLogOut = () => {
+  const handleLogOutButton = () => {
     window.confirm("Are you SURE you want to log out?");
-
     logOut();
     navigateTo("/");
   };
@@ -58,13 +56,13 @@ function ProfileCard() {
           <br />
           <br />
           <div>
-            <button className="nakdButton" onClick={handleLogOut}>
+            <button className="nakdButton" onClick={handleLogOutButton}>
               log out
             </button>
             <button
               className="nakdButton"
               onClick={() => {
-                handleDeleteProfile(user!._id);
+                handleDeleteProfileButton(user!._id);
               }}
             >
               delete

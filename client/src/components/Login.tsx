@@ -30,20 +30,19 @@ function Login() {
 
   const [passwordType, setPasswordType] = useState("password");
   const [showOrHide, setShowOrHide] = useState("show");
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const navigateTo = useNavigate();
+
   const changePasswordType = () => {
     if (passwordType === "password") {
       setPasswordType("text");
       setShowOrHide("hide");
-
       return;
     }
     setPasswordType("password");
     setShowOrHide("show");
   };
-
-  const navigateTo = useNavigate();
-
-  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const handleCloseLoginModal = () => {
     setShowLoginModal(false);
@@ -132,7 +131,6 @@ function Login() {
         <button
           onClick={changePasswordType}
           className="hide-passwordLogin formButton"
-          style={{ cursor: "pointer" }}
         >
           {showOrHide}
         </button>

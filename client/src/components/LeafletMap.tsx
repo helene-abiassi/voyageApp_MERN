@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { ExperiencesContext } from "../context/ExperiencesContext";
-import "../styles/Map.css";
-import { Icon } from "leaflet";
-import "leaflet/dist/leaflet.css";
 import LocationMarker from "../assets/marker.png";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
+import { Icon } from "leaflet";
+import "../styles/Map.css";
+import "leaflet/dist/leaflet.css";
 
 function LeafletMap() {
   const { experiences } = useContext(ExperiencesContext);
@@ -28,7 +28,6 @@ function LeafletMap() {
   };
 
   const showPosition = (position) => {
-    console.log("position :>> ", position);
     const { longitude, latitude } = position.coords;
     const positionArray = [latitude, longitude];
     setLocation(positionArray);

@@ -200,9 +200,7 @@ function SubmitExperience() {
           <form onSubmit={handlePhotoAlbumSubmit}>
             <div className="formColumn">
               <div className="formRow">
-                <span style={{ marginRight: "1rem" }}>
-                  photo album (up to 4)
-                </span>
+                <label>photo album (up to 4)</label>
                 <input
                   onChange={handlePhotoAlbumInput}
                   multiple
@@ -219,9 +217,7 @@ function SubmitExperience() {
         <form onSubmit={handleSubmitExperience}>
           <div className="formColumn">
             <div className="formRow">
-              <label style={{ marginRight: "1rem" }} htmlFor="title">
-                title*
-              </label>
+              <label htmlFor="title">title*</label>
               <input
                 onChange={handleFormInput}
                 name="title"
@@ -230,9 +226,7 @@ function SubmitExperience() {
               />
             </div>
             <div className="formRow">
-              <label style={{ marginRight: "1rem" }} htmlFor="caption">
-                caption*
-              </label>
+              <label htmlFor="caption">caption*</label>
               <input
                 onChange={handleFormInput}
                 name="caption"
@@ -243,9 +237,7 @@ function SubmitExperience() {
           </div>
           <div className="formColumn">
             <div className="formRow">
-              <label style={{ marginRight: "1rem" }} htmlFor="country">
-                country*
-              </label>
+              <label htmlFor="country">country*</label>
               <input
                 onChange={handleLocationInput}
                 name="country"
@@ -254,9 +246,7 @@ function SubmitExperience() {
               />
             </div>
             <div className="formRow">
-              <label style={{ marginRight: "1rem" }} htmlFor="city">
-                city*
-              </label>
+              <label htmlFor="city">city*</label>
               <input
                 onChange={handleLocationInput}
                 name="city"
@@ -267,9 +257,7 @@ function SubmitExperience() {
           </div>
           <div className="formColumn">
             <div className="formRow">
-              <label style={{ marginRight: "1rem" }} htmlFor="latitude">
-                latitude*
-              </label>
+              <label htmlFor="latitude">latitude*</label>
               <input
                 onChange={handleLocationInput}
                 name="latitude"
@@ -278,9 +266,7 @@ function SubmitExperience() {
               />
             </div>
             <div className="formRow">
-              <label style={{ marginRight: "1rem" }} htmlFor="longitude">
-                longitude*
-              </label>
+              <label htmlFor="longitude">longitude*</label>
               <input
                 onChange={handleLocationInput}
                 name="longitude"
@@ -291,12 +277,9 @@ function SubmitExperience() {
           </div>
           <div className="formColumn">
             <div className="formRow">
-              <label style={{ marginRight: "1rem" }} htmlFor="story">
-                story*
-              </label>
+              <label htmlFor="story">story*</label>
               <input
                 style={{
-                  marginRight: "1rem",
                   minHeight: "10rem",
                 }}
                 name="text_body"
@@ -308,9 +291,7 @@ function SubmitExperience() {
               />
             </div>
             <div className="formRow">
-              <label style={{ marginRight: "1rem" }} htmlFor="experienceType">
-                experience type*
-              </label>
+              <label htmlFor="experienceType">experience type*</label>
               <select
                 onChange={handleTypeInput}
                 id="experienceType"
@@ -323,6 +304,8 @@ function SubmitExperience() {
                 <option value="faunaflora">fauna & flora</option>
                 <option value="wildlife">wildlife</option>
                 <option value="citywalk">citywalk</option>
+                <option value="roadtrips">roadtrips</option>
+                <option value="scenery">scenery</option>
               </select>
             </div>
           </div>

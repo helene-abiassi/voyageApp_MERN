@@ -16,7 +16,6 @@ function Profile() {
       <br />
       <br />
       <br />
-      <br />
     </>
   );
 }
