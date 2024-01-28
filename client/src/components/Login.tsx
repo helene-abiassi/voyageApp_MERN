@@ -25,6 +25,7 @@ function Login() {
     logIn,
     isLoggedIn,
     setIsLoggedIn,
+    credentialsCheck,
     user,
   } = useContext(AuthContext);
 
@@ -72,31 +73,19 @@ function Login() {
     } else if (!email.includes("@")) {
       alert("Your email seems to be invalid");
       return;
+    } else {
+      try {
+        await logIn();
+
+        if (isLoggedIn === true) {
+          navigateTo("/profile", { replace: true });
+        } else {
+          navigateTo("/login");
+        }
+      } catch (error) {
+        console.error("Error during login:", error);
+      }
     }
-    // else {
-    //! Redo this in context with server message
-    //Check if email exists in the database
-    // try {
-    //   const requestOptions = {
-    //     method: "GET",
-    //   };
-    //   const response = await fetch(
-    //     `http://localhost:5005/api/users/email/${email}`,
-    //     requestOptions
-    //   );
-    //   const result = await response.json();
-    //   console.log("result :>> ", result);
-    //   if (result?.data?.length > 0) {
-    //     logIn();
-    //     navigateTo("/profile", { replace: true });
-    //   } else {
-    //     alert("This email does not exist in the database. Sign up first");
-    //     return;
-    //   }
-    // } catch (error) {
-    //   console.error("Error checking email existence:", error);
-    // }
-    // }
   };
 
   useEffect(() => {}, [isLoggedIn, user]);

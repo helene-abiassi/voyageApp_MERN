@@ -74,16 +74,15 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
           localStorage.setItem("token", token);
           setUser(results.user);
           setIsLoggedIn(true);
+          return;
         }
       }
       if (response.status === 404) {
         await alert("This email does not exist!");
-        return;
       }
-      // if (response.status === 401) {
-      //   await alert("Wrong password!");
-      //   return;
-      // }
+      if (response.status === 401) {
+        await alert("Wrong password!");
+      }
     } catch (err) {
       const error = err as Error;
       console.log("error when logging in :>> ", error);
