@@ -95,11 +95,11 @@ function ExperienceDetails() {
             <h2>story by</h2>
             <div className="photoRow">
               <img
-                style={{
-                  width: "36%",
-                  borderRadius: "50%",
-                }}
-                src={experience.author.user_image}
+                style={{ width: "36%", borderRadius: "50%" }}
+                src={
+                  experience?.author.user_image ||
+                  "https://res.cloudinary.com/dfm1r4ikr/image/upload/v1697397728/voyageApp/userPhoto.png"
+                }
                 alt={experience.author.username}
               />
               <h4>{experience.author.username}</h4>
@@ -112,50 +112,40 @@ function ExperienceDetails() {
           {/* EXPERIENCE CARD */}
           <div className="detailsSection">
             <div className="photoCard">
-              <img
-                style={{
-                  width: "97.5%",
-                  borderRadius: "10px",
-                  border: "10px solid #d7c6ac",
-                }}
-                src={experience.photo}
-                alt=""
-              />
-              <p style={{ borderRadius: "1px", fontSize: "13pt" }}>
-                posted on {formatDate(experience.publication_date)}
-              </p>
+              <img src={experience.photo} alt={experience.title} />
+              <p>posted on {formatDate(experience.publication_date)}</p>
             </div>
 
             <div className="textBox">
               <div style={{ marginTop: "-20px" }}>
                 {user?.email === experience.author.email && (
-                  <button
-                    className="deleteIcon"
-                    onClick={() => {
-                      handleDeleteExperience(experience._id);
-                    }}
-                  >
-                    <i
-                      className="fa fa-trash"
-                      style={{ fontSize: "18px", color: "black" }}
-                    ></i>
-                  </button>
-                )}{" "}
-                {user?.email === experience.author.email && (
-                  <Link
-                    style={{ backgroundColor: "black" }}
-                    to={`/updateexperience/${_id}`}
-                    className="deleteIcon"
-                  >
-                    <i
-                      className="fa fa-pencil"
-                      style={{ fontSize: "18px", color: "black" }}
-                    ></i>
-                  </Link>
+                  <>
+                    <button
+                      className="deleteIcon"
+                      onClick={() => {
+                        handleDeleteExperience(experience._id);
+                      }}
+                    >
+                      <i
+                        className="fa fa-trash"
+                        style={{ fontSize: "18px", color: "black" }}
+                      ></i>
+                    </button>
+                    <Link
+                      style={{ backgroundColor: "black" }}
+                      to={`/updateexperience/${_id}`}
+                      className="deleteIcon"
+                    >
+                      <i
+                        className="fa fa-pencil"
+                        style={{ fontSize: "18px", color: "black" }}
+                      ></i>
+                    </Link>
+                  </>
                 )}
               </div>
               <div className="row">
-                <p style={{ width: "80%" }}>{experience.caption}</p>
+                <p>{experience.caption}</p>
 
                 <div className="bookmarkSet">
                   <button
@@ -196,11 +186,7 @@ function ExperienceDetails() {
                 {experience.photo_body.map((photo: string, idPhoto: number) => {
                   return (
                     <div key={idPhoto + 1} className={`mySlides fade`}>
-                      <img
-                        style={{ width: "100%", height: "100%" }}
-                        src={photo}
-                        alt=""
-                      />
+                      <img src={photo} alt={`${idPhoto}`} />
                     </div>
                   );
                 })}
@@ -218,6 +204,7 @@ function ExperienceDetails() {
       <br />
       <br />
       <br />
+      {/* MODALS */}
       {showAddBookmarkModal && (
         <Modal
           message="Added to bookmarks!"

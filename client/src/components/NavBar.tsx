@@ -19,7 +19,7 @@ function NavBar() {
             />
           </NavLink>
         </div>
-        <div style={{ cursor: "pointer" }} className="navMiddle">
+        <div className="navSection">
           <NavLink to="/experiences">experiences</NavLink>
           <span> | </span>
           <NavLink to="/map">map</NavLink>
@@ -27,7 +27,7 @@ function NavBar() {
           <NavLink to="/about">about</NavLink>
         </div>
 
-        <div style={{ cursor: "pointer" }} className="navRight">
+        <div className="navSection">
           {isLoading ? (
             <div style={{ opacity: 0 }}>
               {" "}

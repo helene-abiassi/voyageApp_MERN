@@ -6,6 +6,7 @@ import Modal from "./Modal";
 import "../styles/Home.css";
 import "../styles/logUp.css";
 
+//!FIX LOGIN ISSUE (protected route)
 export interface LogInCredentials {
   _id: string;
   email: string;

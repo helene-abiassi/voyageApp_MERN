@@ -51,8 +51,9 @@ nav {
   align-items: center;
 }
 
-.navMiddle {
+.navSection {
   color: #fa9397;
+  cursor: pointer;
 }
 
 .mainLogo {

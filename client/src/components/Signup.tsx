@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { User, UserImage } from "../types/customTypes";
-import "../styles/logUp.css";
+import "../styles/LogUp.css";
 import "../styles/Home.css";
 
 function Signup() {

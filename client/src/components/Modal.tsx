@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import "../styles/modal.css";
+import "../styles/Modal.css";
 
 type ModalProps = {
   message: ReactElement | ReactElement[] | string;
