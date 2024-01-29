@@ -76,7 +76,9 @@ function ExperienceDetails() {
     setIsBookmarked(!isBookmarked);
   };
 
-  useEffect(() => {}, [fetchExperiences, experience, experience.comments]);
+  useEffect(() => {
+    fetchExperiences();
+  }, [, experience, experience.comments, user]);
 
   return (
     <div>
@@ -111,39 +113,37 @@ function ExperienceDetails() {
           </div>
           {/* EXPERIENCE CARD */}
           <div className="detailsSection">
-            <div className="photoCard">
+            <div className="detailsPhoto">
               <img src={experience.photo} alt={experience.title} />
               <p>posted on {formatDate(experience.publication_date)}</p>
             </div>
 
             <div className="textBox">
-              <div style={{ marginTop: "-20px" }}>
-                {user?.email === experience.author.email && (
-                  <>
-                    <button
-                      className="deleteIcon"
-                      onClick={() => {
-                        handleDeleteExperience(experience._id);
-                      }}
-                    >
-                      <i
-                        className="fa fa-trash"
-                        style={{ fontSize: "18px", color: "black" }}
-                      ></i>
-                    </button>
-                    <Link
-                      style={{ backgroundColor: "black" }}
-                      to={`/updateexperience/${_id}`}
-                      className="deleteIcon"
-                    >
-                      <i
-                        className="fa fa-pencil"
-                        style={{ fontSize: "18px", color: "black" }}
-                      ></i>
-                    </Link>
-                  </>
-                )}
-              </div>
+              {user && user.email === experience.author.email && (
+                <>
+                  <button
+                    className="deleteIcon"
+                    onClick={() => {
+                      handleDeleteExperience(experience._id);
+                    }}
+                  >
+                    <i
+                      className="fa fa-trash"
+                      style={{ fontSize: "18px", color: "black" }}
+                    ></i>
+                  </button>
+                  <Link
+                    style={{ backgroundColor: "black" }}
+                    to={`/updateexperience/${_id}`}
+                    className="deleteIcon"
+                  >
+                    <i
+                      className="fa fa-pencil"
+                      style={{ fontSize: "18px", color: "black" }}
+                    ></i>
+                  </Link>
+                </>
+              )}
               <div className="row">
                 <p>{experience.caption}</p>
 
@@ -168,7 +168,7 @@ function ExperienceDetails() {
               </div>{" "}
               <hr />
               <div className="row">
-                <p>
+                <p id="expDetailsLocation">
                   <Link to={"/map"}>
                     <SlMap /> {experience.location.city},
                     {experience.location.country}
@@ -197,7 +197,6 @@ function ExperienceDetails() {
           </div>
         </div>
       </div>
-      <br />
       <br />
       {/* COMMENTS */}
       <Comments comments={experience.comments} _id={experience._id} />

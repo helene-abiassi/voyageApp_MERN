@@ -29,8 +29,8 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
     const criteria = e.target.value;
     setSearchCriteria(criteria);
     onCriteriaSearch(criteria);
-    if (criteria === "") {
-      setSearchCriteria("default");
+    if (criteria === "default") {
+      setSearchCriteria("");
       onCriteriaSearch("");
     }
   };
@@ -54,20 +54,9 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
             <strong style={{ fontSize: "18px" }}>+</strong> Add your own
           </Link>
         ) : (
-          <button
-            style={{ backgroundColor: "transparent" }}
-            onClick={handleShowModal}
-          >
+          <button className="nakdButton" onClick={handleShowModal}>
             {" "}
-            <p
-              style={{
-                fontSize: "18px",
-                backgroundColor: "transparent",
-                cursor: "pointer",
-              }}
-            >
-              <strong>+</strong> Add your own
-            </p>
+            <strong>+</strong> Add your own
           </button>
         )}
       </div>

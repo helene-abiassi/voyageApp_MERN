@@ -104,7 +104,7 @@ function ExpCards({ experience }: ExperienceCardProp) {
 
           <div className="photoCard">
             <p>{formatDate(publication_date)}</p>
-            <img className="gridPhoto" src={photo} />
+            <img src={photo} />
           </div>
 
           {/* BOOKMARK BUTTON */}

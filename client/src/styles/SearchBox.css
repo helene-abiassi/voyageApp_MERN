@@ -67,3 +67,9 @@ input {
   justify-content: flex-end;
   margin-right: 18rem;
 }
+
+.addExperienceBtn {
+  font-size: 18px;
+  background-color: transparent;
+  cursor: pointer;
+}
