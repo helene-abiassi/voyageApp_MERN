@@ -135,13 +135,10 @@ function Login() {
         >
           {showOrHide}
         </button>
-        <p>
-          Don't have an account yet?
-          <Link to={"/signup"} style={{ color: "black" }}>
-            {" "}
-            sign up.
-          </Link>
-        </p>
+
+        <Link to={"/signup"} style={{ color: "black" }}>
+          Don't have an account yet? sign up.
+        </Link>
       </div>
       {showLoginModal && (
         <Modal

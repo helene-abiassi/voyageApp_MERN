@@ -209,6 +209,7 @@ function Signup() {
                 onChange={handleRegisterInput}
                 name="bio"
                 type="text"
+                placeholder="write a short bio..."
                 maxLength={250}
                 style={{
                   marginRight: "1rem",
@@ -230,13 +231,9 @@ function Signup() {
         >
           {showOrHide}
         </button>
-        <p>
-          Already have an account?
-          <Link to={"/login"} style={{ color: "black" }}>
-            {" "}
-            log in.
-          </Link>
-        </p>
+        <Link to={"/login"} style={{ color: "black" }}>
+          Already have an account? log in.
+        </Link>
       </div>
     </>
   );

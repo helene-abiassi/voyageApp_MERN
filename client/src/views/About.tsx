@@ -9,7 +9,7 @@ function About() {
   }, []);
   return (
     <div>
-      <h1>about</h1>
+      <h1>voyage</h1>
       <div className="pageAlignment">
         <div className="beigeBox">
           <p>

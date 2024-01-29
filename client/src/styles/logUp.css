@@ -31,7 +31,6 @@ input#file-upload-button {
 }
 
 input {
-  /* min-width: 250px; */
   height: 40px;
   flex-shrink: 0;
   background-color: #d9d9d9;
@@ -89,8 +88,7 @@ input {
 
 .uploadButton {
   position: relative;
-  right: 20px;
-  top: -2px;
+  top: 10px;
   color: #242424;
   display: flex;
   justify-content: center;

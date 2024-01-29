@@ -47,7 +47,7 @@ function LeafletMap() {
 
   return (
     <div className="main-container">
-      <div>
+      <div className="beigeBox">
         {experiences && experiences.length ? (
           <h3 style={{ color: "black" }}>
             {" "}
