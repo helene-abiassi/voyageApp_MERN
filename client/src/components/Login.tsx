@@ -25,6 +25,8 @@ function Login() {
     setLoginCredentials,
     logIn,
     isLoggedIn,
+    isEmailWrong,
+    isPasswordWrong,
     setIsLoggedIn,
     user,
   } = useContext(AuthContext);
@@ -75,14 +77,11 @@ function Login() {
     } else {
       try {
         await logIn();
-        setIsLoggedIn((prevIsLoggedIn) => {
-          if (prevIsLoggedIn) {
-            navigateTo("/profile", { replace: true });
-          } else {
-            navigateTo("/login");
-          }
-          return prevIsLoggedIn;
-        });
+
+        if (isLoggedIn === false) {
+          navigateTo("/login");
+        }
+        navigateTo("/", { replace: true });
       } catch (error) {
         console.error("Error during login:", error);
       }

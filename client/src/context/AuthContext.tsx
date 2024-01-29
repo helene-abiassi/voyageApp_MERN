@@ -6,6 +6,8 @@ interface AuthContextType {
   user: User | null;
   loginCredentials: LogInCredentials | null;
   isLoggedIn: boolean;
+  isEmailWrong: boolean;
+  isPasswordWrong: boolean;
   isLoading: boolean;
   setUser: (user: User) => void;
   logIn: () => void;
@@ -26,6 +28,8 @@ const AuthInitContext = {
   loginCredentials: null,
   isLoading: true,
   isLoggedIn: false,
+  isEmailWrong: false,
+  isPasswordWrong: false,
   setIsLoggedIn: () => console.log("context not initialized"),
   setUser: () => console.log("context not initialized"),
   logIn: () => console.log("context not initialized"),
@@ -41,12 +45,17 @@ export const AuthContext = createContext<AuthContextType>(AuthInitContext);
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isEmailWrong, setIsEmailWrong] = useState(false);
+  const [isPasswordWrong, setIsPasswordWrong] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [loginCredentials, setLoginCredentials] =
     useState<LogInCredentials | null>(null);
 
   const logIn = async () => {
     setIsLoggedIn(false);
+    setIsEmailWrong(false);
+    setIsPasswordWrong(false);
+
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -74,16 +83,21 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
           localStorage.setItem("token", token);
           setUser(results.user);
           setIsLoggedIn(true);
+
+          setIsEmailWrong(false);
+          setIsPasswordWrong(false);
           return;
         }
-      }
-      if (response.status === 404) {
-        await alert("This email does not exist!");
+      } else if (response.status === 404) {
+        alert("This email does not exist!");
         setIsLoggedIn(false);
-      }
-      if (response.status === 401) {
-        await alert("Wrong password!");
+        setIsEmailWrong(true);
+        return;
+      } else if (response.status === 401) {
+        alert("Wrong password!");
         setIsLoggedIn(false);
+        setIsPasswordWrong(true);
+        return;
       }
     } catch (err) {
       const error = err as Error;
@@ -230,6 +244,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         isLoggedIn,
         authenticateUser,
         deleteProfile,
+        isEmailWrong,
+        isPasswordWrong,
       }}
     >
       {children}

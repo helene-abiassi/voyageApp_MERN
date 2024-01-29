@@ -6,13 +6,13 @@ import "../styles/Home.css";
 
 function Home() {
   const { experiences } = useContext(ExperiencesContext);
-  const { user } = useContext(AuthContext);
+  const { user, isLoggedIn } = useContext(AuthContext);
 
   const navigateTo = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [isLoggedIn]);
   return (
     <div>
       <h1>explore. discover. share.</h1>
