@@ -35,6 +35,9 @@ function ExpLayout() {
     let tempExperiences = [...experiences];
 
     switch (criteria) {
+      case "default":
+        tempExperiences = tempExperiences;
+        break;
       case "Most Bookmarked":
         tempExperiences = tempExperiences.sort(
           (a, b) => b.bookmarked_by.length - a.bookmarked_by.length
@@ -54,13 +57,7 @@ function ExpLayout() {
             new Date(b.publication_date).getTime()
         );
         break;
-      case "default":
-        tempExperiences = tempExperiences.sort(
-          (a, b) =>
-            new Date(a.publication_date).getTime() -
-            new Date(b.publication_date).getTime()
-        );
-        break;
+
       case "Most Commented":
         tempExperiences = tempExperiences.sort(
           (a, b) => b.comments!.length - a.comments!.length

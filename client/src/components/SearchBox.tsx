@@ -29,10 +29,6 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
     const criteria = e.target.value;
     setSearchCriteria(criteria);
     onCriteriaSearch(criteria);
-    if (criteria === "default") {
-      setSearchCriteria("");
-      onCriteriaSearch("");
-    }
   };
 
   const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
