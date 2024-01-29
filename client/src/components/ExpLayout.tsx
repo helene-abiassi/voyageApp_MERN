@@ -63,13 +63,6 @@ function ExpLayout() {
           (a, b) => b.comments!.length - a.comments!.length
         );
         break;
-      default:
-        tempExperiences = tempExperiences.sort(
-          (a, b) =>
-            new Date(b.publication_date).getTime() -
-            new Date(a.publication_date).getTime()
-        );
-        break;
     }
 
     setFilteredExperiences(tempExperiences);

@@ -9,7 +9,7 @@ import "../styles/Map.css";
 import "leaflet/dist/leaflet.css";
 
 function LeafletMap() {
-  const { experiences } = useContext(ExperiencesContext);
+  const { experiences, fetchExperiences } = useContext(ExperiencesContext);
 
   const positions = [52.52, 13.405];
 
@@ -43,6 +43,7 @@ function LeafletMap() {
 
   useEffect(() => {
     geoLocation();
+    fetchExperiences();
   }, [experiences]);
 
   return (

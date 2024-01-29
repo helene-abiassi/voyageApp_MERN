@@ -3,8 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { User, UserImage } from "../types/customTypes";
 import "../styles/LogUp.css";
 import "../styles/Home.css";
+import { serverURL } from "../utilities/serverUrl";
 
 function Signup() {
+  const url = serverURL;
+
   const [selectedFile, setSelectedFile] = useState<File | string>("");
   const [newUser, setNewUser] = useState<User>({
     _id: "",
@@ -81,10 +84,7 @@ function Signup() {
     };
 
     try {
-      const response = await fetch(
-        "http://localhost:5005/api/users/imageUpload",
-        requestOptions
-      );
+      const response = await fetch(`${url}users/imageUpload`, requestOptions);
       const result = (await response.json()) as UserImage;
 
       setNewUser({ ...newUser, user_image: result.user_image });
@@ -134,10 +134,7 @@ function Signup() {
     };
 
     try {
-      const response = await fetch(
-        "http://localhost:5005/api/users/signup",
-        requestOptions
-      );
+      const response = await fetch(`${url}users/signup`, requestOptions);
       const result = await response.json();
       alert("Congrats!");
       navigateTo("/login");

@@ -7,6 +7,7 @@ import {
 } from "react";
 import { Experience } from "../types/customTypes";
 import { AuthContext } from "./AuthContext";
+import { serverURL } from "../utilities/serverUrl";
 
 interface ExperiencesContextType {
   experiences: Experience[] | null;
@@ -40,16 +41,15 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
 
   const { user } = useContext(AuthContext);
 
+  const url = serverURL;
+
   const fetchExperiences = async () => {
     const requestOptions = {
       method: "GET",
     };
 
     try {
-      const results = await fetch(
-        `http://localhost:5005/api/experiences/all`,
-        requestOptions
-      );
+      const results = await fetch(`${url}experiences/all`, requestOptions);
 
       if (!results.ok) {
         setIsExperienceLoading(false);
@@ -85,7 +85,7 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
 
     try {
       const response = await fetch(
-        `http://localhost:5005/api/experiences/bookmarkexperience/${experienceID}`,
+        `${url}experiences/bookmarkexperience/${experienceID}`,
         requestOptions
       );
 
@@ -117,7 +117,7 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
     };
     try {
       const response = await fetch(
-        `http://localhost:5005/api/experiences/removebookmark/${experienceID}`,
+        `${url}experiences/removebookmark/${experienceID}`,
         requestOptions
       );
 
@@ -148,7 +148,7 @@ export const ExperiencesContextProvider = (props: ProviderPropsType) => {
     try {
       if (window.confirm("Are you SURE you want to delete your submission?")) {
         const response = await fetch(
-          `http://localhost:5005/api/experiences/deleteexperience/${experienceID}`,
+          `${url}experiences/deleteexperience/${experienceID}`,
           requestOptions
         );
 

@@ -5,10 +5,13 @@ import { ExperiencesContext } from "../context/ExperiencesContext";
 import { Experience, ExperienceImage } from "../types/customTypes";
 import "../styles/Experiences.css";
 import "../styles/Home.css";
+import { serverURL } from "../utilities/serverUrl";
 
 function SubmitExperience() {
   const { user, isLoggedIn } = useContext(AuthContext);
   const { fetchExperiences } = useContext(ExperiencesContext);
+
+  const url = serverURL;
 
   const [newExperience, setNewExperience] = useState<Experience>({
     _id: "",
@@ -79,7 +82,7 @@ function SubmitExperience() {
 
     try {
       const response = await fetch(
-        "http://localhost:5005/api/experiences/mainphotoupload",
+        `${url}experiences/mainphotoupload`,
         requestOptions
       );
       const result = (await response.json()) as ExperienceImage;
@@ -114,7 +117,7 @@ function SubmitExperience() {
 
     try {
       const response = await fetch(
-        "http://localhost:5005/api/experiences/photoalbumupload",
+        `${url}experiences/photoalbumupload`,
         requestOptions
       );
 
@@ -160,7 +163,7 @@ function SubmitExperience() {
 
     try {
       const response = await fetch(
-        "http://localhost:5005/api/experiences/experiencesubmission",
+        `${url}experiences/experiencesubmission`,
         requestOptions
       );
       const results = await response.json();

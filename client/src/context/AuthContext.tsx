@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
 import { LogInCredentials, LogInResponse } from "../components/Login";
 import { User } from "../types/customTypes";
+import { serverURL } from "../utilities/serverUrl";
 
 interface AuthContextType {
   user: User | null;
@@ -51,6 +52,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const [loginCredentials, setLoginCredentials] =
     useState<LogInCredentials | null>(null);
 
+  const url = serverURL;
+
   const logIn = async () => {
     setIsLoggedIn(false);
     setIsEmailWrong(false);
@@ -70,10 +73,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     };
 
     try {
-      const response = await fetch(
-        "http://localhost:5005/api/users/login",
-        requestOptions
-      );
+      const response = await fetch(`${url}users/login`, requestOptions);
 
       if (response.ok) {
         const results: LogInResponse = await response.json();
@@ -122,10 +122,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       };
 
       try {
-        const response = await fetch(
-          "http://localhost:5005/api/users/profile",
-          requestOptions
-        );
+        const response = await fetch(`${url}users/profile`, requestOptions);
 
         if (!response.ok) {
           setIsLoading(false);
@@ -174,7 +171,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
     try {
       const response = await fetch(
-        `http://localhost:5005/api/users//deleteuser/${userID}`,
+        `${url}users/deleteuser/${userID}`,
         requestOptions
       );
 
@@ -198,10 +195,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       };
 
       try {
-        const response = await fetch(
-          "http://localhost:5005/api/users/profile",
-          requestOptions
-        );
+        const response = await fetch(`${url}users/profile`, requestOptions);
 
         if (response.ok) {
           const result = await response.json();

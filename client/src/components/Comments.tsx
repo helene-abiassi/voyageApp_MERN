@@ -6,6 +6,7 @@ import { formatDate } from "./Functions";
 import Modal from "./Modal";
 import { IoIosSend } from "react-icons/io";
 import "../styles/Comments.css";
+import { serverURL } from "../utilities/serverUrl";
 
 type CommentsProps = {
   comments: CommentsType[];
@@ -17,6 +18,7 @@ function Comments({ comments, _id }: CommentsProps) {
   const { experiences, fetchExperiences } = useContext(ExperiencesContext);
 
   const experienceID = _id;
+  const url = serverURL;
 
   const [newComment, setNewComment] = useState({
     _id: "",
@@ -48,9 +50,7 @@ function Comments({ comments, _id }: CommentsProps) {
 
   const fetchComments = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:5005/api/comments/experience/${_id}`
-      );
+      const response = await fetch(`${url}comments/experience/${_id}`);
       if (response.ok) {
         const data = await response.json();
 
@@ -90,7 +90,7 @@ function Comments({ comments, _id }: CommentsProps) {
       };
       try {
         const response = await fetch(
-          `http://localhost:5005/api/experiences/experiences/${_id}/comments`,
+          `${url}experiences/experiences/${_id}/comments`,
           requestOptions
         );
 
@@ -130,7 +130,7 @@ function Comments({ comments, _id }: CommentsProps) {
     try {
       if (window.confirm("Are you SURE you want to delete your comment?")) {
         const response = await fetch(
-          `http://localhost:5005/api/experiences/deletecomment/${commentId}`,
+          `${url}experiences/deletecomment/${commentId}`,
           requestOptions
         );
         if (response.ok) {

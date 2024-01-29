@@ -2,8 +2,11 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Experience, ExperienceImage } from "../types/customTypes";
 import "../styles/Experiences.css";
+import { serverURL } from "../utilities/serverUrl";
 
 function UpdateExperience() {
+  const url = serverURL;
+
   const [existingExperience, setExistingExperience] = useState<Experience>();
   const [updatedExperience, setUpdatedExperience] = useState<Experience>({
     _id: experienceId || "",
@@ -103,7 +106,7 @@ function UpdateExperience() {
 
     try {
       const response = await fetch(
-        "http://localhost:5005/api/experiences/updateexperience",
+        `${url}experiences/updateexperience`,
         requestOptions
       );
 
@@ -126,7 +129,7 @@ function UpdateExperience() {
 
     try {
       const response = await fetch(
-        `http://localhost:5005/api/experiences/id/${experienceId}`,
+        `${url}experiences/id/${experienceId}`,
         requestOptions
       );
 
@@ -182,7 +185,7 @@ function UpdateExperience() {
 
     try {
       const response = await fetch(
-        "http://localhost:5005/api/experiences/mainphotoupload",
+        `${url}experiences/mainphotoupload`,
         requestOptions
       );
       const result = (await response.json()) as ExperienceImage;

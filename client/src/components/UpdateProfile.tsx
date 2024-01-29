@@ -2,9 +2,12 @@ import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { User, UserImage } from "../types/customTypes";
+import { serverURL } from "../utilities/serverUrl";
 
 function UpdateProfile() {
   const { user, getProfile } = useContext(AuthContext);
+
+  const url = serverURL;
 
   const [updatedUser, setUpdatedUser] = useState<User>(user!);
   const [updatedPhoto, setUpdatedPhoto] = useState<File | string>(
@@ -45,10 +48,7 @@ function UpdateProfile() {
     };
 
     try {
-      const response = await fetch(
-        "http://localhost:5005/api/users/updateuser",
-        requestOptions
-      );
+      const response = await fetch(`${url}users/updateuser`, requestOptions);
 
       if (response.ok) {
         const results = await response.json();
@@ -96,10 +96,7 @@ function UpdateProfile() {
     };
 
     try {
-      const response = await fetch(
-        "http://localhost:5005/api/users/imageUpload",
-        requestOptions
-      );
+      const response = await fetch(`${url}users/imageUpload`, requestOptions);
       const result = (await response.json()) as UserImage;
 
       setUpdatedUser((prevUser) => {
