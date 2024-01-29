@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
 function BackButton() {
-  const NavigateTo = useNavigate();
+  const navigateTo = useNavigate();
 
   const goBack = () => {
-    NavigateTo(-1);
+    navigateTo(-1);
   };
 
   return (

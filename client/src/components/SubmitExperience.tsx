@@ -7,9 +7,6 @@ import "../styles/Experiences.css";
 import "../styles/Home.css";
 
 function SubmitExperience() {
-  const [displayPhoto, setDisplayPhoto] = useState<File | string>("");
-  const [photoAlbum, setPhotoAlbum] = useState<File[] | string[]>([]);
-
   const { user, isLoggedIn } = useContext(AuthContext);
   const { fetchExperiences } = useContext(ExperiencesContext);
 
@@ -40,6 +37,8 @@ function SubmitExperience() {
     comments: [],
     bookmarked_by: [],
   });
+  const [photoAlbum, setPhotoAlbum] = useState<File[] | string[]>([]);
+  const [displayPhoto, setDisplayPhoto] = useState<File | string>("");
 
   const navigateTo = useNavigate();
 

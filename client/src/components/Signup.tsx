@@ -52,6 +52,9 @@ function Signup() {
   });
   const [passwordType, setPasswordType] = useState("password");
   const [showOrHide, setShowOrHide] = useState("show");
+
+  const navigateTo = useNavigate();
+
   const changePasswordType = () => {
     if (passwordType === "password") {
       setPasswordType("text");
@@ -61,8 +64,6 @@ function Signup() {
     setPasswordType("password");
     setShowOrHide("show");
   };
-
-  const navigateTo = useNavigate();
 
   const handleFileInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSelectedFile(e.target.files?.[0] || "");

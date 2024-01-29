@@ -10,9 +10,10 @@ import "leaflet/dist/leaflet.css";
 
 function LeafletMap() {
   const { experiences } = useContext(ExperiencesContext);
-  const [location, setLocation] = useState([0, 0]);
+
   const positions = [52.52, 13.405];
 
+  const [location, setLocation] = useState([0, 0]);
   const [showMapModal, setShowMapModal] = useState(false);
 
   const handleCloseMapModal = () => {

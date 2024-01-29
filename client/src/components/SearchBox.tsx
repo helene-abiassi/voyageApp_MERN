@@ -10,13 +10,13 @@ export interface SearchBoxProps {
 }
 
 function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
+  const { user } = useContext(AuthContext);
+
   const [searchCriteria, setSearchCriteria] = useState("default");
   const [searchCity, setSearchCity] = useState("");
   const [searchCityInput, setSearchCityInput] = useState("");
-
-  const { user } = useContext(AuthContext);
-
   const [showModal, setShowModal] = useState(false);
+
   const handleShowModal = () => {
     setShowModal(true);
   };

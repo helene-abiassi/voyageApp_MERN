@@ -13,7 +13,6 @@ function NavBar() {
         <div className="navLeft">
           <NavLink to="/">
             <img
-              style={{ cursor: "pointer" }}
               className="mainLogo"
               src="https://res.cloudinary.com/dfm1r4ikr/image/upload/v1699830493/voyageApp/logo-variations-01_atukuy.png"
               alt="voyage-logo"

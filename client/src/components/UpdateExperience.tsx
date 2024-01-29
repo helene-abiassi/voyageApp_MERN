@@ -4,8 +4,6 @@ import { Experience, ExperienceImage } from "../types/customTypes";
 import "../styles/Experiences.css";
 
 function UpdateExperience() {
-  const { experienceId } = useParams();
-
   const [existingExperience, setExistingExperience] = useState<Experience>();
   const [updatedExperience, setUpdatedExperience] = useState<Experience>({
     _id: experienceId || "",
@@ -36,6 +34,8 @@ function UpdateExperience() {
   const [updatedPhoto, setUpdatedPhoto] = useState<File | string>(
     existingExperience?.photo || ""
   );
+
+  const { experienceId } = useParams();
 
   const navigateTo = useNavigate();
 

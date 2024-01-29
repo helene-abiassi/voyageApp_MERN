@@ -7,6 +7,7 @@ import "../styles/ProfilePage.css";
 
 function ProfileCard() {
   const { user, getProfile, logOut, deleteProfile } = useContext(AuthContext);
+
   const navigateTo = useNavigate();
 
   const handleDeleteProfileButton = (userID: string) => {
@@ -73,11 +74,11 @@ function ProfileCard() {
           {/* BOOKMARKS */}
           <h2>Bookmarks:</h2>
           <div style={{ justifyContent: "center" }} className="profileSection">
-            {user?.bookmarks && user?.bookmarks.length === 0 ? (
+            {user?.bookmarks.length === 0 && (
               <div className="profileCards">
                 <p>You don't have any bookmarks yet.</p>
               </div>
-            ) : null}
+            )}
             {user?.bookmarks &&
               user.bookmarks.map((bookmark, bookInd) => {
                 return (
@@ -113,11 +114,11 @@ function ProfileCard() {
           {/* SUBMISSIONS */}
           <h2>Submissions:</h2>
           <div style={{ justifyContent: "center" }} className="profileSection">
-            {user?.submissions && user?.submissions.length === 0 ? (
+            {user?.submissions.length === 0 && (
               <div className="profileCards">
                 <p>You don't have any submissions yet.</p>
               </div>
-            ) : null}
+            )}
             {user?.submissions &&
               user.submissions.map((submission, submInd) => {
                 return (

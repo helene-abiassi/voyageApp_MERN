@@ -15,6 +15,7 @@ type CommentsProps = {
 function Comments({ comments, _id }: CommentsProps) {
   const { user } = useContext(AuthContext);
   const { experiences, fetchExperiences } = useContext(ExperiencesContext);
+
   const experienceID = _id;
 
   const [newComment, setNewComment] = useState({

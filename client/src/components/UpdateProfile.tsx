@@ -5,6 +5,7 @@ import { User, UserImage } from "../types/customTypes";
 
 function UpdateProfile() {
   const { user, getProfile } = useContext(AuthContext);
+
   const [updatedUser, setUpdatedUser] = useState<User>(user!);
   const [updatedPhoto, setUpdatedPhoto] = useState<File | string>(
     user!.user_image

@@ -5,7 +5,7 @@ const generateToken = (userID) => {
     sub: userID,
   };
 
-  const secretOrPrivateKey = "ilyaunBobby";
+  const secretOrPrivateKey = process.env.JWT_TOKENSECRET;
 
   const options = {
     expiresIn: "3 days",

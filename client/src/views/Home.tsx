@@ -20,7 +20,7 @@ function Home() {
         <div className="beigeBox">
           {user ? (
             <>
-              <h2>Welcome {user?.username}!</h2>
+              <h2>Welcome {user.username}!</h2>
             </>
           ) : (
             <>
@@ -58,7 +58,7 @@ function Home() {
                 {" "}
                 <span className="dot">
                   <p>
-                    {experiences?.length} <br /> experiences
+                    {experiences.length} <br /> experiences
                     <br />
                     to discover!
                   </p>

@@ -7,6 +7,7 @@ import SearchBox from "./SearchBox";
 
 function ExpLayout() {
   const { experiences, fetchExperiences } = useContext(ExperiencesContext);
+
   const [filteredExperiences, setFilteredExperiences] = useState(experiences);
 
   const { experienceType } = useParams();

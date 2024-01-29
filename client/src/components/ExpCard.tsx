@@ -11,9 +11,6 @@ export interface ExperienceCardProp {
 }
 
 function ExpCards({ experience }: ExperienceCardProp) {
-  const { _id, author, title, publication_date, photo, bookmarked_by } =
-    experience as Experience;
-
   const { user } = useContext(AuthContext);
   const {
     deleteExperience,
@@ -21,6 +18,9 @@ function ExpCards({ experience }: ExperienceCardProp) {
     fetchExperiences,
     removeBookmark,
   } = useContext(ExperiencesContext);
+
+  const { _id, author, title, publication_date, photo, bookmarked_by } =
+    experience as Experience;
 
   const isBookmarkedInitially =
     user && user.bookmarks.some((bookmark) => bookmark._id === _id);
@@ -86,20 +86,20 @@ function ExpCards({ experience }: ExperienceCardProp) {
 
           <div className="iconSet">
             {user?.email === experience.author.email && (
-              <button
-                className="deleteIcon"
-                onClick={() => {
-                  handleDeleteExperience(_id);
-                }}
-              >
-                <i style={{ color: "black" }} className="fa fa-trash"></i>
-              </button>
-            )}{" "}
-            {user?.email === experience.author.email && (
-              <Link className="deleteIcon" to={`/updateexperience/${_id}`}>
-                <i style={{ color: "black" }} className="fa fa-pencil"></i>
-              </Link>
-            )}{" "}
+              <div>
+                <button
+                  className="deleteIcon"
+                  onClick={() => {
+                    handleDeleteExperience(_id);
+                  }}
+                >
+                  <i style={{ color: "black" }} className="fa fa-trash"></i>
+                </button>
+                <Link className="deleteIcon" to={`/updateexperience/${_id}`}>
+                  <i style={{ color: "black" }} className="fa fa-pencil"></i>
+                </Link>
+              </div>
+            )}
           </div>
 
           <div className="photoCard">

@@ -53,34 +53,6 @@ const getUserById = async (req, res) => {
   }
 };
 
-const getUserByEmail = async (req, res) => {
-  const email = req.params.email;
-
-  try {
-    const userByEmail = await userModel.find({
-      email: email,
-    });
-
-    if (userByEmail.length > 0) {
-      res.status(200).json({
-        number: userByEmail.length,
-        data: userByEmail,
-      });
-    } else {
-      res.status(200).json({
-        number: userByEmail.length,
-        errorMessage: "OH NO! No such user with this id exists",
-      });
-    }
-  } catch (error) {
-    console.log("expType error :>> ", error);
-    res.status(500).json({
-      errorMessage: "something went wrong in the request",
-      error,
-    });
-  }
-};
-
 const uploadImage = async (req, res) => {
   if (req.file) {
     try {
@@ -287,5 +259,4 @@ export {
   getProfile,
   deleteUser,
   updateUser,
-  getUserByEmail,
 };

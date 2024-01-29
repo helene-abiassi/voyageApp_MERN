@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ExperiencesContext } from "../context/ExperiencesContext";
 import { AuthContext } from "../context/AuthContext";
-import { formatDate } from "../components/Functions";
 import { Experience } from "../types/customTypes";
+import { formatDate } from "../components/Functions";
 import Comments from "../components/Comments";
 import BackButton from "../components/BackButton";
 import Modal from "../components/Modal";
@@ -27,13 +27,13 @@ function ExperienceDetails() {
 
   const isBookmarkedInitially =
     user && user.bookmarks.some((bookmark) => bookmark._id === _id);
+
   const [isBookmarked, setIsBookmarked] = useState(isBookmarkedInitially);
-
-  const navigateTo = useNavigate();
-
   const [showAddBookmarkModal, setShowAddBookmarkModal] = useState(false);
   const [showRemoveBookmarkModal, setShowRemoveBookmarkModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const navigateTo = useNavigate();
 
   const handleAddBookmarkCloseModal = () => {
     setShowAddBookmarkModal(false);
