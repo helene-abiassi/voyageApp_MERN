@@ -25,7 +25,7 @@ const getAllExperiences = async (req, res) => {
         select: ["username", "email", "bio", "member_since", "user_image"],
       },
     ])
-    .sort({ "comments.date": -1 }); //this works on experience // sort on front-end with comments array
+    .sort({ publication_date: -1 });
 
   res.json({
     number: allExperiences.length,
@@ -35,6 +35,12 @@ const getAllExperiences = async (req, res) => {
 
 const getExperiencesById = async (req, res) => {
   const id = req.params._id;
+
+  if (!id) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
 
   try {
     const experienceByID = await experienceModel.findById(id).populate([
@@ -74,6 +80,12 @@ const getExperiencesById = async (req, res) => {
 const getExperiencesByType = async (req, res) => {
   const { experienceType } = req.params;
 
+  if (!experienceType) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
+
   try {
     const experiences = await experienceModel.find({
       experienceType: experienceType,
@@ -101,6 +113,12 @@ const getExperiencesByType = async (req, res) => {
 
 const getExperiencesByCountry = async (req, res) => {
   const { country } = req.params;
+
+  if (!country) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
 
   try {
     const experienceByCountry = await experienceModel.find({
@@ -130,12 +148,13 @@ const getExperiencesByCountry = async (req, res) => {
 const getExperiencesByCity = async (req, res) => {
   const { city } = req.params;
 
-  try {
-    // const experienceByCity = await experienceModel.find({
-    //   "location.city": city,
-    //   "location.country": country,
-    // });
+  if (!city) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
 
+  try {
     const agg = [
       {
         $search: {
@@ -285,6 +304,12 @@ const uploadMultiplePhotos = async (req, res) => {
 const submitComment = async (req, res) => {
   const experienceID = req.params._id;
 
+  if (!experienceID) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
+
   try {
     const existingUser = await userModel.findOne({ email: req.body.email });
     if (existingUser) {
@@ -335,10 +360,16 @@ const submitComment = async (req, res) => {
 const deleteExperience = async (req, res) => {
   const experienceId = req.params._id;
 
+  if (!experienceId) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
+
   try {
     if (!experienceId) {
       return res.status(400).json({
-        msg: "experienceId is required in the URL parameter",
+        message: "experienceId is required in the URL parameter",
       });
     }
 
@@ -348,7 +379,7 @@ const deleteExperience = async (req, res) => {
 
     if (!deletedExperience) {
       return res.status(404).json({
-        msg: "Experience not found",
+        message: "Experience not found",
       });
     }
 
@@ -367,12 +398,12 @@ const deleteExperience = async (req, res) => {
     });
 
     res.status(200).json({
-      msg: "Experience deleted successfully",
+      message: "Experience deleted successfully",
       experience: deletedExperience,
     });
   } catch (error) {
     res.status(500).json({
-      msg: "Something went wrong",
+      message: "Something went wrong",
       error: error,
     });
   }
@@ -381,10 +412,16 @@ const deleteExperience = async (req, res) => {
 const deleteComment = async (req, res) => {
   const commentId = req.params._id;
 
+  if (!commentId) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
+
   try {
     if (!commentId) {
       return res.status(400).json({
-        msg: "CommentId is required in the URL parameter",
+        message: "CommentId is required in the URL parameter",
       });
     }
 
@@ -392,7 +429,7 @@ const deleteComment = async (req, res) => {
 
     if (!deletedComment) {
       return res.status(404).json({
-        msg: "Comment not found in the comments collection",
+        message: "Comment not found in the comments collection",
       });
     }
 
@@ -406,17 +443,17 @@ const deleteComment = async (req, res) => {
 
     if (!experience) {
       return res.status(404).json({
-        msg: "Experience not found",
+        message: "Experience not found",
       });
     }
 
     res.status(200).json({
-      msg: "Comment deleted successfully",
+      message: "Comment deleted successfully",
       experience,
     });
   } catch (error) {
     res.status(500).json({
-      msg: "Something went wrong",
+      message: "Something went wrong",
       error: error,
     });
   }
@@ -449,7 +486,7 @@ const updateExperience = async (req, res) => {
     );
 
     res.status(200).json({
-      msg: "Experience updated successfully",
+      message: "Experience updated successfully",
       updatedExperience,
     });
   } catch (error) {
@@ -463,9 +500,14 @@ const updateExperience = async (req, res) => {
 const addBookmark = async (req, res) => {
   const experienceId = req.params._id;
 
+  if (!experienceId) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
+
   try {
     const existingUser = await userModel.findOne({ email: req.body.email });
-    //replace req.user
     if (!existingUser) {
       return res.status(401).json({
         message: "User not found or not authenticated",
@@ -500,6 +542,12 @@ const addBookmark = async (req, res) => {
 const removeBookmark = async (req, res) => {
   const experienceId = req.params._id;
   const userEmail = req.body.email;
+
+  if (!experienceId) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
 
   try {
     const existingUser = await userModel.findOne({ email: userEmail });

@@ -28,6 +28,12 @@ const getAllUsers = async (req, res) => {
 const getUserById = async (req, res) => {
   const id = req.params._id;
 
+  if (!id) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
+
   try {
     const userByID = await userModel.find({
       _id: id,
@@ -74,43 +80,44 @@ const uploadImage = async (req, res) => {
 };
 
 const signUp = async (req, res) => {
+  const existingUser = await userModel.findOne({ email: req.body.email });
+
+  if (existingUser) {
+    res.status(200).json({
+      message: "email already exists in the database",
+    });
+    return;
+  }
+
   try {
     const hashedPassword = await hashPassword(req.body.password);
 
     if (hashedPassword) {
-      const existingUser = await userModel.findOne({ email: req.body.email });
-
-      if (existingUser) {
-        res.status(200).json({
-          message: "email already exists in the db",
+      try {
+        const newUser = new userModel({
+          username: req.body.username,
+          email: req.body.email,
+          password: hashedPassword,
+          user_image: req.body.user_image,
+          bio: req.body.bio,
         });
-      } else {
-        try {
-          const newUser = new userModel({
-            username: req.body.username,
-            email: req.body.email,
-            password: hashedPassword,
-            user_image: req.body.user_image,
-            bio: req.body.bio,
-          });
 
-          const savedUser = await newUser.save();
-          res.status(201).json({
-            message: "New user registered",
-            user: {
-              _id: savedUser._id,
-              username: savedUser.username,
-              email: savedUser.email,
-              user_image: savedUser.user_image,
-              bio: savedUser.bio,
-            },
-          });
-        } catch (error) {
-          console.log("error saving user :>> ", error);
-          res.status(500).json({
-            message: "something went wrong when registering your user",
-          });
-        }
+        const savedUser = await newUser.save();
+        res.status(201).json({
+          message: "New user registered",
+          user: {
+            _id: savedUser._id,
+            username: savedUser.username,
+            email: savedUser.email,
+            user_image: savedUser.user_image,
+            bio: savedUser.bio,
+          },
+        });
+      } catch (error) {
+        console.log("error saving user :>> ", error);
+        res.status(500).json({
+          message: "something went wrong when registering your user",
+        });
       }
     }
   } catch (error) {
@@ -193,10 +200,16 @@ const getProfile = async (req, res) => {
 const deleteUser = async (req, res) => {
   const userId = req.params._id;
 
+  if (!userId) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
+
   try {
     if (!userId) {
       return res.status(400).json({
-        msg: "userId is required in the URL parameter",
+        message: "userId is required in the URL parameter",
       });
     }
 
@@ -204,7 +217,7 @@ const deleteUser = async (req, res) => {
 
     if (!deletedUser) {
       return res.status(404).json({
-        msg: "User not found",
+        message: "User not found",
       });
     }
 
@@ -213,12 +226,12 @@ const deleteUser = async (req, res) => {
     await commentModel.deleteMany({ author: userId });
 
     res.status(200).json({
-      msg: "User deleted successfully",
+      message: "User deleted successfully",
       user: deletedUser,
     });
   } catch (error) {
     res.status(500).json({
-      msg: "Something went wrong",
+      message: "Something went wrong",
       error: error,
     });
   }
@@ -239,7 +252,7 @@ const updateUser = async (req, res) => {
     });
 
     res.status(200).json({
-      msg: "User updated successfully",
+      message: "User updated successfully",
       updateUser,
     });
   } catch (error) {

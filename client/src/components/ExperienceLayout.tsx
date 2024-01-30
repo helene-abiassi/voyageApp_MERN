@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { NavLink, Outlet, useParams } from "react-router-dom";
 import { ExperiencesContext } from "../context/ExperiencesContext";
-import ExpCards from "./ExpCard";
+import ExperienceCards from "./ExperienceCards";
 import Loader from "./Loader";
 import SearchBox from "./SearchBox";
 
-function ExpLayout() {
+function ExperienceLayout() {
   const { experiences, fetchExperiences } = useContext(ExperiencesContext);
 
   const [filteredExperiences, setFilteredExperiences] = useState(experiences);
@@ -117,7 +117,7 @@ function ExpLayout() {
           {filteredExperiences && filteredExperiences.length > 0 ? (
             filteredExperiences.map((experience, expID) => (
               <div key={expID}>
-                <ExpCards
+                <ExperienceCards
                   key={"1" + experience.publication_date}
                   experience={experience}
                 />
@@ -126,7 +126,7 @@ function ExpLayout() {
           ) : experiences && experiences.length > 0 ? (
             experiences.map((experience, expID) => (
               <div key={expID}>
-                <ExpCards key={expID + 1} experience={experience} />
+                <ExperienceCards key={expID + 1} experience={experience} />
               </div>
             ))
           ) : (
@@ -141,4 +141,4 @@ function ExpLayout() {
   );
 }
 
-export default ExpLayout;
+export default ExperienceLayout;

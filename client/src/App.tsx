@@ -15,12 +15,12 @@ import Experiences from "./views/Experiences";
 import Map from "./views/Map";
 import Profile from "./views/Profile";
 import ExperienceDetails from "./views/ExperienceDetails";
-import Update from "./views/Update";
 import UpdateProfileView from "./views/UpdateProfile";
+import UpdateExperience from "./components/UpdateExperience";
 import ErrorPage from "./views/ErrorPage";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
-import ExpLayout from "./components/ExpLayout";
+import ExperienceLayout from "./components/ExperienceLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Submit from "./views/Submit";
 import "../src/styles/main.css";
@@ -30,7 +30,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
         <Route index element={<Home />} />
-        <Route path="experiences" element={<ExpLayout />}>
+        <Route path="experiences" element={<ExperienceLayout />}>
           <Route path=":experienceType" element={<Experiences />} />
         </Route>
 
@@ -42,7 +42,7 @@ function App() {
           path="updateexperience/:experienceId"
           element={
             <ProtectedRoute>
-              <Update />
+              <UpdateExperience />
             </ProtectedRoute>
           }
         />

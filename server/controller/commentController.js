@@ -17,6 +17,12 @@ const getAllComments = async (req, res) => {
 const getCommentsByUserId = async (req, res) => {
   const { author } = req.params;
 
+  if (!author) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
+
   try {
     const commentsByUserId = await commentModel.find({
       author: author,
@@ -35,7 +41,6 @@ const getCommentsByUserId = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log("expType error :>> ", error);
     res.status(500).json({
       errorMessage: "something went wrong in the request",
       error,
@@ -45,6 +50,12 @@ const getCommentsByUserId = async (req, res) => {
 
 const getCommentsByExperienceId = async (req, res) => {
   const { experience } = req.params;
+
+  if (!experience) {
+    res.status(500).json({
+      errorMessage: "No parameter value found in your request!",
+    });
+  }
 
   try {
     const commentsByExperienceId = await commentModel.find({

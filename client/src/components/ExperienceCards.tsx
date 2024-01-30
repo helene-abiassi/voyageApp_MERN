@@ -10,7 +10,7 @@ export interface ExperienceCardProp {
   experience: Experience;
 }
 
-function ExpCards({ experience }: ExperienceCardProp) {
+function ExperienceCards({ experience }: ExperienceCardProp) {
   const { user } = useContext(AuthContext);
   const {
     deleteExperience,
@@ -109,7 +109,7 @@ function ExpCards({ experience }: ExperienceCardProp) {
 
           {/* BOOKMARK BUTTON */}
           <div className="subPhotoHeader">
-            <p>posted by {author?.username}</p>
+            <p>posted by {author?.username || "no one"}</p>
             <div className="bookmarkSet">
               <button
                 className="bookIcon"
@@ -167,4 +167,4 @@ function ExpCards({ experience }: ExperienceCardProp) {
   );
 }
 
-export default ExpCards;
+export default ExperienceCards;
