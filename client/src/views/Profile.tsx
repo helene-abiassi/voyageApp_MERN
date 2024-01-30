@@ -8,15 +8,13 @@ function Profile() {
   }, []);
 
   return (
-    <>
+    <div className="pageBody">
       <h1></h1>
       <div className="profileBox">
         <ProfileCard />
       </div>
       <br />
-      <br />
-      <br />
-    </>
+    </div>
   );
 }
 

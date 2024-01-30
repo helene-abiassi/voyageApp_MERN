@@ -8,7 +8,7 @@ function About() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div>
+    <div className="pageBody">
       <h1>voyage</h1>
       <div className="pageAlignment">
         <div className="beigeBox">

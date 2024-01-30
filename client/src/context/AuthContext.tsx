@@ -10,6 +10,7 @@ interface AuthContextType {
   isEmailWrong: boolean;
   isPasswordWrong: boolean;
   isLoading: boolean;
+  isUserLoggedIn: boolean;
   setUser: (user: User) => void;
   logIn: () => void;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
@@ -31,6 +32,7 @@ const AuthInitContext = {
   isLoggedIn: false,
   isEmailWrong: false,
   isPasswordWrong: false,
+  isUserLoggedIn: false,
   setIsLoggedIn: () => console.log("context not initialized"),
   setUser: () => console.log("context not initialized"),
   logIn: () => console.log("context not initialized"),
@@ -79,6 +81,10 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         const results: LogInResponse = await response.json();
 
         const token = results.token;
+        if (!token) {
+          alert("Please try again!");
+          setUser(null);
+        }
         if (token) {
           localStorage.setItem("token", token);
           setUser(results.user);
@@ -159,6 +165,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
     if (!token) {
       console.log("No token available!");
+      alert("Something went wrong! Please try again");
     }
 
     const myHeaders = new Headers();
@@ -239,6 +246,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         authenticateUser,
         deleteProfile,
         isEmailWrong,
+        isUserLoggedIn,
         isPasswordWrong,
       }}
     >

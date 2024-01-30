@@ -83,7 +83,7 @@ function ExperienceDetails() {
   }, [, experience, experience.comments, user]);
 
   return (
-    <div>
+    <div className="pageBody">
       <br />
       <div className="detailsPage">
         {/* HEADER BUTTON */}
@@ -201,9 +201,6 @@ function ExperienceDetails() {
       <br />
       {/* COMMENTS */}
       <Comments comments={experience.comments} _id={experience._id} />
-      <br />
-      <br />
-      <br />
       {/* MODALS */}
       {showAddBookmarkModal && (
         <Modal

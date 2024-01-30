@@ -3,7 +3,7 @@ import SubmitExperience from "../components/SubmitExperience";
 
 function Submit() {
   return (
-    <div>
+    <div className="pageBody">
       <div className="submitHeader">
         <div className="backButton">
           <BackButton />
@@ -11,9 +11,6 @@ function Submit() {
         <h1>share your story</h1>
       </div>
       <SubmitExperience />
-      <br />
-      <br />
-      <br />
       <br />
     </div>
   );

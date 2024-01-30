@@ -10,10 +10,12 @@ function ErrorPage() {
   }, []);
 
   return (
-    <div className="pageAlignment">
+    <div className="pageAlignment pageBody">
       <h1>nothing to see here</h1>
       <p>{error.error?.message}</p>
-      <Link to={"/"}>go back home</Link>
+      <Link className="nakdButton" to={"/"}>
+        go back home
+      </Link>
     </div>
   );
 }

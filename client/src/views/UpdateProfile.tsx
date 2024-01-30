@@ -4,15 +4,12 @@ import "../styles/ProfilePage.css";
 
 function UpdateProfileView() {
   return (
-    <div>
+    <div className="pageBody">
       <div className="detailsHeader">
         <BackButton />
         <h1>update your profile</h1>
       </div>
       <UpdateProfile />
-      <br />
-      <br />
-      <br />
       <br />
     </div>
   );

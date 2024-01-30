@@ -6,6 +6,7 @@ import { serverURL } from "../utilities/serverUrl";
 
 function UpdateExperience() {
   const url = serverURL;
+  const { experienceId } = useParams();
 
   const [existingExperience, setExistingExperience] = useState<Experience>();
   const [updatedExperience, setUpdatedExperience] = useState<Experience>({
@@ -37,8 +38,6 @@ function UpdateExperience() {
   const [updatedPhoto, setUpdatedPhoto] = useState<File | string>(
     existingExperience?.photo || ""
   );
-
-  const { experienceId } = useParams();
 
   const navigateTo = useNavigate();
 

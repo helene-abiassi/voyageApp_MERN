@@ -14,7 +14,7 @@ function Home() {
     window.scrollTo(0, 0);
   }, [isLoggedIn]);
   return (
-    <div>
+    <div className="pageBody">
       <h1>explore. discover. share.</h1>
       <div className="pageAlignment">
         <div className="beigeBox">

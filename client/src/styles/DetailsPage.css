@@ -33,7 +33,7 @@ h2 {
 
 .expAuthorCard {
   border-radius: 10px;
-  background-color: #fa9397;
+  background-color: #b1d573;
   margin-right: 2rem;
   margin-left: 1rem;
   text-align: left !important;
@@ -43,7 +43,7 @@ h2 {
   right: 10px;
   height: max-content;
   width: 20rem;
-  box-shadow: 20px 20px #b1d573;
+  box-shadow: 10px 10px #fa9397;
 }
 
 .detailsSection {

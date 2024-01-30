@@ -6,12 +6,9 @@ function SignUp() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div>
+    <div className="pageBody">
       <h1>please sign up</h1>
       <Signup />
-      <br />
-      <br />
-      <br />
       <br />
     </div>
   );

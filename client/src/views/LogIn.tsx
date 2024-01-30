@@ -7,9 +7,10 @@ function LogIn() {
   }, []);
 
   return (
-    <div>
+    <div className="pageBody">
       <h1>please log in</h1>
       <Login />
+      <br />
     </div>
   );
 }

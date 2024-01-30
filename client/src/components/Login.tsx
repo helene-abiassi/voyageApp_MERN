@@ -91,7 +91,7 @@ function Login() {
   useEffect(() => {}, [isLoggedIn, user]);
 
   return (
-    <>
+    <div>
       <div className="LogUpColorBox">
         <img
           className="loginFormPhoto"
@@ -145,11 +145,7 @@ function Login() {
           onClose={handleCloseLoginModal}
         />
       )}
-      <br />
-      <br />
-      <br />
-      <br />
-    </>
+    </div>
   );
 }
 
