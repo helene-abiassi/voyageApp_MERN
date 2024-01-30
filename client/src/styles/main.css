@@ -2,7 +2,6 @@
 
 #root {
   width: 100%;
-
   margin-top: 0%;
   text-align: center;
   color-scheme: light dark;
@@ -139,8 +138,6 @@ button:hover {
 footer {
   position: absolute;
   bottom: 0;
-  padding: 10px;
-  margin-top: 10px;
 }
 
 Link {
@@ -172,61 +169,73 @@ Link {
   flex-direction: column;
 }
 
-@media only screen and (max-width: 768px) {
-  .navSection {
-    font-size: 18pt;
-  }
-
-  .mainLogo {
-    height: 3.5rem;
-  }
-
-  .loaderImage {
-    height: 8rem;
+@media (max-width: 400px) {
+  #root {
+    font-size: 60%;
   }
 
   h1 {
-    font-size: 2.5em;
+    font-size: 1.4em;
   }
 
-  p {
+  nav {
     font-size: 14pt;
   }
 
+  .mainLogo {
+    height: 2.8rem;
+  }
+
+  .loaderImage {
+    height: 6rem;
+  }
+
   button {
-    padding: 0.5em 1em;
+    padding: 0.2em 0.6em;
     font-size: 0.8em;
+    font-weight: 300;
+  }
+
+  .submitHeader {
+    display: flex;
+    flex-direction: column;
   }
 
   .backButton {
-    font-size: 24pt;
+    font-size: 20pt;
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .navSection {
+@media (min-width: 401px) and (max-width: 770px) {
+  #root {
+    font-size: 90%;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  nav {
     font-size: 18pt;
   }
 
   .mainLogo {
-    height: 3.5rem;
+    height: 2.5rem;
   }
 
   .loaderImage {
     height: 8rem;
   }
 
-  h1 {
-    font-size: 2.5em;
-  }
-
-  p {
-    font-size: 14pt;
-  }
-
   button {
-    padding: 0.5em 1em;
+    padding: 0.4em 0.8em;
     font-size: 0.8em;
+    font-weight: 300;
+  }
+
+  .submitHeader {
+    display: flex;
+    flex-direction: column;
   }
 
   .backButton {

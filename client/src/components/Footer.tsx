@@ -9,7 +9,7 @@ function Footer() {
           href="https://github.com/helene-abiassi"
         >
           {" "}
-          <i className="fa fa-github" style={{ fontSize: "30px" }}></i>{" "}
+          <i className="fa fa-github githubIcon"></i>{" "}
           <span>Helene Abi Assi</span>
         </a>
       </footer>
