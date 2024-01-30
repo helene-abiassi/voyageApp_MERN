@@ -7,6 +7,30 @@
   box-shadow: 20px 20px #fa9397;
 }
 
+.profileColorBox {
+  border-radius: 10px;
+  background: #efcb59;
+  box-shadow: 20px 20px #fa9397;
+  padding: 2rem;
+  width: 600px;
+  min-height: 500px;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileInputContainer {
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
 .inputKeys {
   color: #1e1e1e;
   font-family: Poppins;
@@ -76,6 +100,7 @@
 .profileUpdatePhoto {
   width: 16%;
   height: 16%;
-  margin-left: 70px;
+  margin-left: 20%;
+  margin-right: 5%;
   border-radius: 50%;
 }

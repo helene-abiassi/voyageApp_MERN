@@ -77,6 +77,8 @@ function ExperienceDetails() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     fetchExperiences();
   }, [, experience, experience.comments, user]);
 
@@ -176,8 +178,7 @@ function ExperienceDetails() {
                 </p>
                 <p>
                   {" "}
-                  <FaHiking />
-                  {experience.experienceType}
+                  <FaHiking /> {experience.experienceType}
                 </p>
               </div>
               <hr />

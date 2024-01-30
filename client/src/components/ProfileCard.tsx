@@ -11,15 +11,20 @@ function ProfileCard() {
   const navigateTo = useNavigate();
 
   const handleDeleteProfileButton = (userID: string) => {
-    window.confirm("Are you SURE you want to delete your profile?");
-    deleteProfile(userID);
-    navigateTo("/");
+    if (window.confirm("Are you SURE you want to delete your profile?")) {
+      deleteProfile(userID);
+      navigateTo("/");
+    }
+    return;
   };
 
   const handleLogOutButton = () => {
-    window.confirm("Are you SURE you want to log out?");
-    logOut();
-    navigateTo("/");
+    if (window.confirm("Are you SURE you want to log out?")) {
+      logOut();
+      navigateTo("/");
+    } else {
+      return;
+    }
   };
 
   useEffect(() => {
@@ -42,7 +47,10 @@ function ProfileCard() {
           <div className="userProfile">
             <img
               style={{ width: "20%", borderRadius: "50%" }}
-              src={user?.user_image}
+              src={
+                user?.user_image ||
+                "https://res.cloudinary.com/dfm1r4ikr/image/upload/v1697397728/voyageApp/userPhoto.png"
+              }
               alt=""
             />{" "}
             <div className="profileColumn">

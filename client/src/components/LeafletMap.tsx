@@ -11,8 +11,6 @@ import "leaflet/dist/leaflet.css";
 function LeafletMap() {
   const { experiences, fetchExperiences } = useContext(ExperiencesContext);
 
-  const positions = [52.52, 13.405];
-
   const [location, setLocation] = useState([0, 0]);
   const [showMapModal, setShowMapModal] = useState(false);
 
@@ -28,7 +26,7 @@ function LeafletMap() {
     }
   };
 
-  const showPosition = (position) => {
+  const showPosition = (position: GeolocationPosition) => {
     const { longitude, latitude } = position.coords;
     const positionArray = [latitude, longitude];
     setLocation(positionArray);
@@ -43,8 +41,7 @@ function LeafletMap() {
 
   useEffect(() => {
     geoLocation();
-    fetchExperiences();
-  }, [experiences]);
+  }, [experiences, fetchExperiences]);
 
   return (
     <div className="main-container">
@@ -61,7 +58,7 @@ function LeafletMap() {
       </div>
       <span className="general-map-card">
         <MapContainer
-          center={positions}
+          center={[52.52, 13.405]}
           zoom={2}
           scrollWheelZoom={false}
           id="map-container"

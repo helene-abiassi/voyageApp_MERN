@@ -108,22 +108,27 @@ function UpdateProfile() {
   };
 
   return (
-    <div className="inputColorBox">
-      <div className="inputContainer">
-        <img
-          className="profileUpdatePhoto"
-          src={updatedUser.user_image || user?.user_image}
-          alt=""
-        />
-        <form onSubmit={handleUpdatedPhotoSubmit}>
-          <label htmlFor="photo">photo:</label>
-          <input onChange={handlePhotoInputChange} name="photo" type="file" />
-          <button type="submit">upload</button>
-        </form>
-      </div>
+    <div className="profileColorBox">
+      <form onSubmit={handleUpdatedPhotoSubmit}>
+        <div className="formColumnLogup">
+          <img
+            className="profileUpdatePhoto"
+            src={updatedUser.user_image || user?.user_image}
+            alt=""
+          />{" "}
+          <br />
+          <div className="profileInputContainer">
+            <label htmlFor="photo">photo:</label>
+            <input onChange={handlePhotoInputChange} name="photo" type="file" />
+            <button className="nakdButton" type="submit">
+              upload
+            </button>
+          </div>
+        </div>
+      </form>
       <form onSubmit={handleUpdateProfile}>
         <div className="formColumnLogup">
-          <div className="inputContainer">
+          <div className="profileInputContainer">
             <label htmlFor="username">username:</label>
             <input
               onChange={handleInputChange}
@@ -132,7 +137,7 @@ function UpdateProfile() {
               type="text"
             />
           </div>
-          <div className="inputContainer">
+          <div className="profileInputContainer">
             <label htmlFor="email">email:</label>
             <input
               onChange={handleInputChange}
@@ -142,7 +147,7 @@ function UpdateProfile() {
             />
           </div>
         </div>
-        <div className="inputContainer">
+        <div className="profileInputContainer">
           <label htmlFor="bio">bio:</label>
           <input
             style={{
@@ -155,7 +160,15 @@ function UpdateProfile() {
             type="text"
           />
         </div>
-
+        <button
+          onClick={() => {
+            navigateTo(-1);
+          }}
+          className="formButton"
+          type="button"
+        >
+          cancel
+        </button>
         <button className="formButton" type="submit">
           submit
         </button>
