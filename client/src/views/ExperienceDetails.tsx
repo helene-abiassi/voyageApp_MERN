@@ -98,19 +98,28 @@ function ExperienceDetails() {
           <div className="expAuthorCard">
             <h2>story by</h2>
             <div className="photoRow">
-              <img
-                style={{ width: "36%", borderRadius: "50%" }}
-                src={
-                  experience?.author.user_image ||
-                  "https://res.cloudinary.com/dfm1r4ikr/image/upload/v1697397728/voyageApp/userPhoto.png"
-                }
-                alt={experience.author.username}
-              />
-              <h4>{experience.author.username}</h4>
+              {experience && (
+                <img
+                  style={{ width: "36%", borderRadius: "50%" }}
+                  src={
+                    experience.author?.user_image ||
+                    "https://res.cloudinary.com/dfm1r4ikr/image/upload/v1697397728/voyageApp/userPhoto.png"
+                  }
+                  alt="authorCardUserPhoto"
+                />
+              )}
+
+              <h4>{experience.author?.username || ""}</h4>
             </div>
             <div style={{ marginLeft: "1rem" }}>
-              <p>{experience.author.bio}</p>
-              <p>member since: {formatDate(experience.author.member_since)}</p>
+              {experience && (
+                <div>
+                  <p>{experience.author?.bio}</p>
+                  <p>
+                    member since: {formatDate(experience.author.member_since)}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
           {/* EXPERIENCE CARD */}

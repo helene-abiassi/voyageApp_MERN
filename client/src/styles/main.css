@@ -32,7 +32,7 @@ p {
 
 .mainBody {
   background-image: url("https://res.cloudinary.com/dfm1r4ikr/image/upload/v1698010898/voyageApp/backgroundImg_yl3ils.png");
-  background-size: cover;
+  /* background-size: cover; */
   margin-top: 0;
   padding-top: 0%;
   min-height: 110vh;
@@ -170,4 +170,66 @@ Link {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 768px) {
+  .navSection {
+    font-size: 18pt;
+  }
+
+  .mainLogo {
+    height: 3.5rem;
+  }
+
+  .loaderImage {
+    height: 8rem;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  p {
+    font-size: 14pt;
+  }
+
+  button {
+    padding: 0.5em 1em;
+    font-size: 0.8em;
+  }
+
+  .backButton {
+    font-size: 24pt;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .navSection {
+    font-size: 18pt;
+  }
+
+  .mainLogo {
+    height: 3.5rem;
+  }
+
+  .loaderImage {
+    height: 8rem;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  p {
+    font-size: 14pt;
+  }
+
+  button {
+    padding: 0.5em 1em;
+    font-size: 0.8em;
+  }
+
+  .backButton {
+    font-size: 24pt;
+  }
 }

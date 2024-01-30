@@ -6,7 +6,7 @@ p {
 }
 
 .detailsPage {
-  display: grid;
+  display: flex;
   flex-direction: column;
 }
 
@@ -28,7 +28,7 @@ h2 {
 
 .expDetails {
   display: grid;
-  grid-template-columns: 400px 3fr 200px;
+  grid-template-columns: 1fr;
 }
 
 .expAuthorCard {
@@ -42,12 +42,14 @@ h2 {
   top: 10px;
   right: 10px;
   height: max-content;
-  width: 20rem;
+  max-width: 20rem;
+  width: 100%;
   box-shadow: 10px 10px #fa9397;
 }
 
 .detailsSection {
-  width: 50rem;
+  width: 100%;
+  margin-top: 1rem;
   background-color: #d7c6ac;
 }
 
@@ -106,4 +108,24 @@ h2 {
 
 #expDetailsLocation {
   font-weight: 500;
+}
+
+@media only screen and (min-width: 768px) {
+  .expDetails {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .expDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .expAuthorCard {
+    margin: 0;
+  }
+
+  .detailsSection {
+    width: 80%%;
+  }
 }
