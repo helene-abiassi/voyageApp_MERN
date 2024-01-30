@@ -39,27 +39,33 @@ function ProfileCard() {
           <i style={{ color: "black" }} className="fa fa-pencil"></i>
         </Link>{" "}
       </div>
-      <div
-        style={{ justifyContent: "space-evenly" }}
-        className="profileColumns"
-      >
+      <div className="profileColumns">
         <div className="profileColumnLeft">
           <div className="userProfile">
             <img
-              style={{ width: "20%", borderRadius: "50%" }}
+              id="userProfilePhoto"
               src={
                 user?.user_image ||
                 "https://res.cloudinary.com/dfm1r4ikr/image/upload/v1697397728/voyageApp/userPhoto.png"
               }
               alt=""
             />{" "}
-            <div className="profileColumn">
-              <p className="inputContainer">username: {user?.username}</p>
-              <p className="inputContainer">email: {user?.email}</p>
+            <div className="userInfoColumn">
+              <span>username:</span>
+              <p className="inputContainer"> {user?.username}</p>
+              email:
+              <p className="inputContainer"> {user?.email}</p>
+              <span>member since:</span>
               <p className="inputContainer">
-                member since: {user && formatDate(user.member_since)}
+                {user && formatDate(user.member_since)}
               </p>
-              <p className="inputContainer">bio: {user?.bio}</p>
+              <span>bio:</span>
+              <p
+                style={{ maxWidth: "25rem", textAlign: "left" }}
+                className="inputContainer"
+              >
+                {user?.bio}
+              </p>
             </div>
           </div>
           <br />
