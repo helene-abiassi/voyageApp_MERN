@@ -10,7 +10,6 @@ interface AuthContextType {
   isEmailWrong: boolean;
   isPasswordWrong: boolean;
   isLoading: boolean;
-  isUserLoggedIn: boolean;
   setUser: (user: User) => void;
   logIn: () => void;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
@@ -32,7 +31,6 @@ const AuthInitContext = {
   isLoggedIn: false,
   isEmailWrong: false,
   isPasswordWrong: false,
-  isUserLoggedIn: false,
   setIsLoggedIn: () => console.log("context not initialized"),
   setUser: () => console.log("context not initialized"),
   logIn: () => console.log("context not initialized"),
@@ -148,11 +146,11 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       }
     }
   };
-  const isUserLoggedIn = () => {
-    const token = localStorage.getItem("token");
+  // const isUserLoggedIn = () => {
+  //   const token = localStorage.getItem("token");
 
-    return token ? true : false;
-  };
+  //   return token ? true : false;
+  // };
 
   const logOut = () => {
     localStorage.removeItem("token");
@@ -246,7 +244,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         authenticateUser,
         deleteProfile,
         isEmailWrong,
-        isUserLoggedIn,
+        // isUserLoggedIn,
         isPasswordWrong,
       }}
     >
