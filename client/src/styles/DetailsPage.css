@@ -32,19 +32,19 @@ h2 {
 }
 
 .expAuthorCard {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-color: #b1d573;
   margin-right: 2rem;
   margin-left: 1rem;
   text-align: left !important;
   text-align: center;
   position: relative;
-  top: 10px;
-  right: 10px;
+  top: 0.625rem;
+  right: 0.625rem;
   height: max-content;
   max-width: 20rem;
   width: 100%;
-  box-shadow: 10px 10px #fa9397;
+  box-shadow: 0.625rem 0.625rem #fa9397;
 }
 
 .detailsSection {
@@ -54,8 +54,8 @@ h2 {
 }
 
 .textBox {
-  border-radius: 10px;
-  margin-top: -20px;
+  border-radius: 0.625rem;
+  margin-top: -1.25rem;
   align-items: center;
   padding: 2rem;
   text-align: left;
@@ -85,19 +85,19 @@ h2 {
 
 .detailsPhoto img {
   width: 97.5%;
-  border-radius: 10px;
-  border: 5px solid #d7c6ac;
+  border-radius: 0.625rem;
+  border: 0.3125rem solid #d7c6ac;
 }
 
 .detailsPhoto p {
-  border-radius: 1px;
+  border-radius: 0.0625rem;
   font-size: 13pt;
   position: absolute;
   top: 0;
   right: 0;
   background-color: #efcb59;
   color: black;
-  padding: 5px;
+  padding: 0.3125rem;
   margin: 0;
 }
 

@@ -117,7 +117,7 @@ function ExperienceCards({ experience }: ExperienceCardProp) {
                   handleBookmarkClick(_id);
                 }}
                 style={{
-                  fontSize: "18px",
+                  fontSize: "1.125rem",
                   color: isBookmarked ? "white" : "black",
                 }}
               >

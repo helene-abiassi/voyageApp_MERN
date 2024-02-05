@@ -140,7 +140,7 @@ function ExperienceDetails() {
                   >
                     <i
                       className="fa fa-trash"
-                      style={{ fontSize: "18px", color: "black" }}
+                      style={{ fontSize: "1.125rem", color: "black" }}
                     ></i>
                   </button>
                   <Link
@@ -150,7 +150,7 @@ function ExperienceDetails() {
                   >
                     <i
                       className="fa fa-pencil"
-                      style={{ fontSize: "18px", color: "black" }}
+                      style={{ fontSize: "1.125rem", color: "black" }}
                     ></i>
                   </Link>
                 </>
@@ -165,7 +165,7 @@ function ExperienceDetails() {
                       handleBookmarkClick(_id);
                     }}
                     style={{
-                      fontSize: "24px",
+                      fontSize: "1.5rem",
                       color: isBookmarked ? "white" : "black",
                     }}
                   >

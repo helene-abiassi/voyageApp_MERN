@@ -1,9 +1,9 @@
 .LogUpColorBox {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-color: #b1d573;
-  box-shadow: 20px 20px #fa9;
+  box-shadow: 1.25rem 1.25rem #fa9;
   padding: 5%;
-  width: 683px;
+  width: 42.6875rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -17,7 +17,7 @@
 }
 
 .formButton {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   margin: 1rem;
   background-color: #d7c6ac;
   width: max-content;
@@ -26,17 +26,17 @@
 }
 
 input#file-upload-button {
-  border-radius: 10px !important;
+  border-radius: 0.625rem !important;
   background-color: #d7c6ac !important;
   color: white;
 }
 
 input {
-  height: 40px;
+  height: 2.5rem;
   flex-shrink: 0;
   background-color: #d9d9d9;
   color: black;
-  border-radius: 10px !important;
+  border-radius: 0.625rem !important;
 }
 
 .inputContainer {
@@ -50,7 +50,7 @@ input {
 }
 
 .inputContainer input {
-  width: 250px !important;
+  width: 15.625rem !important;
   word-wrap: break-word !important;
 }
 
@@ -68,8 +68,8 @@ input {
 
 .hide-password {
   position: relative;
-  top: -373px;
-  left: 550px;
+  top: -23.3125rem;
+  left: 34.375rem;
   color: white;
   background-color:black;
   display: flex;
@@ -79,8 +79,8 @@ input {
 
 .hide-passwordLogin {
   position: relative;
-  top: -200px;
-  left: 550px;
+  top: -12.5rem;
+  left: 34.375rem;
   color: white;
   background-color:black;
   display: flex;
@@ -94,7 +94,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 .photoLine {
@@ -121,12 +121,12 @@ input {
 .loginFormPhoto {
     width: 20%;
     height: 20%;
-    margin-left: 400px;
+    margin-left: 25rem;
 }
 
 .photoLine img {
     width: 16%;
     height: 16%;
-    margin-left: 70px;
+    margin-left: 4.375rem;
     border-radius: 50%;
 }

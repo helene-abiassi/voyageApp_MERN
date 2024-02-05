@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap");
 
 .mainSearchBox {
-  box-shadow: 5px 5px black;
+  box-shadow: 0.3125rem 0.3125rem black;
   padding-right: 2rem;
   padding-left: 2rem;
   padding-bottom: 2rem;
@@ -13,7 +13,7 @@
 
 .resetButton {
   height: min-content;
-  font-size: 18px;
+  font-size: 1.125rem;
   background-color: transparent;
   text-decoration: underline;
   color: white;
@@ -48,8 +48,8 @@ input {
   height: 2.5rem;
   background-color: #000;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 1px 1px #d9d9d9;
+  border-radius: 0.625rem;
+  box-shadow: 0.0625rem 0.0625rem #d9d9d9;
   cursor: pointer;
   margin-right: 1rem;
 }
@@ -69,7 +69,7 @@ input {
 }
 
 .addExperienceBtn {
-  font-size: 18px;
+  font-size: 1.125rem;
   background-color: transparent;
   cursor: pointer;
 }

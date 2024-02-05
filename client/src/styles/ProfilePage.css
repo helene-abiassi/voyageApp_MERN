@@ -1,20 +1,20 @@
 .profileBox {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background: #b1d573;
   width: 80%;
   flex-shrink: 0;
-  border-bottom: 10px 10px solid;
-  box-shadow: 20px 20px #fa9397;
+  border-bottom: 0.625rem 0.625rem solid;
+  box-shadow: 1.25rem 1.25rem #fa9397;
   margin-left: 6rem;
 }
 
 .profileColorBox {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background: #efcb59;
-  box-shadow: 20px 20px #fa9397;
+  box-shadow: 1.25rem 1.25rem #fa9397;
   padding: 2rem;
-  width: 600px;
-  min-height: 500px;
+  width: 37.5rem;
+  min-height: 31.25rem;
   margin-right: 5rem;
   margin-left: 5rem;
   display: flex;
@@ -35,7 +35,7 @@
 .inputKeys {
   color: #1e1e1e;
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 5px 5px #fa9397;
+  box-shadow: 0.3125rem 0.3125rem #fa9397;
   border-radius: 10pt;
   padding: 1.5rem;
 }
@@ -94,7 +94,7 @@
 .profileCards {
   background-color: #d7c6ac;
   width: 10rem;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   margin-left: 2rem;
   margin-right: 2rem;
   padding: 0.5rem;

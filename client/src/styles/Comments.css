@@ -9,7 +9,7 @@
 .newComment {
   display: flex;
   flex-direction: row;
-  box-shadow: 5px 5px black;
+  box-shadow: 0.3125rem 0.3125rem black;
   width: 100%;
   padding: 2rem;
   margin-bottom: 2rem;
@@ -20,27 +20,27 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-bottom: 2px solid #ff5f1f;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  border-bottom: 0.125rem solid #ff5f1f;
 }
 
 .commentInput {
   width: 30rem;
   height: 5rem;
-  padding: 10px 20px 20px 20px;
+  padding: 0.625rem 1.25rem 1.25rem 1.25rem;
   text-align: left;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-color: #d9d9d9;
-  margin-left: 85px;
+  margin-left: 5.3125rem;
 }
 
 #submitButton {
   background-color: transparent !important;
   color: #242424;
   position: relative;
-  bottom: -15px;
-  right: 80px;
+  bottom: -0.9375rem;
+  right: 5rem;
 }
 
 .singleComment {
@@ -50,9 +50,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid #ff5f1f;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  border: 0.125rem solid #ff5f1f;
+  margin-bottom: 1.25rem;
+  border-radius: 0.625rem;
 }
 
 input {
@@ -63,9 +63,9 @@ input {
   flex-direction: row wrap;
   align-items: center;
   justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 15px;
-  margin-bottom: 20px;
+  padding-left: 1.25rem;
+  padding-right: 0.9375rem;
+  margin-bottom: 1.25rem;
 }
 
 #deleteButton {
@@ -88,7 +88,7 @@ input {
 @media (max-width: 400px) {
   //!DO FOR PHONE
   .newComment {
-    box-shadow: 3px 3px black;
+    box-shadow: 0.1875rem 0.1875rem black;
     padding: 1rem;
     /* width: 50%; */
     margin-bottom: 1rem;
@@ -103,13 +103,13 @@ input {
   .commentInput {
     width: 15rem;
     height: 3rem;
-    margin-left: 85px;
+    margin-left: 5.3125rem;
   }
 }
 
 @media (min-width: 401px) and (max-width: 770px) {
   .newComment {
-    box-shadow: 3px 3px black;
+    box-shadow: 0.1875rem 0.1875rem black;
     padding: 1rem;
     margin-bottom: 1rem;
   }
@@ -122,6 +122,6 @@ input {
     padding: 0.5rem;
   }
   .commentInput {
-    margin-left: 0px;
+    margin-left: 0rem;
   }
 }

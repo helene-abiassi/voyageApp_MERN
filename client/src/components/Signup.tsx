@@ -195,7 +195,7 @@ function Signup() {
                 onChange={handleRegisterInput}
                 name="username"
                 type="text"
-                style={{ maxWidth: "200px" }}
+                style={{ maxWidth: "12.5rem" }}
                 required
               />
               <p>* required</p>

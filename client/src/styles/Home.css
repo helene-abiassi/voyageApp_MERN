@@ -3,12 +3,12 @@
 .beigeBox {
   opacity: 0.9;
   background: #d7c6ac;
-  width: 583px;
-  height: 240px;
+  width: 36.4375rem;
+  height: 15rem;
   display: flex;
   flex-direction: column;
   align-self: center;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   flex-shrink: 0;
   height: 100%;
   padding-left: 10%;
@@ -23,13 +23,13 @@ h2 {
 
 .nakdButton {
   background-color: transparent;
-  border: 1px solid black;
+  border: 0.0625rem solid black;
   color: black;
   width: max-content;
   align-self: center;
-  padding: 10px !important;
-  border-radius: 0px;
-  padding: 5px;
+  padding: 0.625rem !important;
+  border-radius: 0rem;
+  padding: 0.3125rem;
   font-weight: 400;
   margin: 10pt;
 }
@@ -48,22 +48,22 @@ Link:hover {
 
 .top5Carousel {
   background-color: #efcb59;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 40%;
   background-color: #d7c6ac;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .container {
-  padding: 2px 16px;
+  padding: 0.125rem 1rem;
 }
 
 .carouselPhoto {
@@ -76,15 +76,15 @@ Link:hover {
 }
 
 .dot {
-  height: 180px;
-  width: 180px;
+  height: 11.25rem;
+  width: 11.25rem;
   cursor: pointer;
   background-color: #efcb59;
   color: black;
   font-size: 14pt;
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 4px 4px black;
+  box-shadow: 0.25rem 0.25rem black;
 }
 
 .dot p {
@@ -93,8 +93,8 @@ Link:hover {
 
 .circleBox {
   position: absolute;
-  right: -125px;
-  top: 30px;
+  right: -7.8125rem;
+  top: 1.875rem;
   text-align: center;
   transform: rotate(20deg);
   color: white;

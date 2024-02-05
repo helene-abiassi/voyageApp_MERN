@@ -103,7 +103,7 @@ function ProfileCard() {
                         state={{ experience: bookmark }}
                       >
                         <img
-                          style={{ width: "100%", borderRadius: "10px" }}
+                          style={{ width: "100%", borderRadius: "0.625rem" }}
                           src={bookmark.photo}
                           alt={bookmark.title}
                         />
@@ -142,7 +142,7 @@ function ProfileCard() {
                       state={{ experience: submission }}
                     >
                       <img
-                        style={{ width: "100%", borderRadius: "10px" }}
+                        style={{ width: "100%", borderRadius: "0.625rem" }}
                         src={submission.photo}
                         alt={submission.title}
                       />

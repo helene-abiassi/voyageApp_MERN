@@ -47,7 +47,7 @@ function SearchBox({ onCriteriaSearch, onCitySearch }: SearchBoxProps) {
         {user ? (
           <Link to={"/submit"} className="nakdButton">
             {" "}
-            <strong style={{ fontSize: "18px" }}>+</strong> Add your own
+            <strong style={{ fontSize: "1.125rem" }}>+</strong> Add your own
           </Link>
         ) : (
           <button className="nakdButton" onClick={handleShowModal}>
