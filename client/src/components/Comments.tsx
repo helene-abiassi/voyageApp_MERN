@@ -2,11 +2,12 @@ import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import { ExperiencesContext } from "../context/ExperiencesContext";
 import { AuthContext } from "../context/AuthContext";
 import { CommentsType } from "../types/customTypes";
-import { formatDate } from "./Functions";
+import { formatDate } from "../utilities/Functions";
+import { serverURL } from "../utilities/serverUrl";
 import Modal from "./Modal";
 import { IoIosSend } from "react-icons/io";
+import { FaTrashAlt } from "react-icons/fa";
 import "../styles/Comments.css";
-import { serverURL } from "../utilities/serverUrl";
 
 type CommentsProps = {
   comments: CommentsType[];
@@ -213,15 +214,12 @@ function Comments({ comments, _id }: CommentsProps) {
                             <p className="commentMsg">{comment.message}</p>
                             {user && user.email === comment.author?.email && (
                               <button
-                                className="deleteIcon"
+                                className="reactIcons"
                                 onClick={() => {
                                   handleDeleteComment(comment._id);
                                 }}
                               >
-                                <i
-                                  style={{ color: "black" }}
-                                  className="fa fa-trash"
-                                ></i>
+                                <FaTrashAlt />
                               </button>
                             )}
                           </div>

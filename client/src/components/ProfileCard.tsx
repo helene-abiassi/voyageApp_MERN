@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { formatDate } from "./Functions";
+import { formatDate } from "../utilities/Functions";
 import { FiMapPin } from "react-icons/fi";
 import "../styles/ProfilePage.css";
 

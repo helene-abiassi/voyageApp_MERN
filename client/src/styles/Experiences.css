@@ -95,6 +95,7 @@
 .bookIcon {
   background-color: transparent !important;
   cursor: pointer;
+  font-size: 1.5rem;
   color: black !important;
 }
 
@@ -105,9 +106,10 @@
   font-weight: 400;
 }
 
-.deleteIcon {
+.reactIcons {
   background-color: transparent !important;
   cursor: pointer;
+  color: black;
 }
 
 .photoCard {

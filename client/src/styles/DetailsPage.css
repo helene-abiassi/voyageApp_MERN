@@ -42,7 +42,7 @@ h2 {
   top: 0.625rem;
   right: 0.625rem;
   height: max-content;
-  max-width: 20rem;
+  max-width: 20vw;
   width: 100%;
   box-shadow: 0.625rem 0.625rem #fa9397;
 }

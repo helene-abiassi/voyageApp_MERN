@@ -26,8 +26,7 @@
 }
 
 .commentInput {
-  width: 30rem;
-  height: 5rem;
+  height: 12vh;
   padding: 0.625rem 1.25rem 1.25rem 1.25rem;
   text-align: left;
   border-radius: 0.625rem;
@@ -44,7 +43,7 @@
 }
 
 .singleComment {
-  width: 33rem;
+  width: 40vw;
   background-color: #d9d9d9;
   height: 100%;
   display: flex;
@@ -90,7 +89,6 @@ input {
   .newComment {
     box-shadow: 0.1875rem 0.1875rem black;
     padding: 1rem;
-    /* width: 50%; */
     margin-bottom: 1rem;
   }
 

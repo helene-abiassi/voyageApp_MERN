@@ -3,11 +3,17 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ExperiencesContext } from "../context/ExperiencesContext";
 import { AuthContext } from "../context/AuthContext";
 import { Experience } from "../types/customTypes";
-import { formatDate } from "../components/Functions";
+import { formatDate } from "../utilities/Functions";
 import Comments from "../components/Comments";
 import BackButton from "../components/BackButton";
 import Modal from "../components/Modal";
-import { FaHiking } from "react-icons/fa";
+import {
+  FaHiking,
+  FaTrashAlt,
+  FaPen,
+  FaRegBookmark,
+  FaBookmark,
+} from "react-icons/fa";
 import { SlMap } from "react-icons/sl";
 import "../styles/DetailsPage.css";
 
@@ -77,8 +83,6 @@ function ExperienceDetails() {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
     fetchExperiences();
   }, [, experience, experience.comments, user]);
 
@@ -133,25 +137,15 @@ function ExperienceDetails() {
               {user && user.email === experience.author.email && (
                 <>
                   <button
-                    className="deleteIcon"
+                    className="reactIcons"
                     onClick={() => {
                       handleDeleteExperience(experience._id);
                     }}
                   >
-                    <i
-                      className="fa fa-trash"
-                      style={{ fontSize: "1.125rem", color: "black" }}
-                    ></i>
+                    <FaTrashAlt />
                   </button>
-                  <Link
-                    style={{ backgroundColor: "black" }}
-                    to={`/updateexperience/${_id}`}
-                    className="deleteIcon"
-                  >
-                    <i
-                      className="fa fa-pencil"
-                      style={{ fontSize: "1.125rem", color: "black" }}
-                    ></i>
+                  <Link to={`/updateexperience/${_id}`} className="reactIcons">
+                    <FaPen />
                   </Link>
                 </>
               )}
@@ -166,13 +160,18 @@ function ExperienceDetails() {
                     }}
                     style={{
                       fontSize: "1.5rem",
-                      color: isBookmarked ? "white" : "black",
+                      // color: isBookmarked ? "white" : "black",
                     }}
                   >
                     {isBookmarked ? (
-                      <i className="fa fa-bookmark"></i>
+                      <i className="fa fa-bookmark">
+                        <FaBookmark />
+                      </i>
                     ) : (
-                      <i className="fa fa-bookmark-o"></i>
+                      <i className="fa fa-bookmark-o">
+                        <FaRegBookmark />
+                      </i>
+                      // not bookmarked
                     )}
                   </button>
                 </div>

@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { ExperiencesContext } from "../context/ExperiencesContext";
 import { Experience } from "../types/customTypes";
-import { formatDate } from "./Functions";
+import { formatDate } from "../utilities/Functions";
 import Modal from "./Modal";
+import { FaTrashAlt, FaPen, FaRegBookmark } from "react-icons/fa";
 
 export interface ExperienceCardProp {
   experience: Experience;
@@ -88,15 +89,15 @@ function ExperienceCards({ experience }: ExperienceCardProp) {
             {user?.email === experience.author.email && (
               <div>
                 <button
-                  className="deleteIcon"
+                  className="reactIcons"
                   onClick={() => {
                     handleDeleteExperience(_id);
                   }}
                 >
-                  <i style={{ color: "black" }} className="fa fa-trash"></i>
+                  <FaTrashAlt />
                 </button>
-                <Link className="deleteIcon" to={`/updateexperience/${_id}`}>
-                  <i style={{ color: "black" }} className="fa fa-pencil"></i>
+                <Link className="reactIcons" to={`/updateexperience/${_id}`}>
+                  <FaPen />
                 </Link>
               </div>
             )}

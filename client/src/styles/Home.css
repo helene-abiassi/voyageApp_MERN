@@ -3,8 +3,8 @@
 .beigeBox {
   opacity: 0.9;
   background: #d7c6ac;
-  width: 36.4375rem;
-  height: 15rem;
+  width: 35vw;
+
   display: flex;
   flex-direction: column;
   align-self: center;
