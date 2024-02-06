@@ -5,7 +5,7 @@ import { ExperiencesContext } from "../context/ExperiencesContext";
 import { Experience } from "../types/customTypes";
 import { formatDate } from "../utilities/Functions";
 import Modal from "./Modal";
-import { FaTrashAlt, FaPen, FaRegBookmark } from "react-icons/fa";
+import { FaTrashAlt, FaPen, FaRegBookmark, FaBookmark } from "react-icons/fa";
 
 export interface ExperienceCardProp {
   experience: Experience;
@@ -74,7 +74,7 @@ function ExperienceCards({ experience }: ExperienceCardProp) {
 
   useEffect(() => {
     fetchExperiences();
-  }, [user, experience, isBookmarked]);
+  }, [user, experience, isBookmarked, user?.bookmarks]);
 
   return (
     <>
@@ -118,16 +118,19 @@ function ExperienceCards({ experience }: ExperienceCardProp) {
                   handleBookmarkClick(_id);
                 }}
                 style={{
-                  fontSize: "1.125rem",
                   color: isBookmarked ? "white" : "black",
                 }}
               >
                 {isBookmarked ? (
                   <i className="fa fa-bookmark">
+                    <FaBookmark />
+
                     <span className="bookmarkLgth">{bookmarked_by.length}</span>
                   </i>
                 ) : (
                   <i className="fa fa-bookmark-o">
+                    <FaRegBookmark />
+
                     <span className="bookmarkLgth">{bookmarked_by.length}</span>
                   </i>
                 )}

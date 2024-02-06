@@ -16,7 +16,7 @@ import Map from "./views/Map";
 import Profile from "./views/Profile";
 import ExperienceDetails from "./views/ExperienceDetails";
 import UpdateProfileView from "./views/UpdateProfile";
-import UpdateExperience from "./components/UpdateExperience";
+import UpdateExperience from "./views/UpdateExperience";
 import ErrorPage from "./views/ErrorPage";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";

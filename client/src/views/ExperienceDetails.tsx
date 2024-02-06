@@ -159,8 +159,7 @@ function ExperienceDetails() {
                       handleBookmarkClick(_id);
                     }}
                     style={{
-                      fontSize: "1.5rem",
-                      // color: isBookmarked ? "white" : "black",
+                      color: isBookmarked ? "white" : "black",
                     }}
                   >
                     {isBookmarked ? (

@@ -1,16 +1,19 @@
 import "../styles/Footer.css";
+import { FaGithub } from "react-icons/fa";
+
 function Footer() {
   return (
     <div>
       <footer>
         <a
-          style={{ color: "white" }}
+          // style={{ color: "white" }}
           target="_blank"
           href="https://github.com/helene-abiassi"
         >
           {" "}
-          <i className="fa fa-github githubIcon"></i>{" "}
-          <span>Helene Abi Assi</span>
+          <span className="githubIcon">
+            <FaGithub /> Helene Abi Assi
+          </span>
         </a>
       </footer>
     </div>
