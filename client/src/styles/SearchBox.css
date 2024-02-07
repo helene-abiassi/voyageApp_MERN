@@ -9,23 +9,7 @@
   margin: 7rem;
   margin-bottom: 1rem !important;
   margin-top: 0rem !important;
-}
-
-.resetButton {
-  height: min-content;
-  font-size: 1.125rem;
-  background-color: transparent;
-  text-decoration: underline;
-  color: white;
-  border: transparent;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 1rem;
-}
-.resetButton:hover {
-  background-color: transparent !important;
-  color: black;
-  text-decoration: double;
+  font-size: 1vw;
 }
 
 .searchByCity {
@@ -65,11 +49,16 @@ input {
 .logoSearchbar {
   display: flex;
   justify-content: flex-end;
-  margin-right: 18rem;
+  margin-right: 16%;
+}
+
+.logoSearchbar img {
+  max-width: 10%;
+  min-width: 7%;
 }
 
 .addExperienceBtn {
-  font-size: 1.125rem;
+  /* font-size: 1.125rem; */
   background-color: transparent;
   cursor: pointer;
 }

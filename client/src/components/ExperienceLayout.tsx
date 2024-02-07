@@ -91,7 +91,6 @@ function ExperienceLayout() {
         <br />
         <div className="logoSearchbar">
           <img
-            style={{ width: "7%" }}
             src="https://res.cloudinary.com/dfm1r4ikr/image/upload/v1697317643/voyageApp/logo-variations-02_uffxcy.png"
             alt=""
           />

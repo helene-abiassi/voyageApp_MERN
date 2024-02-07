@@ -20,10 +20,12 @@
   margin-bottom: 4rem;
 }
 
-h1 {
-  font-size: 3.2rem;
-  line-height: 1.1;
-  font-weight: 600;
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    font-weight: 600;
+  }
 }
 
 p {
@@ -208,21 +210,9 @@ Link {
   }
 }
 
-// TABLETS
-@media (min-width: 600px) {
-}
+//LAPTOPS & TABLETS
 
-//LAPTOPS
-
-@media (min-width: 768px) {
-  #root {
-    font-size: 90%;
-  }
-
-  h1 {
-    font-size: 1.6em;
-  }
-
+@media (min-width: 768px) and (max-width: 1199px) {
   nav {
     font-size: 18pt;
   }
@@ -249,4 +239,20 @@ Link {
   .backButton {
     font-size: 24pt;
   }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
 }
