@@ -86,7 +86,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         if (token) {
           localStorage.setItem("token", token);
           setUser(results.user);
-          setIsLoggedIn(true);
+          await setIsLoggedIn(true);
 
           setIsEmailWrong(false);
           setIsPasswordWrong(false);
