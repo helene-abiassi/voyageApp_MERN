@@ -163,7 +163,7 @@ function Signup() {
           <img src={newUser.user_image} alt="" />
         </div>
         <br />
-        <form className="infoForm" onSubmit={handleSubmitRegister}>
+        <form onSubmit={handleSubmitRegister}>
           <div className="formColumnLogup">
             <div className="inputContainer">
               <label htmlFor="email">e-mail*</label>
@@ -223,7 +223,7 @@ function Signup() {
         </form>
         <button
           onClick={changePasswordType}
-          className="hide-password formButton"
+          className="hide-passwordSignUp formButton"
           style={{ cursor: "pointer" }}
         >
           {showOrHide}

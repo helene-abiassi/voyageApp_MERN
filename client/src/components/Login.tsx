@@ -25,9 +25,9 @@ function Login() {
     setLoginCredentials,
     logIn,
     isLoggedIn,
-    isEmailWrong,
-    isPasswordWrong,
-    setIsLoggedIn,
+    // isEmailWrong,
+    // isPasswordWrong,
+    // setIsLoggedIn,
     user,
   } = useContext(AuthContext);
 
@@ -91,54 +91,52 @@ function Login() {
   useEffect(() => {}, [isLoggedIn, user]);
 
   return (
-    <div>
-      <div className="LogUpColorBox">
-        <img
-          className="loginFormPhoto"
-          src="https://res.cloudinary.com/dfm1r4ikr/image/upload/v1698010076/voyageApp/logo-variations-01_atukuy.png"
-          alt=""
-        />
-        <br />
-        <br />
-        <form className="infoForm" onSubmit={handleSubmitLogin}>
-          <div className="formColumnLogup">
-            <div className="inputContainer">
-              <label htmlFor="email">e-mail*</label>
-              <input
-                placeholder="enter e-mail..."
-                onChange={handleLoginInput}
-                name="email"
-                type="text"
-                required
-              />
-              <p>* required</p>
-            </div>
-            <div className="inputContainer">
-              <label htmlFor="password">password*</label>
-              <input
-                onChange={handleLoginInput}
-                name="password"
-                placeholder="enter password..."
-                type={passwordType}
-                required
-              />
-            </div>
+    <div className="LogUpColorBox">
+      <img
+        className="loginFormPhoto"
+        src="https://res.cloudinary.com/dfm1r4ikr/image/upload/v1698010076/voyageApp/logo-variations-01_atukuy.png"
+        alt=""
+      />
+      <br />
+      <br />
+      <form onSubmit={handleSubmitLogin}>
+        <div className="formColumnLogup">
+          <div className="inputContainer">
+            <label htmlFor="email">e-mail*</label>
+            <input
+              placeholder="enter e-mail..."
+              onChange={handleLoginInput}
+              name="email"
+              type="text"
+              required
+            />
+            <p>* required</p>
           </div>
-          <button className="nakdButton" type="submit">
-            log in
-          </button>
-        </form>
-        <button
-          onClick={changePasswordType}
-          className="hide-passwordLogin formButton"
-        >
-          {showOrHide}
+          <div className="inputContainer">
+            <label htmlFor="password">password*</label>
+            <input
+              onChange={handleLoginInput}
+              name="password"
+              placeholder="enter password..."
+              type={passwordType}
+              required
+            />
+          </div>
+        </div>
+        <button className="nakdButton" type="submit">
+          log in
         </button>
+      </form>
+      <button
+        onClick={changePasswordType}
+        className="hide-passwordLogin formButton"
+      >
+        {showOrHide}
+      </button>
 
-        <Link to={"/signup"} style={{ color: "black" }}>
-          Don't have an account yet? sign up.
-        </Link>
-      </div>
+      <Link to={"/signup"} style={{ color: "black" }}>
+        Don't have an account yet? sign up.
+      </Link>
       {showLoginModal && (
         <Modal
           message="Email does not exist! Please sign up first."
