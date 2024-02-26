@@ -46,11 +46,6 @@ Link:hover {
   background: #d7c6ac !important;
 }
 
-.top5Carousel {
-  background-color: #efcb59;
-  border-radius: 0.625rem;
-}
-
 .card {
   box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -99,4 +94,19 @@ Link:hover {
   transform: rotate(20deg);
   color: white;
   align-items: center;
+}
+
+@media (max-width: 480px) {
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 1180px) {
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
 }
