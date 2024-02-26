@@ -1,13 +1,8 @@
 import { Link, useRouteError } from "react-router-dom";
 import { RouteErrorType } from "../types/customTypes";
-import { useEffect } from "react";
 
 function ErrorPage() {
   const error = useRouteError() as RouteErrorType;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <div className="pageAlignment pageBody">
