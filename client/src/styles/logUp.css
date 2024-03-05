@@ -70,17 +70,20 @@ input {
 
 
 .hide-passwordSignUp {
+  display: block;
   position: relative;
-  top: -23.3125rem;
-  left: 34.375rem;
+  top: -23.8rem;
+  left: 33.5rem;
   color: white;
   background-color:black;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .hide-passwordLogin {
+  display: block;
   position: relative;
   top: -12.8rem;
   left: 33rem;
@@ -128,6 +131,8 @@ input {
     border-radius: 50%;
 }
 
+/* Phone */
+
 @media (max-width: 480px) {
   .LogUpColorBox {
     padding: 10%;
@@ -141,7 +146,13 @@ input {
 }
 
 .hide-passwordLogin {
-  opacity:0!important;
+opacity:0;
+
+}
+
+.hide-passwordSignUp {
+  display: none;
+
 }
 
 }
@@ -157,12 +168,19 @@ input {
   .hide-passwordLogin {
     position: relative;
     top: -12.8rem;
-    left: 16rem;
+    left: 15rem;
     color: white;
     background-color:black;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .hide-passwordSignUp {
+    position: relative;
+    top: -32.8rem;
+    left: 16rem;
+  
   }
 }
 
@@ -184,8 +202,9 @@ input {
     justify-content: center;
     align-items: center;
   }
-}
 
-/* Large desktop */
-@media (min-width: 1200px) {
+  .hide-passwordSignUp {
+    top: -32.8rem;
+    left: 17rem;
+  }
 }

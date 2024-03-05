@@ -151,16 +151,14 @@ function Signup() {
     <>
       <div className="LogUpColorBox">
         <div className="photoLine">
-          <div>
-            <form className="photoForm" onSubmit={handleFileSubmit}>
-              <input onChange={handleFileInput} name="user_image" type="file" />
-              <button className="formButton uploadButton" type="submit">
-                upload
-              </button>
-            </form>
-          </div>
+          <form onSubmit={handleFileSubmit}>
+            <img src={newUser.user_image} alt="" />
 
-          <img src={newUser.user_image} alt="" />
+            <input onChange={handleFileInput} name="user_image" type="file" />
+            <button className="formButton uploadButton" type="submit">
+              upload
+            </button>
+          </form>
         </div>
         <br />
         <form onSubmit={handleSubmitRegister}>
