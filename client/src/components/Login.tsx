@@ -110,7 +110,6 @@ function Login() {
               type="text"
               required
             />
-            <p>* required</p>
           </div>
           <div className="inputContainer">
             <label htmlFor="password">password*</label>
@@ -121,6 +120,7 @@ function Login() {
               type={passwordType}
               required
             />
+            <p>* required</p>
           </div>
         </div>
         <button className="nakdButton" type="submit">

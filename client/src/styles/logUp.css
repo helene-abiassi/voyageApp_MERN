@@ -11,6 +11,12 @@
   flex-shrink: 0;
 }
 
+.loginFormPhoto {
+  width: 20%;
+  height: 20%;
+  margin-left: 70%;
+}
+
 .formColumnLogup {
   display: flex;
   flex-direction: row;
@@ -115,12 +121,6 @@ input {
   justify-content: space-between;
 }
 
-.loginFormPhoto {
-    width: 30%;
-    height: 30%;
-    margin-left: 30%;
-}
-
 .photoLine img {
     width: 16%;
     height: 16%;
@@ -129,10 +129,41 @@ input {
 }
 
 @media (max-width: 480px) {
+  .LogUpColorBox {
+    padding: 10%;
+    width: 60vw;
+  }
+
+  .loginFormPhoto {
+    width: 35%;
+    height: 35%;
+    margin-left: 60%;
+}
+
+.hide-passwordLogin {
+  opacity:0!important;
+}
+
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+  .formColumnLogup {
+    flex-wrap:no-wrap;
+    flex-direction: column;
+    align-items: flex-start ;
+  }
+  
+  .hide-passwordLogin {
+    position: relative;
+    top: -12.8rem;
+    left: 16rem;
+    color: white;
+    background-color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /* Portrait tablet to landscape and desktop */
@@ -145,7 +176,7 @@ input {
   
   .hide-passwordLogin {
     position: relative;
-    top: -9.4rem;
+    top: -12.8rem;
     left: 16rem;
     color: white;
     background-color:black;

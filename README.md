@@ -3,9 +3,9 @@
 <br/>
 <h3>Overview:</h3>
 <p>
-<strong>voyage</strong> is a travel blog application for world travelers and adventure enthusiasts, developed with the MERN stack, as a student project in October 2023. </p>
+<strong>voyage</strong> is a travel diary/ blog application for world travelers and adventure enthusiasts, developed with the MERN stack, as a student project in October 2023. </p>
 <p>
-voyage is an experience-sharing platform for travelers to browse through unique experiences, bookmark their favorites, and also submit their own stories.  </p>
+voyage offers an experience-sharing platform for travelers to browse through unique experiences, bookmark their favorites, and also submit their own stories.  </p>
 
 <h3>Functionalitites and objectives of the application:</h3>
 
