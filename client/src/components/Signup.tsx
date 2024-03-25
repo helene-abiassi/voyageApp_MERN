@@ -227,7 +227,7 @@ function Signup() {
           {showOrHide}
         </button>
         <Link to={"/login"} style={{ color: "black" }}>
-          Already have an account? log in.
+          Already have an account? log in!
         </Link>
       </div>
     </>

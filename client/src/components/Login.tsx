@@ -135,7 +135,7 @@ function Login() {
       </button>
 
       <Link to={"/signup"} style={{ color: "black" }}>
-        Don't have an account yet? sign up.
+        Don't have an account yet? sign up!
       </Link>
       {showLoginModal && (
         <Modal
