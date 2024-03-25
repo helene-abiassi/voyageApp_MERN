@@ -12,7 +12,7 @@ function Footer() {
         >
           {" "}
           <span className="githubIcon">
-            <FaGithub /> Helene Abi Assi
+            <FaGithub /> Helene Abi Assi, 2023
           </span>
         </a>
       </footer>

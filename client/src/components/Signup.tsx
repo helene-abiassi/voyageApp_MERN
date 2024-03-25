@@ -169,7 +169,7 @@ function Signup() {
                 placeholder="enter e-mail..."
                 onChange={handleRegisterInput}
                 name="email"
-                type="text"
+                type="email"
                 required
               />
             </div>

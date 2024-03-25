@@ -41,11 +41,11 @@ function NavBar() {
                 <div>
                   <NavLink to="/profile">profile</NavLink>
                   <span> | </span>
-                  <NavLink to="/submit">share</NavLink>
+                  <NavLink to="/submit">+ share</NavLink>
                 </div>
               ) : (
                 <>
-                  <NavLink to="/login">login</NavLink>
+                  <NavLink to="/login">log in</NavLink>
                   <span> | </span>
                   <NavLink to="/signup">sign up</NavLink>
                 </>

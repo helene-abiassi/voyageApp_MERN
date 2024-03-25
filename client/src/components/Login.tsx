@@ -107,7 +107,7 @@ function Login() {
               placeholder="enter e-mail..."
               onChange={handleLoginInput}
               name="email"
-              type="text"
+              type="email"
               required
             />
           </div>
